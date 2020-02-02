@@ -34,6 +34,7 @@ public class GroundCheck : MonoBehaviour
 
     private void Update()
     {
+        //Physics2D.Overlap Method -- Used a normal collider for accuracy
         //IsGrounded == true if the player is on an object in the "Ground" LayerMask.
         //IsGrounded = Physics2D.OverlapCircle(this.transform.position, groundCheckRadius, whatIsGround);
     }

@@ -20,8 +20,8 @@ public class PlayerMovementHandler : MonoBehaviour
 
     [Header("Jump Settings")]
 
-    [SerializeField, Tooltip("How fast will the player be able to accelerate to their maximum jump speed?")]
-    private float m_jumpingAccelerationRate = 0.0f;
+    //[SerializeField, Tooltip("How fast will the player be able to accelerate to their maximum jump speed?")]
+    //private float m_jumpingAccelerationRate = 0.0f;
 
     [SerializeField, Tooltip("What is the maximum speed that the player will be able to jump upward?")]
     private float m_maxJumpSpeed = 0.0f;
@@ -195,6 +195,7 @@ public class PlayerMovementHandler : MonoBehaviour
             m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_runningAccelerationRate, ForceMode2D.Force);
             StartCoroutine(JumpTimeLimiter());
         }
+
         //While Jumping
         if (m_isJumping && m_inputListener.m_jumpInput)
         {
