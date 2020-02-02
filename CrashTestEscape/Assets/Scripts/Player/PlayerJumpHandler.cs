@@ -15,8 +15,8 @@ public class PlayerJumpHandler : MonoBehaviour
 {
     [Header("Jump Settings")]
 
-    //[SerializeField, Tooltip("How fast will the player be able to accelerate to their maximum jump speed?")]
-    //private float m_jumpingAccelerationRate = 0.0f;
+    [SerializeField, Tooltip("How fast will the player be able to accelerate to their maximum jump speed?")]
+    private float m_jumpingAccelerationRate = 0.0f;
 
     [SerializeField, Tooltip("What is the maximum speed that the player will be able to jump upward?")]
     private float m_maxJumpSpeed = 0.0f;
@@ -115,7 +115,7 @@ public class PlayerJumpHandler : MonoBehaviour
         {
             Debug.Log($"Player is Trying to jump...");
             //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);
-            m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_runningAccelerationRate, ForceMode2D.Force);
+            m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_jumpingAccelerationRate, ForceMode2D.Force);
             StartCoroutine(JumpTimeLimiter());
         }
 
@@ -125,7 +125,7 @@ public class PlayerJumpHandler : MonoBehaviour
             Debug.Log($"Player is still jumping...");
             //Keep the player's vertical velocity equal to their jump velocity
             //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);
-            m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_runningAccelerationRate, ForceMode2D.Force);
+            m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_jumpingAccelerationRate, ForceMode2D.Force);
         }
 
         // When the player releases the jump input

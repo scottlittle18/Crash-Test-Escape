@@ -132,8 +132,9 @@ GameObject:
   - component: {fileID: 660047325}
   - component: {fileID: 660047324}
   - component: {fileID: 660047328}
-  - component: {fileID: 660047327}
   - component: {fileID: 660047329}
+  - component: {fileID: 660047327}
+  - component: {fileID: 660047331}
   - component: {fileID: 660047330}
   m_Layer: 8
   m_Name: Gibby_Player
@@ -240,9 +241,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_runningAccelerationRate: 20
   m_maxMoveSpeed: 20
-  m_jumpingAccelerationRate: 10
-  m_maxJumpSpeed: 10
-  m_jumpLength: 0.5
   m_turningSpriteFlipThreshold: 0.1
 --- !u!50 &660047328
 Rigidbody2D:
@@ -304,6 +302,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_maxPlayerHealth: 10
+--- !u!114 &660047331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660047323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15994be4845b4a04081e790878a55825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_jumpingAccelerationRate: 20
+  m_maxJumpSpeed: 20
+  m_jumpLength: 0.2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
