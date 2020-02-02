@@ -4,7 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Listens for and Handles movement related input (e.g. Running, Jumping, etc.)
+/// Listens for and Handles Running Input and Movement respectively.
+/// 
+/// Requires:
+///     - GroundCheck Script & Object
+///     - Health System that tells this script that the associated character is alive
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovementHandler : MonoBehaviour
