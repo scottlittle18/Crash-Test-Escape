@@ -7,7 +7,8 @@ using UnityEngine;
 /// Listens for and Handles Running Input and Movement respectively.
 /// 
 /// Requires:
-///     - GroundCheck Script & Object
+///     - Rigidbody2D Component
+///     - GroundCheck Script & Child Object
 ///     - Health System that tells this script that the associated character is alive
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
@@ -22,16 +23,16 @@ public class PlayerMovementHandler : MonoBehaviour
     [SerializeField, Tooltip("How fast will the player be able to run around?")]
     private float m_maxMoveSpeed = 0.0f;
 
-    [Header("Jump Settings")]
+    //[Header("Jump Settings")]
 
-    //[SerializeField, Tooltip("How fast will the player be able to accelerate to their maximum jump speed?")]
-    //private float m_jumpingAccelerationRate = 0.0f;
+    ////[SerializeField, Tooltip("How fast will the player be able to accelerate to their maximum jump speed?")]
+    ////private float m_jumpingAccelerationRate = 0.0f;
 
-    [SerializeField, Tooltip("What is the maximum speed that the player will be able to jump upward?")]
-    private float m_maxJumpSpeed = 0.0f;
+    //[SerializeField, Tooltip("What is the maximum speed that the player will be able to jump upward?")]
+    //private float m_maxJumpSpeed = 0.0f;
 
-    [SerializeField, Tooltip("Adjusts the length of time that the jump input is accepted for. (This is modeled after Mario's jump mechanic).")]
-    private float m_jumpLength = 0.0f;
+    //[SerializeField, Tooltip("Adjusts the length of time that the jump input is accepted for. (This is modeled after Mario's jump mechanic).")]
+    //private float m_jumpLength = 0.0f;
 
     [SerializeField, Tooltip("This determines how close to zero the player's velocity needs to be to flip the sprite in the Sprite Renderer.")]
     private float m_turningSpriteFlipThreshold = 0.0f;
@@ -39,7 +40,7 @@ public class PlayerMovementHandler : MonoBehaviour
 
     #region Standard Local Member Variables (m_ == A local member of a class)
     private bool m_isfacingLeft;
-    private bool m_isJumping = false;
+    //private bool m_isJumping = false;
     // This is for storing the friction value of the PhysMat that's been assigned to the player's collider.
     private float m_playerPhysMatFriction;
     #endregion------------
@@ -48,6 +49,7 @@ public class PlayerMovementHandler : MonoBehaviour
     private Rigidbody2D m_playerRigidbody;
     private SpriteRenderer m_playerSpriteRenderer;
     private GroundCheck m_groundCheck;
+    private PlayerJumpHandler m_playerJumpHandler;
     //TODO: Swap with proper collider(s) later
     private BoxCollider2D m_playerCollider;
 
@@ -62,7 +64,7 @@ public class PlayerMovementHandler : MonoBehaviour
     {
         public float m_horizontalMoveInput;
 
-        public bool m_jumpInput;
+        //public bool m_jumpInput;
     }
 
     //Create a variable for the InputListener class
@@ -82,7 +84,7 @@ public class PlayerMovementHandler : MonoBehaviour
         {
             //--Listeners--
             HorizontalMoveInputListener();
-            JumpInputListener();
+            //JumpInputListener();
 
             //If input to the horizontal axis is detected, update the look direction to keep the sprite facing the last direction the player moved in
             if (!Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
@@ -96,7 +98,7 @@ public class PlayerMovementHandler : MonoBehaviour
     {
         //Apply horizontal player movement input.
         HorizontalMoveInputHandler();
-        JumpInputHandler();
+        //JumpInputHandler();
     }
 
     /// <summary>
@@ -104,8 +106,10 @@ public class PlayerMovementHandler : MonoBehaviour
     /// </summary>
     private void InitializePlayerComponents()
     {
-        // Initialize Player Systems (e.g. health, attack, etc.)
+        // Initialize Player Systems (e.g. health, jump, attack, etc.)
         m_playerHealthSystem = GetComponent<PlayerHealthSystem>();
+        // Jump component is needed in order to properly clamp the player's max velocity on bot hthe x & y axis
+        m_playerJumpHandler = GetComponent<PlayerJumpHandler>();
 
         m_playerRigidbody = GetComponent<Rigidbody2D>();
         m_playerSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -139,18 +143,20 @@ public class PlayerMovementHandler : MonoBehaviour
         m_inputListener.m_horizontalMoveInput = Input.GetAxisRaw("Horizontal");
     }
 
-    /// <summary>
-    /// Listens for jump input. This data is used by the JumpInputHandler() to apply the jump motion to the player.
-    /// </summary>
-    private void JumpInputListener()
-    {
-        m_inputListener.m_jumpInput = Input.GetButton("Jump");
-    }
+    ///// <summary>
+    ///// Listens for jump input. This data is used by the JumpInputHandler() to apply the jump motion to the player.
+    ///// </summary>
+    //private void JumpInputListener()
+    //{
+    //    m_inputListener.m_jumpInput = Input.GetButton("Jump");
+    //}
     #endregion
 
     #region ______________________________________________________________________HANDLERS__________________________
     /// <summary>
     /// Handles and applies the horizontal input received from the player.
+    /// 
+    /// *NOTE* - This needs access to the MaxJumpSpeed property in the PlayerJumpHandler.
     /// </summary>
     private void HorizontalMoveInputHandler()
     {
@@ -159,7 +165,7 @@ public class PlayerMovementHandler : MonoBehaviour
         m_playerRigidbody.AddForce(Vector2.right * m_inputListener.m_horizontalMoveInput * m_runningAccelerationRate);
         Vector2 clampedVelocity = m_playerRigidbody.velocity;
         clampedVelocity.x = Mathf.Clamp(m_playerRigidbody.velocity.x, -m_maxMoveSpeed, m_maxMoveSpeed);
-        clampedVelocity.y = Mathf.Clamp(m_playerRigidbody.velocity.y, Mathf.NegativeInfinity, m_maxJumpSpeed);
+        clampedVelocity.y = Mathf.Clamp(m_playerRigidbody.velocity.y, Mathf.NegativeInfinity, m_playerJumpHandler.MaxJumpSpeed);
         m_playerRigidbody.velocity = clampedVelocity;
 
         // If no movement input is detected but the player is still moving, this code block will stop the player's horizontal movement when the player is no longer holding a movement button
@@ -172,51 +178,52 @@ public class PlayerMovementHandler : MonoBehaviour
         //m_playerRigidbody.velocity = new Vector3(m_inputListener.m_horizontalMoveInput * m_maxMoveSpeed * Time.deltaTime, m_playerRigidbody.velocity.y, 0);
     }
 
-    /// <summary>
-    /// Limits the length of time the player will be able to jump for.
-    /// </summary>
-    /// <returns>Waits for the given length of time [Adjustable In-Editor]</returns>
-    private IEnumerator JumpTimeLimiter()
-    {
-        m_isJumping = true;
-        yield return new WaitForSecondsRealtime(m_jumpLength);
-        m_isJumping = false;
-    }
+    // REFACTORING IN PROGRESS - CODE BLOCK MOVED TO PLAYERJUMPHANDLER.CS
+    ///// <summary>
+    ///// Limits the length of time the player will be able to jump for.
+    ///// </summary>
+    ///// <returns>Waits for the given length of time [Adjustable In-Editor]</returns>
+    //private IEnumerator JumpTimeLimiter()
+    //{
+    //    m_isJumping = true;
+    //    yield return new WaitForSecondsRealtime(m_jumpLength);
+    //    m_isJumping = false;
+    //}
 
-    /// <summary>
-    /// Handles and applies the jump input received from the player
-    /// </summary>
-    private void JumpInputHandler()
-    {
-        //TODO: Debugging Jump
-        Debug.Log($"JumpInputHandler() Entered...");
+    ///// <summary>
+    ///// Handles and applies the jump input received from the player
+    ///// </summary>
+    //private void JumpInputHandler()
+    //{
+    //    //TODO: Debugging Jump
+    //    Debug.Log($"JumpInputHandler() Entered...");
 
-        // If the player is trying to jump
-        if (m_groundCheck.IsGrounded && m_inputListener.m_jumpInput)
-        {
-            Debug.Log($"Player is Trying to jump...");
-            //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);
-            m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_runningAccelerationRate, ForceMode2D.Force);
-            StartCoroutine(JumpTimeLimiter());
-        }
+    //    // If the player is trying to jump
+    //    if (m_groundCheck.IsGrounded && m_inputListener.m_jumpInput)
+    //    {
+    //        Debug.Log($"Player is Trying to jump...");
+    //        //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);
+    //        m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_runningAccelerationRate, ForceMode2D.Force);
+    //        StartCoroutine(JumpTimeLimiter());
+    //    }
 
-        //While Jumping
-        if (m_isJumping && m_inputListener.m_jumpInput)
-        {
-            Debug.Log($"Player is still jumping...");
-            //Keep the player's vertical velocity equal to their jump velocity
-            //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);
-            m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_runningAccelerationRate, ForceMode2D.Force);
-        }
+    //    //While Jumping
+    //    if (m_isJumping && m_inputListener.m_jumpInput)
+    //    {
+    //        Debug.Log($"Player is still jumping...");
+    //        //Keep the player's vertical velocity equal to their jump velocity
+    //        //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);
+    //        m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_runningAccelerationRate, ForceMode2D.Force);
+    //    }
 
-        // When the player releases the jump input
-        if (Input.GetButtonUp("Jump"))
-        {
-            Debug.Log($"Player has stopped jumping...");
-            StopCoroutine(JumpTimeLimiter());
-            m_isJumping = false;
-        }
-    }
+    //    // When the player releases the jump input
+    //    if (Input.GetButtonUp("Jump"))
+    //    {
+    //        Debug.Log($"Player has stopped jumping...");
+    //        StopCoroutine(JumpTimeLimiter());
+    //        m_isJumping = false;
+    //    }
+    //}
 
     /// <summary>
     /// Updates the direction the sprite should be facing based on the horizontal player input
