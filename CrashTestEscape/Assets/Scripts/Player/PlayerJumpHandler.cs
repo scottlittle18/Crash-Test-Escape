@@ -97,12 +97,12 @@ public class PlayerJumpHandler : MonoBehaviour
     private void JumpInputHandler()
     {
         //TODO: Debugging Jump
-        Debug.Log($"JumpInputHandler() Entered...");
+        //Debug.Log($"JumpInputHandler() Entered...");
 
         // If the player is trying to jump
         if (m_groundCheck.IsGrounded && m_jumpInput)
         {
-            Debug.Log($"Player is Trying to jump...");
+            //Debug.Log($"Player is Trying to jump...");
             //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);
             m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_jumpingAccelerationRate, ForceMode2D.Force);
             StartCoroutine(JumpTimeLimiter());
@@ -111,7 +111,7 @@ public class PlayerJumpHandler : MonoBehaviour
         //While Jumping
         if (m_isJumping && m_jumpInput)
         {
-            Debug.Log($"Player is still jumping...");
+            //Debug.Log($"Player is still jumping...");
             //Keep the player's vertical velocity equal to their jump velocity
             //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);
             m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_jumpingAccelerationRate, ForceMode2D.Force);
@@ -120,7 +120,7 @@ public class PlayerJumpHandler : MonoBehaviour
         // When the player releases the jump input
         if (Input.GetButtonUp("Jump"))
         {
-            Debug.Log($"Player has stopped jumping...");
+            //Debug.Log($"Player has stopped jumping...");
             StopCoroutine(JumpTimeLimiter());
             m_isJumping = false;
 
