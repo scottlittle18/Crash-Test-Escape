@@ -16,7 +16,7 @@ public class PlayerMovementHandler : MonoBehaviour
 {
     #region Serialized Fields
     [Header("Movement Settings")]
-    
+
     [SerializeField, Tooltip("How fast will the player be able to accelerate to their maximum running speed? \n\n(Setting this equal to, or greater than, the max move speed with mean they will immediately reach their max veloctiy)")]
     private float m_runningAccelerationRate = 0.0f;
 
@@ -61,6 +61,12 @@ public class PlayerMovementHandler : MonoBehaviour
     //Create a variable for the InputListener class
     private InputListener m_inputListener = new InputListener();
 
+    private bool m_horizontalMoveInputReceived;
+    public bool HorizontalMoveInputReceived
+    {
+        get { return m_horizontalMoveInputReceived; }
+        private set { m_horizontalMoveInputReceived = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f); } }
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -81,8 +87,6 @@ public class PlayerMovementHandler : MonoBehaviour
             if (!Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
                 UpdateLookDirection();
         }
-
-        UpdatePhysicsMaterial();
     }
 
     private void FixedUpdate()
@@ -109,21 +113,21 @@ public class PlayerMovementHandler : MonoBehaviour
         m_playerPhysMatFriction = m_playerCollider.friction;
     }
 
-    /// <summary>
-    /// Update the active physics material on the player.
-    /// </summary>
-    private void UpdatePhysicsMaterial()
-    {
-        // Set the friction of the player's collider to 0 to keep them from sticking to walls
-        if (!m_groundCheck.IsGrounded || (m_groundCheck.IsGrounded && !Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f)))
-        {
-            m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 0.0f;
-        }
-        else if (m_groundCheck.IsGrounded) // Reset the player's friction to it's original value when the player is not on the ground
-        {
-            m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
-        }
-    }
+    ///// <summary>
+    ///// Update the active physics material on the player.
+    ///// </summary>
+    //private void UpdatePhysicsMaterial()
+    //{
+    //    // Set the friction of the player's collider to 0 to keep them from sticking to walls
+    //    if (!m_groundCheck.IsGrounded || (m_groundCheck.IsGrounded && !Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f)))
+    //    {
+    //        m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 0.0f;
+    //    }
+    //    else if (m_groundCheck.IsGrounded) // Reset the player's friction to it's original value when the player is not on the ground
+    //    {
+    //        m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
+    //    }
+    //}
     
     #region _________________________________________________________________LISTENERS______________________________
     /// <summary>

@@ -35,7 +35,7 @@ public class PlayerJumpHandler : MonoBehaviour
     /// <summary>
     /// This will respond to the player's Jump button
     /// </summary>
-    public bool m_jumpInput;
+    private bool m_jumpInput;
     
     // Start is called before the first frame update
     private void Start()
