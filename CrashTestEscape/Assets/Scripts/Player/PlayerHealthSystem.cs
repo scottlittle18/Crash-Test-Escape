@@ -89,7 +89,6 @@ public class PlayerHealthSystem : MonoBehaviour, IDamagable
         }
         else
         {
-
             //Gets the starting point of the level in case the player dies without reaching the first checkpoint of the level
             m_levelStartPointTransform = GameObject.FindGameObjectWithTag("SpawnPoint").GetComponent<Transform>();
         }
