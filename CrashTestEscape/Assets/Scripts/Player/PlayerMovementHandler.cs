@@ -29,21 +29,19 @@ public class PlayerMovementHandler : MonoBehaviour
 
     #region Standard Local Member Variables (m_ == A local member of a class)
     private bool m_isfacingLeft;
-    // This is for storing the friction value of the PhysMat that's been assigned to the player's collider.
-    private float m_playerPhysMatFriction;
     #endregion------------
 
     #region Component Variable Containers
     private Rigidbody2D m_playerRigidbody;
     private SpriteRenderer m_playerSpriteRenderer;
     private GroundCheck m_groundCheck;
-    // PlayerJumpHandler.MaxJumpSpeed is needed in order to clamp the player's velocity
-    private PlayerJumpHandler m_playerJumpHandler;
     //TODO: Swap with proper collider(s) later
     private BoxCollider2D m_playerCollider;
 
     // Player Systems
     private PlayerHealthSystem m_playerHealthSystem;
+    // PlayerJumpHandler.MaxJumpSpeed is needed in order to clamp the player's velocity
+    private PlayerJumpHandler m_playerJumpHandler;
     #endregion------------
 
     /// <summary>
@@ -61,6 +59,7 @@ public class PlayerMovementHandler : MonoBehaviour
     //Create a variable for the InputListener class
     private InputListener m_inputListener = new InputListener();
 
+    //Used by the PlayerPhysicsMaterialHandler.cs script to see if the player is trying to move
     private bool m_horizontalMoveInputReceived;
     public bool HorizontalMoveInputReceived
     {
@@ -81,7 +80,6 @@ public class PlayerMovementHandler : MonoBehaviour
         {
             //--Listeners--
             HorizontalMoveInputListener();
-            //JumpInputListener();
 
             //If input to the horizontal axis is detected, update the look direction to keep the sprite facing the last direction the player moved in
             if (!Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
@@ -93,7 +91,6 @@ public class PlayerMovementHandler : MonoBehaviour
     {
         //Apply horizontal player movement input.
         HorizontalMoveInputHandler();
-        //JumpInputHandler();
     }
 
     /// <summary>
@@ -110,24 +107,7 @@ public class PlayerMovementHandler : MonoBehaviour
         m_playerSpriteRenderer = GetComponent<SpriteRenderer>();
         m_groundCheck = GetComponentInChildren<GroundCheck>();
         m_playerCollider = GetComponent<BoxCollider2D>();
-        m_playerPhysMatFriction = m_playerCollider.friction;
-    }
-
-    ///// <summary>
-    ///// Update the active physics material on the player.
-    ///// </summary>
-    //private void UpdatePhysicsMaterial()
-    //{
-    //    // Set the friction of the player's collider to 0 to keep them from sticking to walls
-    //    if (!m_groundCheck.IsGrounded || (m_groundCheck.IsGrounded && !Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f)))
-    //    {
-    //        m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 0.0f;
-    //    }
-    //    else if (m_groundCheck.IsGrounded) // Reset the player's friction to it's original value when the player is not on the ground
-    //    {
-    //        m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
-    //    }
-    //}
+    }    
     
     #region _________________________________________________________________LISTENERS______________________________
     /// <summary>
@@ -147,7 +127,6 @@ public class PlayerMovementHandler : MonoBehaviour
     /// </summary>
     private void HorizontalMoveInputHandler()
     {
-        // TODO: If a dash ability is added this will need to be encapsulated in something like if (!m_isDashing){}
         //Accelerate player and clamp their velocity
         m_playerRigidbody.AddForce(Vector2.right * m_inputListener.m_horizontalMoveInput * m_runningAccelerationRate);
         Vector2 clampedVelocity = m_playerRigidbody.velocity;

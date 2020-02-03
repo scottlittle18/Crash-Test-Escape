@@ -23,6 +23,7 @@ public class PlayerPhysicsMaterialHandler : MonoBehaviour
         m_playerCollider = GetComponent<BoxCollider2D>();
         m_playerPhysMatFriction = m_playerCollider.friction;
         m_playerRigidbody = GetComponent<Rigidbody2D>();
+        m_playerMovementHandler = GetComponent<PlayerMovementHandler>();
     }
 
     // Update is called once per frame
