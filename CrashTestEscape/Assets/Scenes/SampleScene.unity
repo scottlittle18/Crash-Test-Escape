@@ -239,8 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a055f0f007919344a073ee4db7c0d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_runningAccelerationRate: 20
-  m_maxMoveSpeed: 20
+  m_runningAccelerationRate: 200
+  m_maxMoveSpeed: 10
   m_turningSpriteFlipThreshold: 0.1
 --- !u!50 &660047328
 Rigidbody2D:
@@ -254,10 +254,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 87ac4a7928b480a4097f9ce0c7024b40, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -500,9 +500,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1892328360}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground Objects
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -563,9 +563,9 @@ GameObject:
   - component: {fileID: 2044245598}
   - component: {fileID: 2044245600}
   - component: {fileID: 2044245599}
-  m_Layer: 0
-  m_Name: Ground
-  m_TagString: Untagged
+  m_Layer: 9
+  m_Name: Ground_Main
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

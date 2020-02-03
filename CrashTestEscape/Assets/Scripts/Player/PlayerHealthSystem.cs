@@ -12,7 +12,7 @@ public class PlayerHealthSystem : MonoBehaviour, IDamagable
     /// The maximum amount of health the player can have when their health is full.
     /// </summary>
     [SerializeField, Tooltip("The maximum amount of health the player can have when their health is full.")]
-    private int m_maxPlayerHealth;
+    private int m_maxPlayerHealth = 0;
 
     /// <summary>
     /// How much health does the player have at this point in time?
