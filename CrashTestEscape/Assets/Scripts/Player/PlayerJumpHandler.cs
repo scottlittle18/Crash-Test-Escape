@@ -29,45 +29,34 @@ public class PlayerJumpHandler : MonoBehaviour
     private bool m_isJumping = false;
 
     private Rigidbody2D m_playerRigidbody;
-
     private GroundCheck m_groundCheck;
-
     private PlayerHealthSystem m_playerHealthSystem;
 
     /// <summary>
-    /// An internal class that contains all movement related input fields required for this script.
+    /// This will respond to the player's Jump button
     /// </summary>
-    internal class InputListener
-    {
-        //public float m_horizontalMoveInput;
-
-        public bool m_jumpInput;
-    }
-
-    //Create a variable for the InputListener class
-    private InputListener m_inputListener = new InputListener();
-
-
+    public bool m_jumpInput;
+    
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //Set up all necessary component variables
         InitializePlayerComponents();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (m_playerHealthSystem.IsAlive)
         {
-            //--Listeners--
+            // Listens For Input from Player
             JumpInputListener();
         }
     }
 
     private void FixedUpdate()
     {
-        //Handle forces associated with jumping
+        //Handle the application of forces associated with jumping
         JumpInputHandler();
     }
 
@@ -88,7 +77,7 @@ public class PlayerJumpHandler : MonoBehaviour
     /// </summary>
     private void JumpInputListener()
     {
-        m_inputListener.m_jumpInput = Input.GetButton("Jump");
+        m_jumpInput = Input.GetButton("Jump");
     }
 
     /// <summary>
@@ -111,7 +100,7 @@ public class PlayerJumpHandler : MonoBehaviour
         Debug.Log($"JumpInputHandler() Entered...");
 
         // If the player is trying to jump
-        if (m_groundCheck.IsGrounded && m_inputListener.m_jumpInput)
+        if (m_groundCheck.IsGrounded && m_jumpInput)
         {
             Debug.Log($"Player is Trying to jump...");
             //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);
@@ -120,7 +109,7 @@ public class PlayerJumpHandler : MonoBehaviour
         }
 
         //While Jumping
-        if (m_isJumping && m_inputListener.m_jumpInput)
+        if (m_isJumping && m_jumpInput)
         {
             Debug.Log($"Player is still jumping...");
             //Keep the player's vertical velocity equal to their jump velocity
@@ -134,6 +123,12 @@ public class PlayerJumpHandler : MonoBehaviour
             Debug.Log($"Player has stopped jumping...");
             StopCoroutine(JumpTimeLimiter());
             m_isJumping = false;
+
+            // Stop Player's upward movement immediately after they release the jump button
+            Vector2 stopJumpVelocity = m_playerRigidbody.velocity;
+            stopJumpVelocity.y = 0.0f;
+            stopJumpVelocity.x = m_playerRigidbody.velocity.x;
+            m_playerRigidbody.velocity = stopJumpVelocity;
         }
     }
 }

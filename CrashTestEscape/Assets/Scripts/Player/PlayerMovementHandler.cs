@@ -23,24 +23,12 @@ public class PlayerMovementHandler : MonoBehaviour
     [SerializeField, Tooltip("How fast will the player be able to run around?")]
     private float m_maxMoveSpeed = 0.0f;
 
-    //[Header("Jump Settings")]
-
-    ////[SerializeField, Tooltip("How fast will the player be able to accelerate to their maximum jump speed?")]
-    ////private float m_jumpingAccelerationRate = 0.0f;
-
-    //[SerializeField, Tooltip("What is the maximum speed that the player will be able to jump upward?")]
-    //private float m_maxJumpSpeed = 0.0f;
-
-    //[SerializeField, Tooltip("Adjusts the length of time that the jump input is accepted for. (This is modeled after Mario's jump mechanic).")]
-    //private float m_jumpLength = 0.0f;
-
     [SerializeField, Tooltip("This determines how close to zero the player's velocity needs to be to flip the sprite in the Sprite Renderer.")]
     private float m_turningSpriteFlipThreshold = 0.0f;
     #endregion------------
 
     #region Standard Local Member Variables (m_ == A local member of a class)
     private bool m_isfacingLeft;
-    //private bool m_isJumping = false;
     // This is for storing the friction value of the PhysMat that's been assigned to the player's collider.
     private float m_playerPhysMatFriction;
     #endregion------------
@@ -49,6 +37,7 @@ public class PlayerMovementHandler : MonoBehaviour
     private Rigidbody2D m_playerRigidbody;
     private SpriteRenderer m_playerSpriteRenderer;
     private GroundCheck m_groundCheck;
+    // PlayerJumpHandler.MaxJumpSpeed is needed in order to clamp the player's velocity
     private PlayerJumpHandler m_playerJumpHandler;
     //TODO: Swap with proper collider(s) later
     private BoxCollider2D m_playerCollider;
@@ -59,12 +48,14 @@ public class PlayerMovementHandler : MonoBehaviour
 
     /// <summary>
     /// An internal class that contains all movement related input fields required for this script.
+    /// 
+    /// *QUICK NOTE* - I know I don't actually NEED an internal class for one input, but
+    ///     I'm just keeping it around as a simple example of how to make one just in case
+    ///     I actually do end up needing one for another part of the project
     /// </summary>
     internal class InputListener
     {
         public float m_horizontalMoveInput;
-
-        //public bool m_jumpInput;
     }
 
     //Create a variable for the InputListener class
@@ -142,17 +133,9 @@ public class PlayerMovementHandler : MonoBehaviour
     {
         m_inputListener.m_horizontalMoveInput = Input.GetAxisRaw("Horizontal");
     }
-
-    ///// <summary>
-    ///// Listens for jump input. This data is used by the JumpInputHandler() to apply the jump motion to the player.
-    ///// </summary>
-    //private void JumpInputListener()
-    //{
-    //    m_inputListener.m_jumpInput = Input.GetButton("Jump");
-    //}
     #endregion
 
-    #region ______________________________________________________________________HANDLERS__________________________
+    #region ________________________________________________________________HANDLERS__________________________
     /// <summary>
     /// Handles and applies the horizontal input received from the player.
     /// 
@@ -177,54 +160,7 @@ public class PlayerMovementHandler : MonoBehaviour
         //TODO: Remove For Polish (Move Player by setting velocity)
         //m_playerRigidbody.velocity = new Vector3(m_inputListener.m_horizontalMoveInput * m_maxMoveSpeed * Time.deltaTime, m_playerRigidbody.velocity.y, 0);
     }
-
-    // REFACTORING IN PROGRESS - CODE BLOCK MOVED TO PLAYERJUMPHANDLER.CS
-    ///// <summary>
-    ///// Limits the length of time the player will be able to jump for.
-    ///// </summary>
-    ///// <returns>Waits for the given length of time [Adjustable In-Editor]</returns>
-    //private IEnumerator JumpTimeLimiter()
-    //{
-    //    m_isJumping = true;
-    //    yield return new WaitForSecondsRealtime(m_jumpLength);
-    //    m_isJumping = false;
-    //}
-
-    ///// <summary>
-    ///// Handles and applies the jump input received from the player
-    ///// </summary>
-    //private void JumpInputHandler()
-    //{
-    //    //TODO: Debugging Jump
-    //    Debug.Log($"JumpInputHandler() Entered...");
-
-    //    // If the player is trying to jump
-    //    if (m_groundCheck.IsGrounded && m_inputListener.m_jumpInput)
-    //    {
-    //        Debug.Log($"Player is Trying to jump...");
-    //        //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);
-    //        m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_runningAccelerationRate, ForceMode2D.Force);
-    //        StartCoroutine(JumpTimeLimiter());
-    //    }
-
-    //    //While Jumping
-    //    if (m_isJumping && m_inputListener.m_jumpInput)
-    //    {
-    //        Debug.Log($"Player is still jumping...");
-    //        //Keep the player's vertical velocity equal to their jump velocity
-    //        //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);
-    //        m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_runningAccelerationRate, ForceMode2D.Force);
-    //    }
-
-    //    // When the player releases the jump input
-    //    if (Input.GetButtonUp("Jump"))
-    //    {
-    //        Debug.Log($"Player has stopped jumping...");
-    //        StopCoroutine(JumpTimeLimiter());
-    //        m_isJumping = false;
-    //    }
-    //}
-
+    
     /// <summary>
     /// Updates the direction the sprite should be facing based on the horizontal player input
     /// </summary>
