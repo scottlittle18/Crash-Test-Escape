@@ -63,8 +63,9 @@ public class PlayerMovementHandler : MonoBehaviour
     private bool m_horizontalMoveInputReceived;
     public bool HorizontalMoveInputReceived
     {
-        get { return m_horizontalMoveInputReceived; }
-        private set { m_horizontalMoveInputReceived = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f); } }
+        get { return m_horizontalMoveInputReceived = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f); ; }
+        private set { m_horizontalMoveInputReceived = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f); }
+    }
 
     // Start is called before the first frame update
     private void Start()
@@ -84,6 +85,10 @@ public class PlayerMovementHandler : MonoBehaviour
             //If input to the horizontal axis is detected, update the look direction to keep the sprite facing the last direction the player moved in
             if (!Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
                 UpdateLookDirection();
+        }
+        else if (!m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack)
+        {
+            m_inputListener.m_horizontalMoveInput = 0.0f;
         }
     }
 

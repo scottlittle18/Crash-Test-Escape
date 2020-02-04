@@ -130,7 +130,7 @@ public class PlayerHealthSystem : MonoBehaviour, IDamagable
     // Update is called once per frame
     void Update()
     {
-        if (!IsAlive)
+        if (m_currentPlayerHealth <= 0)
         {
             Die();
         }
@@ -170,5 +170,8 @@ public class PlayerHealthSystem : MonoBehaviour, IDamagable
     {
         //TODO: Debug PlayerDeath
         Debug.Log("Player is dead.");
+
+        //Have to manually set this because the damn teranary operator is being an ass
+        IsAlive = false;
     }
 }
