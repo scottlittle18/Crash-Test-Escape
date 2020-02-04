@@ -11,8 +11,14 @@ public class SpikePitHazard : MonoBehaviour
     [SerializeField, Tooltip("How much damage will the player take from touching this hazard?")]
     private int m_damage = 0;
 
-    [SerializeField, Tooltip("How powerful will the knockback force that will be applied to the player be?")]
-    private float m_knockbackForce = 0;
+    [SerializeField, Tooltip("How powerful will the UPWARD knockback force that will be applied to the player be?")]
+    private float m_upwardKnockbackForce = 0.0f;
+
+    [SerializeField, Tooltip("How powerful will the LATERAL knockback force that will be applied to the player be?")]
+    private float m_lateralKnockbackForce = 0.0f;
+
+    [SerializeField, Tooltip("How long will the player be immobillized for after being knockedback?")]
+    private float m_knockbackTimer = 0.0f;
 
     //TODO: Replace with the proper collider type.
     private Collider2D m_spikeCollider;
@@ -36,10 +42,16 @@ public class SpikePitHazard : MonoBehaviour
             m_damage = 1;
         }
 
-        if (m_knockbackForce <= 0)
+        if (m_upwardKnockbackForce <= 0)
         {
             Debug.Log("Default Knockback Force Used!");
-            m_knockbackForce = 1;
+            m_upwardKnockbackForce = 1;
+        }
+
+        if( m_knockbackTimer <= 0)
+        {
+            Debug.Log("Default Knockback Timer Length Applied!");
+            m_knockbackTimer = 1.0f;
         }
     }
 
@@ -72,7 +84,7 @@ public class SpikePitHazard : MonoBehaviour
             }
 
             collision.gameObject.SendMessage("TakeDamage", m_damage);
-            collision.gameObject.GetComponent<PlayerHealthSystem>().DetermineAndApplyKnockbackForce(m_knockbackForce, isOnLeftSide);
+            collision.gameObject.GetComponent<PlayerHealthSystem>().DetermineAndApplyKnockbackForce(m_upwardKnockbackForce, m_lateralKnockbackForce, isOnLeftSide, m_knockbackTimer);
             //collision.gameObject.SendMessage("ApplyKnockbackForce", m_knockbackForce, isOnLeftSide);
             //collision.gameObject.SendMessage("ApplyKnockbackForce", isOnLeftSide);
         }

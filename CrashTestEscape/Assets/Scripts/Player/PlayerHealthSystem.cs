@@ -31,7 +31,7 @@ public class PlayerHealthSystem : MonoBehaviour, IDamagable
         }
     }
 
-    private bool m_isBeingKnockedBack;
+    private bool m_isBeingKnockedBack = false;
 
     /// <summary>
     /// Used by the Player Movement Handler to determine whether the player is in
@@ -94,6 +94,13 @@ public class PlayerHealthSystem : MonoBehaviour, IDamagable
         }
     }
 
+    IEnumerator KnockbackTimer(float knockbackDuration)
+    {
+        IsBeingKnockedBack = true;
+        yield return new WaitForSecondsRealtime(knockbackDuration);
+        IsBeingKnockedBack = false;
+    }
+
     private void Awake()
     {
         m_playerRigidbody = GetComponent<Rigidbody2D>();
@@ -141,18 +148,22 @@ public class PlayerHealthSystem : MonoBehaviour, IDamagable
         Debug.Log($"Player now has {m_currentPlayerHealth}HP");
     }
 
-    public void DetermineAndApplyKnockbackForce(float knockbackForce, bool isOnLeft)
+    public void DetermineAndApplyKnockbackForce(float upwardKnockbackForce, float lateralKnockbackForce, bool isOnLeft, float knockbackDuration)
     {
         // If player position is LESS THAN the hazards position, apply the knockback to the left
         if (isOnLeft == true)
         {
-            m_playerRigidbody.AddForce(Vector2.left * knockbackForce, ForceMode2D.Impulse);
+            m_playerRigidbody.AddForce(Vector2.up * upwardKnockbackForce, ForceMode2D.Impulse);
+            m_playerRigidbody.AddForce(Vector2.left * lateralKnockbackForce, ForceMode2D.Impulse);
         }
         // If player position is GREATER THAN the hazards position, apply the knockback to the right
         else if (isOnLeft == false)
         {
-            m_playerRigidbody.AddForce(Vector2.right * knockbackForce, ForceMode2D.Impulse);
+            m_playerRigidbody.AddForce(Vector2.up * upwardKnockbackForce, ForceMode2D.Impulse);
+            m_playerRigidbody.AddForce(Vector2.right * lateralKnockbackForce, ForceMode2D.Impulse);
         }
+
+        StartCoroutine("KnockbackTimer", knockbackDuration);
     }
 
     private void Die()

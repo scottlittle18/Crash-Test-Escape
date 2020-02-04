@@ -834,7 +834,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_damage: 1
-  m_knockbackForce: 500
+  m_upwardKnockbackForce: 0
+  m_lateralKnockbackForce: 20
+  m_knockbackTimer: 1
 --- !u!212 &1003007352
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1217,9 +1219,9 @@ GameObject:
   - component: {fileID: 2124382662}
   - component: {fileID: 2124382664}
   - component: {fileID: 2124382663}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GroundCheck
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

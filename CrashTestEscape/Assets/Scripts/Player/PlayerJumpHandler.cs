@@ -47,7 +47,7 @@ public class PlayerJumpHandler : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (m_playerHealthSystem.IsAlive)
+        if (m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack)
         {
             // Listens For Input from Player
             JumpInputListener();
@@ -56,8 +56,11 @@ public class PlayerJumpHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Handle the application of forces associated with jumping
-        JumpInputHandler();
+        if (!m_playerHealthSystem.IsBeingKnockedBack)
+        {
+            //Handle the application of forces associated with jumping
+            JumpInputHandler();
+        }
     }
 
     /// <summary>

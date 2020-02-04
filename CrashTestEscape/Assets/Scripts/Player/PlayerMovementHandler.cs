@@ -76,7 +76,7 @@ public class PlayerMovementHandler : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (m_playerHealthSystem.IsAlive)
+        if (m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack)
         {
             //--Listeners--
             HorizontalMoveInputListener();
@@ -89,8 +89,11 @@ public class PlayerMovementHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Apply horizontal player movement input.
-        HorizontalMoveInputHandler();
+        if (!m_playerHealthSystem.IsBeingKnockedBack)
+        {
+            //Apply horizontal player movement input.
+            HorizontalMoveInputHandler();
+        }
     }
 
     /// <summary>
