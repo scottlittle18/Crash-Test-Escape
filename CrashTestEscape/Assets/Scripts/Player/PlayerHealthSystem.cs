@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// Purpose:
-///     Handles the Health of the Player Character as well as their respawn
+///     Handles the Health of the Player Character as well as their knockback and respawn
 /// </summary>
 public class PlayerHealthSystem : MonoBehaviour, IDamagable
 {
@@ -30,6 +31,21 @@ public class PlayerHealthSystem : MonoBehaviour, IDamagable
         }
     }
 
+    private bool m_isBeingKnockedBack;
+
+    /// <summary>
+    /// Used by the Player Movement Handler to determine whether the player is in
+    ///     the process of being knocked back and is unable to control their movement
+    /// </summary>
+    public bool IsBeingKnockedBack
+    {
+        get { return m_isBeingKnockedBack; }
+        private set
+        {
+            m_isBeingKnockedBack = value;
+        }
+    }
+
     /// <summary>
     /// The position the player will start the level at.
     /// </summary>
@@ -39,6 +55,8 @@ public class PlayerHealthSystem : MonoBehaviour, IDamagable
     /// The position of the current Checkpoint.
     /// </summary>
     private Transform m_currentCheckpointTransform;
+
+    private Rigidbody2D m_playerRigidbody;
 
     /// <summary>
     /// *USE CurrentCheckpoint PROPERTY INSTEAD*
@@ -78,6 +96,8 @@ public class PlayerHealthSystem : MonoBehaviour, IDamagable
 
     private void Awake()
     {
+        m_playerRigidbody = GetComponent<Rigidbody2D>();
+
         //Start player with a full health bar
         m_currentPlayerHealth = m_maxPlayerHealth;
 
@@ -111,15 +131,31 @@ public class PlayerHealthSystem : MonoBehaviour, IDamagable
 
     public void TakeDamage(int damageRecieved)
     {
+        Debug.Log($"Player had {m_currentPlayerHealth}HP");
+
+        m_currentPlayerHealth -= damageRecieved;
+
         //TODO: Debug PlayerHealthSystem TakeDamage()
         Debug.Log($"Player has taken damage!");
-        
-        m_currentPlayerHealth -= damageRecieved;
 
         Debug.Log($"Player now has {m_currentPlayerHealth}HP");
     }
 
-    public void Die()
+    public void DetermineAndApplyKnockbackForce(float knockbackForce, bool isOnLeft)
+    {
+        // If player position is LESS THAN the hazards position, apply the knockback to the left
+        if (isOnLeft == true)
+        {
+            m_playerRigidbody.AddForce(Vector2.left * knockbackForce, ForceMode2D.Impulse);
+        }
+        // If player position is GREATER THAN the hazards position, apply the knockback to the right
+        else if (isOnLeft == false)
+        {
+            m_playerRigidbody.AddForce(Vector2.right * knockbackForce, ForceMode2D.Impulse);
+        }
+    }
+
+    private void Die()
     {
         //TODO: Debug PlayerDeath
         Debug.Log("Player is dead.");
