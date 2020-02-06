@@ -103,7 +103,7 @@ public class PlayerJumpHandler : MonoBehaviour
         //Debug.Log($"JumpInputHandler() Entered...");
 
         // If the player is trying to jump
-        if (m_groundCheck.IsGrounded && m_jumpInput)
+        if ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && m_jumpInput)
         {
             //Debug.Log($"Player is Trying to jump...");
             //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);

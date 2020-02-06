@@ -143,7 +143,7 @@ public class PlayerMovementHandler : MonoBehaviour
         m_playerRigidbody.velocity = clampedVelocity;
 
         // If no movement input is detected but the player is still moving, this code block will stop the player's horizontal movement when the player is no longer holding a movement button
-        if (m_inputListener.m_horizontalMoveInput == 0.0f && m_playerRigidbody.velocity.x != 0.0f)
+        if (m_inputListener.m_horizontalMoveInput == 0.0f && !m_groundCheck.IsOnMovingPlatform)
         {
             m_playerRigidbody.velocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
         }

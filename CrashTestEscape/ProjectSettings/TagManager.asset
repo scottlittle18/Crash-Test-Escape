@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - SpawnPoint
   - Player_UI
+  - MovingPlatforms
   layers:
   - Default
   - TransparentFX

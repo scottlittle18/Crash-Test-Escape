@@ -33,6 +33,17 @@ public class GroundCheck : MonoBehaviour
         private set { m_isGrounded = value; }
     }
 
+    //This allows the IsOnMovingPlatform variable to be read from the associated object's movement script.
+    private bool m_isOnMovingPlatform;
+    /// <summary>
+    /// Used to determine whether or not the player is on a moving platform or conveyor belt
+    /// </summary>
+    public bool IsOnMovingPlatform
+    {
+        get { return m_isOnMovingPlatform; }
+        private set { m_isOnMovingPlatform = value; }
+    }
+
     private void Awake()
     {
         m_groundCheckCollider = GetComponent<BoxCollider2D>();
@@ -55,7 +66,16 @@ public class GroundCheck : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
+            Debug.Log("Player is on the ground");
             IsGrounded = true;
+            IsOnMovingPlatform = false;
+        }
+
+        if (collision.gameObject.tag == "MovingPlatforms")
+        {
+            Debug.Log("Player is on a moving platform");
+            IsGrounded = true;
+            IsOnMovingPlatform = true;
         }
     }
 
@@ -63,7 +83,16 @@ public class GroundCheck : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
+            Debug.Log("Player is NOT on the ground");
             IsGrounded = false;
+            IsOnMovingPlatform = false;
+        }
+
+        if (collision.gameObject.tag == "MovingPlatforms")
+        {
+            Debug.Log("Player is NOT on a moving platform");
+            IsGrounded = false;
+            IsOnMovingPlatform = false;
         }
     }
 }
