@@ -8,6 +8,7 @@ TagManager:
   - SpawnPoint
   - Player_UI
   - MovingPlatforms
+  - KillZone
   layers:
   - Default
   - TransparentFX

@@ -174,4 +174,14 @@ public class PlayerHealthSystem : MonoBehaviour, IDamagable
         //Have to manually set this because the damn teranary operator is being an ass
         IsAlive = false;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Kill player if they ever enter a KillZone trigger volume
+        if (collision.gameObject.tag == "KillZone")
+        {
+            // Set Player's Health to 0
+            m_currentPlayerHealth = 0;
+        }
+    }
 }
