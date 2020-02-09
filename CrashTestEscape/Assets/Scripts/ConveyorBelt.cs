@@ -8,18 +8,10 @@ using UnityEngine;
 public class ConveyorBelt : MonoBehaviour
 {
     /// <summary>
-    /// This is the BoxCollider2D that is used by the SurfaceEffector2D component. NEEDS TO BE MANUALLY ASSIGNED IN-EDITOR.
-    /// </summary>
-    //[SerializeField, Tooltip("This is the BoxCollider2D that is used by the SurfaceEffector2D component.")]
-    //private BoxCollider2D m_effectedCollider;
-
-    /// <summary>
     /// How long should the conveyor belt stop for. Default value == 1.
     /// </summary>
     [SerializeField, Tooltip("This is the BoxCollider2D that is used by the SurfaceEffector2D component. Default value == 1")]
     private float m_movementDelay = 1;
-
-    private SurfaceEffector2D m_effector;
 
     [SerializeField]
     private GameObject m_conveyorMovementObject;
@@ -28,23 +20,23 @@ public class ConveyorBelt : MonoBehaviour
 
     private float m_colliderOriginalFriction;
 
+    private bool m_conveyorBeltActive;
+    public bool ConveyorBeltActive
+    {
+        get { return m_conveyorBeltActive; }
+        private set
+        {
+            m_conveyorBeltActive = m_conveyorMovementObject.activeSelf;
+        }
+    }
+
     [SerializeField]
     private float m_stoppedFriction = 1; // Default Value == 1
 
     private float m_conveyerTimer;
 
-    //IEnumerator MoveConveyor()
-    //{
-    //    Debug.Log("Coroutine Entered");
-    //    yield return new WaitForSecondsRealtime(m_movementDelay);
-    //    Debug.Log("First Delay complete");
-    //    yield return new WaitForSecondsRealtime(m_movementDelay);
-    //    Debug.Log("Last Delay Complete -- Coroutine Exiting...");
-    //}
-
     private void Awake()
     {
-        //m_effector = GetComponent<SurfaceEffector2D>();
         m_mainConveyorCollider = GetComponent<BoxCollider2D>();
         m_colliderOriginalFriction = m_mainConveyorCollider.sharedMaterial.friction;
         ResetConveyorDelay();
@@ -55,8 +47,6 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (Time.time > m_conveyerTimer)
         {
-            //m_effectedCollider.usedByEffector = !m_effectedCollider.usedByEffector;
-            //m_effector.enabled = !m_effector.enabled;
             m_conveyorMovementObject.SetActive(!m_conveyorMovementObject.gameObject.activeSelf);
             ResetConveyorDelay();
         }
