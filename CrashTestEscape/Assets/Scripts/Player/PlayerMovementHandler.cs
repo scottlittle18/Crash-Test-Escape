@@ -32,6 +32,7 @@ public class PlayerMovementHandler : MonoBehaviour
     #endregion------------
 
     #region Component Variable Containers
+    private ConveyorBelt m_conveyorBelt = null;
     private Rigidbody2D m_playerRigidbody;
     private SpriteRenderer m_playerSpriteRenderer;
     private GroundCheck m_groundCheck;
@@ -127,9 +128,6 @@ public class PlayerMovementHandler : MonoBehaviour
     }
     #endregion
 
-    //TODO: Move this to the the proper place!
-    private ConveyorBelt m_conveyorBelt = null;
-
     #region ________________________________________________________________HANDLERS__________________________
     /// <summary>
     /// Handles and applies the horizontal input received from the player.
@@ -138,15 +136,17 @@ public class PlayerMovementHandler : MonoBehaviour
     /// </summary>
     private void HorizontalMoveInputHandler()
     {
-        //Accelerate player and clamp their velocity
-        m_playerRigidbody.AddForce(Vector2.right * m_inputListener.m_horizontalMoveInput * m_runningAccelerationRate);
-        Vector2 clampedVelocity = m_playerRigidbody.velocity;
-        clampedVelocity.x = Mathf.Clamp(m_playerRigidbody.velocity.x, -m_maxMoveSpeed, m_maxMoveSpeed);
-        clampedVelocity.y = Mathf.Clamp(m_playerRigidbody.velocity.y, Mathf.NegativeInfinity, m_playerJumpHandler.MaxJumpSpeed);
-        m_playerRigidbody.velocity = clampedVelocity;
-
-        // If no movement input is detected but the player is still moving, this code block will stop the player's horizontal movement when the player is no longer holding a movement button
-        if (m_inputListener.m_horizontalMoveInput == 0.0f)
+        if (!Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
+        {
+            //Accelerate player and clamp their velocity; **NOTE* --> MOVED INTO THIS IF STATEMENT, IT WAS PREVIOUSLY OUT IN THIS FUNCTION ON ITS' OWN!!
+            m_playerRigidbody.AddForce(Vector2.right * m_inputListener.m_horizontalMoveInput * m_runningAccelerationRate);
+            Vector2 clampedVelocity = m_playerRigidbody.velocity;
+            clampedVelocity.x = Mathf.Clamp(m_playerRigidbody.velocity.x, -m_maxMoveSpeed, m_maxMoveSpeed);
+            clampedVelocity.y = Mathf.Clamp(m_playerRigidbody.velocity.y, Mathf.NegativeInfinity, m_playerJumpHandler.MaxJumpSpeed);
+            m_playerRigidbody.velocity = clampedVelocity;
+        }
+            // IF NO MOVEMENT INPUT is detected but the player is still moving, then STOP PLAYER MOVEMENT
+        else if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
         {
             if (!m_groundCheck.IsOnMovingPlatform)
                 m_playerRigidbody.velocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
@@ -157,6 +157,7 @@ public class PlayerMovementHandler : MonoBehaviour
                 {
                     // TODO: Debug ConveyorMovement
                     Debug.Log("Player Should Be Stopped");
+                    Vector2 stoppoingVelocity = m_playerRigidbody.velocity;
                     m_playerRigidbody.velocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
                 }
             }
@@ -191,30 +192,7 @@ public class PlayerMovementHandler : MonoBehaviour
     }
     #endregion
 
-    //private void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "MovingPlatforms" && collision.gameObject.GetComponent<ConveyorBelt>() != null)
-    //    {
-    //        if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f) && !collision.gameObject.GetComponent<ConveyorBelt>().ConveyorBeltActive)
-    //        {
-    //            // TODO: Debug ConveyorMovement
-    //            Debug.Log("Player Should Be Stopped");
-    //            m_playerRigidbody.velocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
-    //        }
-
-    //        //if (collision.gameObject.GetComponent<ConveyorBelt>() != null)
-    //        //{
-    //        //    if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f) && collision.gameObject.GetComponent<ConveyorBelt>().ConveyorBeltActive)
-    //        //    {
-    //        //        // TODO: Debug ConveyorMovement
-    //        //        Debug.Log("Player Should Be Stopped");
-    //        //        m_playerRigidbody.velocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
-    //        //    }
-    //        //}
-    //    }
-    //}
-
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "MovingPlatforms")
         {
@@ -224,13 +202,13 @@ public class PlayerMovementHandler : MonoBehaviour
                 Debug.Log("Player has detected the conveyor belt");
                 m_conveyorBelt = collision.GetComponent<ConveyorBelt>();
 
-                //// If the player is not trying to move and the conveyor belt is off
-                //if (!HorizontalMoveInputReceived && !m_conveyorBelt.ConveyorBeltActive)
-                //{
-                //    // TODO: Debug ConveyorMovement
-                //    Debug.Log("Player Should Be Stopped");
-                //    m_playerRigidbody.velocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
-                //}
+                // If the player is not trying to move and the conveyor belt is off
+                if (!HorizontalMoveInputReceived && !m_conveyorBelt.ConveyorBeltActive)
+                {
+                    // TODO: Debug ConveyorMovement
+                    Debug.Log("Player Should Be Stopped");
+                    m_playerRigidbody.velocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
+                }
             }
         }
     }

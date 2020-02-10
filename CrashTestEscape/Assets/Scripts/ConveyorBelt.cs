@@ -13,12 +13,15 @@ public class ConveyorBelt : MonoBehaviour
     [SerializeField, Tooltip("This is the BoxCollider2D that is used by the SurfaceEffector2D component. Default value == 1")]
     private float m_movementDelay = 1;
 
-    //[SerializeField]
+    [SerializeField]
+    private float m_stoppingFriction;
+    
     private GameObject m_conveyorMovementObject;
 
+    [SerializeField, Tooltip("This is the collider that is not a trigger.")]
     private BoxCollider2D m_mainConveyorCollider;
-
-    private float m_colliderOriginalFriction;
+    
+    private float m_conveyerTimer;
 
     private bool m_conveyorBeltActive;
     public bool ConveyorBeltActive
@@ -30,16 +33,26 @@ public class ConveyorBelt : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    private float m_stoppedFriction = 1; // Default Value == 1
-
-    private float m_conveyerTimer;
-
     private void Awake()
     {
         m_conveyorMovementObject = transform.GetChild(0).gameObject;
-        m_mainConveyorCollider = GetComponent<BoxCollider2D>();
-        m_colliderOriginalFriction = m_mainConveyorCollider.sharedMaterial.friction;
+
+        // Manually placing since there are now two colliders on this object
+        //m_mainConveyorCollider = GetComponent<BoxCollider2D>();
+
+        // This fixes a bug that causes the conveyor belt to malfunction and apply no friction
+        //      if the friction of the PhysMat2D attatched to this object equals 0
+        if (m_mainConveyorCollider.sharedMaterial.friction == 0)
+        {
+            // The value of 0.5f was chosen based on testing and should be changed if any adjustments are made to the original PhysMat2D
+            m_mainConveyorCollider.sharedMaterial.friction = m_stoppingFriction;
+        }
+
+        //ResetConveyorDelay();
+    }
+
+    private void Start()
+    {
         ResetConveyorDelay();
     }
 
@@ -55,7 +68,7 @@ public class ConveyorBelt : MonoBehaviour
         if (m_conveyorMovementObject.gameObject.activeSelf == false)
         {
             // If the conveyor belt is not active, set the friction of the material to a higher number
-            m_mainConveyorCollider.sharedMaterial.friction = m_stoppedFriction;
+            m_mainConveyorCollider.sharedMaterial.friction = m_stoppingFriction;
         }
         else if (m_conveyorMovementObject.gameObject.activeSelf == true)
         {
