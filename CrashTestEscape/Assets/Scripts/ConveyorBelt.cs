@@ -13,7 +13,7 @@ public class ConveyorBelt : MonoBehaviour
     [SerializeField, Tooltip("This is the BoxCollider2D that is used by the SurfaceEffector2D component. Default value == 1")]
     private float m_movementDelay = 1;
 
-    [SerializeField]
+    //[SerializeField]
     private GameObject m_conveyorMovementObject;
 
     private BoxCollider2D m_mainConveyorCollider;
@@ -37,6 +37,7 @@ public class ConveyorBelt : MonoBehaviour
 
     private void Awake()
     {
+        m_conveyorMovementObject = transform.GetChild(0).gameObject;
         m_mainConveyorCollider = GetComponent<BoxCollider2D>();
         m_colliderOriginalFriction = m_mainConveyorCollider.sharedMaterial.friction;
         ResetConveyorDelay();
