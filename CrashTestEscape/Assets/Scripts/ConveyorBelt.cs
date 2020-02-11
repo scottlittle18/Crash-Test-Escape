@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 /// <summary>
 /// Used to control the intermittent movement of the conveyor belt
@@ -16,6 +17,11 @@ public class ConveyorBelt : MonoBehaviour
     [SerializeField]
     private float m_stoppingFriction;
     
+    /// <summary>
+    /// The object that actually applies the conveyor belt effect using a SurfaceEffector2D and a BoxCollider2D set to use effector.
+    /// 
+    /// *NOTE* - This value must be manually assigned in the editor since there are two colliders on this object.
+    /// </summary>
     private GameObject m_conveyorMovementObject;
 
     [SerializeField, Tooltip("This is the collider that is not a trigger.")]
@@ -35,24 +41,13 @@ public class ConveyorBelt : MonoBehaviour
 
     private void Awake()
     {
-        m_conveyorMovementObject = transform.GetChild(0).gameObject;
-
-        // Manually placing since there are now two colliders on this object
-        //m_mainConveyorCollider = GetComponent<BoxCollider2D>();
-
-        // This fixes a bug that causes the conveyor belt to malfunction and apply no friction
-        //      if the friction of the PhysMat2D attatched to this object equals 0
         if (m_mainConveyorCollider.sharedMaterial.friction == 0)
         {
-            // The value of 0.5f was chosen based on testing and should be changed if any adjustments are made to the original PhysMat2D
             m_mainConveyorCollider.sharedMaterial.friction = m_stoppingFriction;
         }
 
-        //ResetConveyorDelay();
-    }
+        m_conveyorMovementObject = transform.GetChild(0).gameObject;
 
-    private void Start()
-    {
         ResetConveyorDelay();
     }
 
@@ -64,7 +59,7 @@ public class ConveyorBelt : MonoBehaviour
             m_conveyorMovementObject.SetActive(!m_conveyorMovementObject.gameObject.activeSelf);
             ResetConveyorDelay();
         }
-
+        
         if (m_conveyorMovementObject.gameObject.activeSelf == false)
         {
             // If the conveyor belt is not active, set the friction of the material to a higher number
