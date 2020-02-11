@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 /// <summary>
 /// Used to control the intermittent movement of the conveyor belt
@@ -8,45 +9,45 @@ using UnityEngine;
 public class ConveyorBelt : MonoBehaviour
 {
     /// <summary>
-    /// This is the BoxCollider2D that is used by the SurfaceEffector2D component. NEEDS TO BE MANUALLY ASSIGNED IN-EDITOR.
-    /// </summary>
-    //[SerializeField, Tooltip("This is the BoxCollider2D that is used by the SurfaceEffector2D component.")]
-    //private BoxCollider2D m_effectedCollider;
-
-    /// <summary>
     /// How long should the conveyor belt stop for. Default value == 1.
     /// </summary>
     [SerializeField, Tooltip("This is the BoxCollider2D that is used by the SurfaceEffector2D component. Default value == 1")]
     private float m_movementDelay = 1;
 
-    private SurfaceEffector2D m_effector;
-
     [SerializeField]
+    private float m_stoppingFriction;
+    
+    /// <summary>
+    /// The object that actually applies the conveyor belt effect using a SurfaceEffector2D and a BoxCollider2D set to use effector.
+    /// 
+    /// *NOTE* - This value must be manually assigned in the editor since there are two colliders on this object.
+    /// </summary>
     private GameObject m_conveyorMovementObject;
 
+    [SerializeField, Tooltip("This is the collider that is not a trigger.")]
     private BoxCollider2D m_mainConveyorCollider;
-
-    private float m_colliderOriginalFriction;
-
-    [SerializeField]
-    private float m_stoppedFriction = 1; // Default Value == 1
-
+    
     private float m_conveyerTimer;
 
-    //IEnumerator MoveConveyor()
-    //{
-    //    Debug.Log("Coroutine Entered");
-    //    yield return new WaitForSecondsRealtime(m_movementDelay);
-    //    Debug.Log("First Delay complete");
-    //    yield return new WaitForSecondsRealtime(m_movementDelay);
-    //    Debug.Log("Last Delay Complete -- Coroutine Exiting...");
-    //}
+    private bool m_conveyorBeltActive;
+    public bool ConveyorBeltActive
+    {
+        get { return m_conveyorBeltActive; }
+        private set
+        {
+            m_conveyorBeltActive = m_conveyorMovementObject.activeSelf;
+        }
+    }
 
     private void Awake()
     {
-        //m_effector = GetComponent<SurfaceEffector2D>();
-        m_mainConveyorCollider = GetComponent<BoxCollider2D>();
-        m_colliderOriginalFriction = m_mainConveyorCollider.sharedMaterial.friction;
+        if (m_mainConveyorCollider.sharedMaterial.friction == 0)
+        {
+            m_mainConveyorCollider.sharedMaterial.friction = m_stoppingFriction;
+        }
+
+        m_conveyorMovementObject = transform.GetChild(0).gameObject;
+
         ResetConveyorDelay();
     }
 
@@ -55,16 +56,14 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (Time.time > m_conveyerTimer)
         {
-            //m_effectedCollider.usedByEffector = !m_effectedCollider.usedByEffector;
-            //m_effector.enabled = !m_effector.enabled;
             m_conveyorMovementObject.SetActive(!m_conveyorMovementObject.gameObject.activeSelf);
             ResetConveyorDelay();
         }
-
+        
         if (m_conveyorMovementObject.gameObject.activeSelf == false)
         {
             // If the conveyor belt is not active, set the friction of the material to a higher number
-            m_mainConveyorCollider.sharedMaterial.friction = m_stoppedFriction;
+            m_mainConveyorCollider.sharedMaterial.friction = m_stoppingFriction;
         }
         else if (m_conveyorMovementObject.gameObject.activeSelf == true)
         {
