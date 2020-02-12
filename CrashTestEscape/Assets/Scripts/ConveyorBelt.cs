@@ -13,9 +13,6 @@ public class ConveyorBelt : MonoBehaviour
     /// </summary>
     [SerializeField, Tooltip("This is the BoxCollider2D that is used by the SurfaceEffector2D component. Default value == 1")]
     private float m_movementDelay = 1;
-
-    [SerializeField]
-    private float m_stoppingFriction;
     
     /// <summary>
     /// The object that actually applies the conveyor belt effect using a SurfaceEffector2D and a BoxCollider2D set to use effector.
@@ -23,9 +20,6 @@ public class ConveyorBelt : MonoBehaviour
     /// *NOTE* - This value must be manually assigned in the editor since there are two colliders on this object.
     /// </summary>
     private GameObject m_conveyorMovementObject;
-
-    [SerializeField, Tooltip("This is the collider that is not a trigger.")]
-    private BoxCollider2D m_mainConveyorCollider;
     
     private float m_conveyerTimer;
 
@@ -41,11 +35,6 @@ public class ConveyorBelt : MonoBehaviour
 
     private void Awake()
     {
-        if (m_mainConveyorCollider.sharedMaterial.friction == 0)
-        {
-            m_mainConveyorCollider.sharedMaterial.friction = m_stoppingFriction;
-        }
-
         m_conveyorMovementObject = transform.GetChild(0).gameObject;
 
         ResetConveyorDelay();
@@ -58,16 +47,6 @@ public class ConveyorBelt : MonoBehaviour
         {
             m_conveyorMovementObject.SetActive(!m_conveyorMovementObject.gameObject.activeSelf);
             ResetConveyorDelay();
-        }
-        
-        if (m_conveyorMovementObject.gameObject.activeSelf == false)
-        {
-            // If the conveyor belt is not active, set the friction of the material to a higher number
-            m_mainConveyorCollider.sharedMaterial.friction = m_stoppingFriction;
-        }
-        else if (m_conveyorMovementObject.gameObject.activeSelf == true)
-        {
-            m_mainConveyorCollider.sharedMaterial.friction = 0.0f;
         }
     }
 
