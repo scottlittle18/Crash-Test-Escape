@@ -28,38 +28,18 @@ public class MotionDetector : MonoBehaviour
         m_detectionZoneTrigger = GetComponentInChildren<PolygonCollider2D>();
         m_detectorAnim = GetComponent<Animator>();
 
-        ResetCooldownTimer();
+        ResetBaseTimer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Camera WAS OFF and is being TURNED ON
-        if (Time.time > m_offTime)
+        // MotionDetector Animation state switching
+        if (Time.time > m_timer)
         {
-            m_detectorAnim.SetBool("IsOn", true);
-            ResetCooldownTimer();
+            m_detectorAnim.SetBool("IsOn", !m_detectorAnim.GetBool("IsOn"));
+            ResetBaseTimer();
         }
-        // Camera WAS ON and is being TURNED OFF
-        else if (Time.time < m_offTime)
-        {
-            m_detectorAnim.SetBool("IsOn", false);
-            //ResetCooldownTimer();
-        }
-
-        //// Camera WAS OFF and is being TURNED ON
-        //if (Time.time > m_offTime && Time.time < m_onTime)
-        //{
-        //    m_detectorAnim.SetBool("IsOn", true);
-        //    ResetCooldownTimer();
-        //}
-
-        //// Camera WAS ON and is being TURNED OFF
-        //if (Time.time > m_onTime && Time.time < m_offTime)
-        //{
-        //    m_detectorAnim.SetBool("IsOn", false);
-        //    ResetActiveTimer();
-        //}
 
         UpdateDetectionZone();
     }
@@ -76,27 +56,8 @@ public class MotionDetector : MonoBehaviour
         }
     }
 
-    private void ResetCooldownTimer()
-    {
-        m_timer = Time.time + m_offTime;
-    }
-
-    private void ResetActiveTimer()
+    private void ResetBaseTimer()
     {
         m_timer = Time.time + m_onTime;
     }
 }
-
-
-// Psuedo-Code
-/*
- *  - Wait for a period of time
- *  - Turn on and look for the player
- *      - IsOn = true;
- *      - DetectionTriggerVolume is On/Armed
- *  - Continue looking for player for a set period of time
- *  - If player enters the detection zone and is moving then wait a short period of time
- *  - Crush player if theyre still moving in the detection zone after the short period of time is up
- *  - Else If IsOn == false and IsAlerted == false then return to original state
- * 
- */
