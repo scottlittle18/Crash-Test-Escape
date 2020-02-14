@@ -23,8 +23,7 @@ public class MotionDetector : MonoBehaviour
     private float m_bufferTimer = 0.0f;
     private float m_timer = 0.0f;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         m_detectionZoneTrigger = GetComponentInChildren<PolygonCollider2D>();
         m_detectorAnim = GetComponent<Animator>();
@@ -35,17 +34,44 @@ public class MotionDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Camera WAS OFF and is being TURNED ON
-        if (Time.time > m_offTime)
-        {
-            m_detectorAnim.SetBool("IsOn", true);
-        }
-
-        // Camera WAS ON and is being TURNED OFF
-        if (Time.time > m_onTime)
+        if (Time.time < m_offTime)
         {
             m_detectorAnim.SetBool("IsOn", false);
             ResetCooldownTimer();
+        }
+        
+        if (Time.time < m_onTime)
+        {
+            m_detectorAnim.SetBool("IsOn", true);
+            ResetActiveTimer();
+        }
+
+        //// Camera WAS OFF and is being TURNED ON
+        //if (Time.time > m_offTime && Time.time < m_onTime)
+        //{
+        //    m_detectorAnim.SetBool("IsOn", true);
+        //    ResetCooldownTimer();
+        //}
+
+        //// Camera WAS ON and is being TURNED OFF
+        //if (Time.time > m_onTime && Time.time < m_offTime)
+        //{
+        //    m_detectorAnim.SetBool("IsOn", false);
+        //    ResetActiveTimer();
+        //}
+
+        UpdateDetectionZone();
+    }
+
+    private void UpdateDetectionZone()
+    {
+        if (m_detectorAnim.GetBool("IsOn"))
+        {
+            m_detectionZoneTrigger.enabled = true;
+        }
+        else if (!m_detectorAnim.GetBool("IsOn"))
+        {
+            m_detectionZoneTrigger.enabled = false;
         }
     }
 
