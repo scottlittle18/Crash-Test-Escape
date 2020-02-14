@@ -34,16 +34,17 @@ public class MotionDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time < m_offTime)
-        {
-            m_detectorAnim.SetBool("IsOn", false);
-            ResetCooldownTimer();
-        }
-        
-        if (Time.time < m_onTime)
+        // Camera WAS OFF and is being TURNED ON
+        if (Time.time > m_offTime)
         {
             m_detectorAnim.SetBool("IsOn", true);
-            ResetActiveTimer();
+            ResetCooldownTimer();
+        }
+        // Camera WAS ON and is being TURNED OFF
+        else if (Time.time < m_offTime)
+        {
+            m_detectorAnim.SetBool("IsOn", false);
+            //ResetCooldownTimer();
         }
 
         //// Camera WAS OFF and is being TURNED ON
