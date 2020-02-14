@@ -17,12 +17,16 @@ public class MotionDetector : MonoBehaviour
     [SerializeField, Tooltip("How Long will the motion sensor wait before activating the crusher?")]
     private float m_pistonBufferTime = 0.25f;
 
+    [SerializeField, Tooltip("The Animator that controls the piston that's paired with this MotionDetection System?")]
+    private Animator m_pistonAnim;
+
     private float m_timer = 0.0f;
 
     private void Awake()
     {
         m_detectionZoneTrigger = GetComponent<PolygonCollider2D>();
         m_detectorAnim = GetComponentInParent<Animator>();
+        m_pistonAnim.SetBool("IsActive", false);
 
         ResetBaseTimer();
     }
@@ -66,7 +70,11 @@ public class MotionDetector : MonoBehaviour
     {
         Debug.Log("Waiting to crush Player...");
         yield return new WaitForSecondsRealtime(m_pistonBufferTime);
+        m_pistonAnim.SetBool("IsActive", true);
         Debug.Log("CRUSHING PLAYER!!!");
+        yield return new WaitForSecondsRealtime(m_pistonAnim.GetCurrentAnimatorClipInfo(0).Length * 0.5f);
+        m_pistonAnim.SetBool("IsActive", false);
+        Debug.Log("Stop Crushing Player");
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -105,6 +113,8 @@ public class MotionDetector : MonoBehaviour
             {
                 m_detectorAnim.SetBool("IsAlerted", false);
                 StopCoroutine("PistonSmashDelay");
+                //m_pistonAnim.SetBool("IsActive", false);
+
             }
         }
     }
