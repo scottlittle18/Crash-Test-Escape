@@ -64,7 +64,7 @@ public class PlayerMovementHandler : MonoBehaviour
     private bool m_horizontalMoveInputReceived;
     public bool HorizontalMoveInputReceived
     {
-        get { return m_horizontalMoveInputReceived = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f); ; }
+        get { return m_horizontalMoveInputReceived = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f); }
         private set { m_horizontalMoveInputReceived = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f); }
     }
 

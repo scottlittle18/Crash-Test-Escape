@@ -13,7 +13,10 @@ public class MotionDetector : MonoBehaviour
 
     [SerializeField, Tooltip("How Long will the motion sensor be active for?")]
     private float m_onTime;
-    
+
+    [SerializeField, Tooltip("How Long will the motion sensor wait before activating the crusher?")]
+    private float m_pistonBufferTime = 0.25f;
+
     private float m_timer = 0.0f;
 
     private void Awake()
@@ -45,6 +48,11 @@ public class MotionDetector : MonoBehaviour
         }
         else if (!m_detectorAnim.GetBool("IsOn"))
         {
+            // Reset the IsAlerted state of the MotionDetector Animator
+            if (m_detectorAnim.GetBool("IsAlerted"))
+            {
+                m_detectorAnim.SetBool("IsAlerted", false);
+            }
             m_detectionZoneTrigger.enabled = false;
         }
     }
@@ -52,5 +60,52 @@ public class MotionDetector : MonoBehaviour
     private void ResetBaseTimer()
     {
         m_timer = Time.time + m_onTime;
+    }
+
+    IEnumerator PistonSmashDelay()
+    {
+        Debug.Log("Waiting to crush Player...");
+        yield return new WaitForSecondsRealtime(m_pistonBufferTime);
+        Debug.Log("CRUSHING PLAYER!!!");
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            Debug.Log("Player is detected by the motion sensor");
+            if (collision.GetComponent<PlayerMovementHandler>() != null)
+            {
+                if (!collision.GetComponent<PlayerMovementHandler>().HorizontalMoveInputReceived)
+                {
+                    if (m_detectorAnim.GetBool("IsOn"))
+                    {
+                        m_detectorAnim.SetBool("IsAlerted", true);
+                        StartCoroutine("PistonSmashDelay");
+                    }
+                }
+                else
+                {
+                    if (m_detectorAnim.GetBool("IsOn"))
+                    {
+                        m_detectorAnim.SetBool("IsAlerted", false);
+                        StopCoroutine("PistonSmashDelay");
+                    }
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            Debug.Log("Player has left the motion sensor detection zone");
+            if (m_detectorAnim.GetBool("IsOn"))
+            {
+                m_detectorAnim.SetBool("IsAlerted", false);
+                StopCoroutine("PistonSmashDelay");
+            }
+        }
     }
 }
