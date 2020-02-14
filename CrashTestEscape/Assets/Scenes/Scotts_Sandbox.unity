@@ -372,7 +372,6 @@ GameObject:
   - component: {fileID: 179847993}
   - component: {fileID: 179847992}
   - component: {fileID: 179847991}
-  - component: {fileID: 179847994}
   m_Layer: 0
   m_Name: MotionDetector_Orb
   m_TagString: Untagged
@@ -463,21 +462,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &179847994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179847990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b17c7f52de5574fa23766bbd519d23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_onTime: 1
-  m_offTime: 1
-  m_playerBufferTime: 0.25
 --- !u!1 &279115609
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 279115610}
+  - component: {fileID: 279115612}
   - component: {fileID: 279115611}
   m_Layer: 0
   m_Name: DetectionZone
@@ -539,6 +524,19 @@ PolygonCollider2D:
       - {x: -4.6753616, y: -4.096294}
       - {x: 4.7894287, y: -4.096294}
       - {x: 0.2856369, y: 4.0784187}
+--- !u!114 &279115612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279115609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b17c7f52de5574fa23766bbd519d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_onTime: 1
 --- !u!1 &300155278
 GameObject:
   m_ObjectHideFlags: 0
