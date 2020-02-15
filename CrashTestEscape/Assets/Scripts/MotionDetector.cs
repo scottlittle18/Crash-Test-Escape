@@ -72,7 +72,7 @@ public class MotionDetector : MonoBehaviour
         yield return new WaitForSecondsRealtime(m_pistonBufferTime);
         m_pistonAnim.SetBool("IsActive", true);
         Debug.Log("CRUSHING PLAYER!!!");
-        yield return new WaitForSecondsRealtime(m_pistonAnim.GetCurrentAnimatorClipInfo(0).Length * 0.5f);
+        yield return new WaitForSecondsRealtime(m_pistonAnim.GetCurrentAnimatorClipInfo(0).Length * 0.5f); // 0.5f used to keep the animation from running more than once.
         m_pistonAnim.SetBool("IsActive", false);
         Debug.Log("Stop Crushing Player");
     }
