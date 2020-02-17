@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-CrashTestEscape/[Ll]ibrary/
-CrashTestEscape/[Tt]emp/
-CrashTestEscape/[Oo]bj/
-CrashTestEscape/[Bb]uild/
-CrashTestEscape/[Bb]uilds/
-CrashTestEscape/[Ll]ogs/
-CrashTestEscape/[Mm]emoryCaptures/
+Crash-Test-Escape/[Ll]ibrary/
+Crash-Test-Escape/[Tt]emp/
+Crash-Test-Escape/[Oo]bj/
+Crash-Test-Escape/[Bb]uild/
+Crash-Test-Escape/[Bb]uilds/
+Crash-Test-Escape/[Ll]ogs/
+Crash-Test-Escape/[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
