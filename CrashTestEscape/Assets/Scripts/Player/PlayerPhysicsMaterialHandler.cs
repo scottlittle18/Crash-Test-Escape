@@ -59,7 +59,7 @@ public class PlayerPhysicsMaterialHandler : MonoBehaviour
             if (!m_playerHealthSystem.IsBeingKnockedBack && (m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform))
             {
                 // Increase the friction of the player when they die in order to keep them from sliding after death, a magic number was used since we just need a high number here and nothing specific
-                m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 10.0f;
+                m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
             }
         }
     }
