@@ -36,6 +36,7 @@ public class PlayerMovementHandler : MonoBehaviour
     private Rigidbody2D m_playerRigidbody;
     private SpriteRenderer m_playerSpriteRenderer;
     private GroundCheck m_groundCheck;
+    private Animator m_playerAnim;
     //TODO: Swap with proper collider(s) later
     private BoxCollider2D m_playerCollider;
 
@@ -54,7 +55,10 @@ public class PlayerMovementHandler : MonoBehaviour
     /// </summary>
     internal class InputListener
     {
+        // Used to controler horizontal movement
         public float m_horizontalMoveInput;
+        // Used for crouching
+        public float m_verticalInput;
     }
 
     //Create a variable for the InputListener class
@@ -82,6 +86,7 @@ public class PlayerMovementHandler : MonoBehaviour
         {
             //--Listeners--
             HorizontalMoveInputListener();
+            CrouchInputListener();
 
             //If input to the horizontal axis is detected, update the look direction to keep the sprite facing the last direction the player moved in
             if (!Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
@@ -97,11 +102,14 @@ public class PlayerMovementHandler : MonoBehaviour
     {
         if (!m_playerHealthSystem.IsBeingKnockedBack)
         {
-            //Apply horizontal player movement input.
+            // Apply horizontal player movement input.
             HorizontalMoveInputHandler();
+
+            // Crouch
+            CrouchInputHandler();
         }
     }
-
+    
     /// <summary>
     /// Used to Initialize any necessary component variables (e.g. Rigidbody2D, BoxCollider2D, etc.)
     /// </summary>
@@ -115,6 +123,7 @@ public class PlayerMovementHandler : MonoBehaviour
         m_playerRigidbody = GetComponent<Rigidbody2D>();
         m_playerSpriteRenderer = GetComponent<SpriteRenderer>();
         m_groundCheck = GetComponentInChildren<GroundCheck>();
+        m_playerAnim = GetComponent<Animator>();
         m_playerCollider = GetComponent<BoxCollider2D>();
     }    
     
@@ -125,6 +134,14 @@ public class PlayerMovementHandler : MonoBehaviour
     private void HorizontalMoveInputListener()
     {
         m_inputListener.m_horizontalMoveInput = Input.GetAxisRaw("Horizontal");
+    }
+
+    /// <summary>
+    /// Listens for when the player is pressing down to crouch
+    /// </summary>
+    private void CrouchInputListener()
+    {
+        m_inputListener.m_verticalInput = Input.GetAxisRaw("Vertical");
     }
     #endregion
 
@@ -166,7 +183,18 @@ public class PlayerMovementHandler : MonoBehaviour
         //TODO: Remove For Polish (Move Player by setting velocity)
         //m_playerRigidbody.velocity = new Vector3(m_inputListener.m_horizontalMoveInput * m_maxMoveSpeed * Time.deltaTime, m_playerRigidbody.velocity.y, 0);
     }
-    
+
+
+    private void CrouchInputHandler()
+    {
+        m_playerAnim.SetBool("IsCrouched", m_inputListener.m_verticalInput < 0);
+
+        if (m_inputListener.m_verticalInput < 0)
+        {
+            //m_playerAnim.SetBool("IsCrouched", m_inputListener.m_verticalInput < 0);
+        }
+    }
+
     /// <summary>
     /// Updates the direction the sprite should be facing based on the horizontal player input
     /// </summary>
