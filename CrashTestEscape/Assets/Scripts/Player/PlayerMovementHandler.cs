@@ -59,6 +59,8 @@ public class PlayerMovementHandler : MonoBehaviour
         public float m_horizontalMoveInput;
         // Used for crouching
         public float m_verticalInput;
+        // Used for Shoving
+        public bool m_shoveInput;
     }
 
     //Create a variable for the InputListener class
@@ -87,6 +89,7 @@ public class PlayerMovementHandler : MonoBehaviour
             //--Listeners--
             HorizontalMoveInputListener();
             CrouchInputListener();
+            ShoveInputListener();
 
             //If input to the horizontal axis is detected, update the look direction to keep the sprite facing the last direction the player moved in
             if (!Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
@@ -142,6 +145,24 @@ public class PlayerMovementHandler : MonoBehaviour
     private void CrouchInputListener()
     {
         m_inputListener.m_verticalInput = Input.GetAxisRaw("Vertical");
+    }
+
+    /// <summary>
+    ///  Listens for the attack/shove input
+    /// </summary>
+    private void ShoveInputListener()
+    {
+        m_inputListener.m_shoveInput = Input.GetButtonDown("Fire1");
+
+        if (m_inputListener.m_shoveInput)
+        {
+            m_playerAnim.SetTrigger("Shove");
+        }
+
+        if (Input.GetButtonUp("Fire1"))
+        {
+            m_playerAnim.ResetTrigger("Shove");
+        }
     }
     #endregion
 
