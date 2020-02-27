@@ -67,11 +67,11 @@ public class PlayerMovementHandler : MonoBehaviour
     private InputListener m_inputListener = new InputListener();
 
     //Used by the PlayerPhysicsMaterialHandler.cs script to see if the player is trying to move
-    private bool m_horizontalMoveInputReceived;
-    public bool HorizontalMoveInputReceived
+    private bool m_playerIsNotMoving;
+    public bool PlayerIsNotMoving
     {
-        get { return m_horizontalMoveInputReceived = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f); }
-        private set { m_horizontalMoveInputReceived = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f); }
+        get { return m_playerIsNotMoving; }
+        private set { m_playerIsNotMoving = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f); }
     }
 
     // Start is called before the first frame update
@@ -87,15 +87,15 @@ public class PlayerMovementHandler : MonoBehaviour
         if (m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack)
         {
             //--Listeners--
+            ShoveInputListener();
             HorizontalMoveInputListener();
             CrouchInputListener();
-            ShoveInputListener();
-
+            
             //If input to the horizontal axis is detected, update the look direction to keep the sprite facing the last direction the player moved in
             if (!Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
                 UpdateLookDirection();
         }
-        else if (!m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack)
+        else if ((!m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack))
         {
             m_inputListener.m_horizontalMoveInput = 0.0f;
         }
@@ -156,12 +156,14 @@ public class PlayerMovementHandler : MonoBehaviour
 
         if (m_inputListener.m_shoveInput)
         {
+            m_playerAnim.ResetTrigger("StopShoving");
             m_playerAnim.SetTrigger("Shove");
         }
 
         if (Input.GetButtonUp("Fire1"))
         {
             m_playerAnim.ResetTrigger("Shove");
+            m_playerAnim.SetTrigger("StopShoving");
         }
     }
     #endregion
@@ -191,29 +193,24 @@ public class PlayerMovementHandler : MonoBehaviour
             else if (m_groundCheck.IsOnMovingPlatform && m_conveyorBelt != null)
             {
                 // If the player is not trying to move and the conveyor belt is off
-                if (!HorizontalMoveInputReceived && !m_conveyorBelt.ConveyorBeltActive)
+                if (PlayerIsNotMoving && !m_conveyorBelt.ConveyorBeltActive)
                 {
                     // TODO: Debug ConveyorMovement
                     Debug.Log("Player Should Be Stopped");
-                    Vector2 stoppoingVelocity = m_playerRigidbody.velocity;
-                    m_playerRigidbody.velocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
+                    Vector2 stoppingVelocity = m_playerRigidbody.velocity;
+                    stoppingVelocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
+                    m_playerRigidbody.velocity = stoppingVelocity;
                 }
             }
         }
-
-        //TODO: Remove For Polish (Move Player by setting velocity)
-        //m_playerRigidbody.velocity = new Vector3(m_inputListener.m_horizontalMoveInput * m_maxMoveSpeed * Time.deltaTime, m_playerRigidbody.velocity.y, 0);
     }
 
-
+    /// <summary>
+    /// Listens for the crouching input
+    /// </summary>
     private void CrouchInputHandler()
     {
         m_playerAnim.SetBool("IsCrouched", m_inputListener.m_verticalInput < 0);
-
-        if (m_inputListener.m_verticalInput < 0)
-        {
-            //m_playerAnim.SetBool("IsCrouched", m_inputListener.m_verticalInput < 0);
-        }
     }
 
     /// <summary>
@@ -243,6 +240,7 @@ public class PlayerMovementHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Is this ever called?");
         if (collision.gameObject.tag == "MovingPlatforms")
         {
             if (collision.GetComponent<ConveyorBelt>() != null)
@@ -252,7 +250,7 @@ public class PlayerMovementHandler : MonoBehaviour
                 m_conveyorBelt = collision.GetComponent<ConveyorBelt>();
 
                 // If the player is not trying to move and the conveyor belt is off
-                if (!HorizontalMoveInputReceived && !m_conveyorBelt.ConveyorBeltActive)
+                if (!PlayerIsNotMoving && !m_conveyorBelt.ConveyorBeltActive)
                 {
                     // TODO: Debug ConveyorMovement
                     Debug.Log("Player Should Be Stopped");
