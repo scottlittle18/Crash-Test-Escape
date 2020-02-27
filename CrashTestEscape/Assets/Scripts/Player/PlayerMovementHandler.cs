@@ -29,6 +29,9 @@ public class PlayerMovementHandler : MonoBehaviour
 
     #region Standard Local Member Variables (m_ == A local member of a class)
     private bool m_isfacingLeft;
+
+    //TODO Addition for stopping player movement when they're shoving
+    private bool m_isShoving = false;
     #endregion------------
 
     #region Component Variable Containers
@@ -88,8 +91,11 @@ public class PlayerMovementHandler : MonoBehaviour
         {
             //--Listeners--
             ShoveInputListener();
-            HorizontalMoveInputListener();
-            CrouchInputListener();
+            if (m_isShoving == false)
+            {
+                HorizontalMoveInputListener();
+                CrouchInputListener();
+            }
             
             //If input to the horizontal axis is detected, update the look direction to keep the sprite facing the last direction the player moved in
             if (!Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
@@ -158,12 +164,14 @@ public class PlayerMovementHandler : MonoBehaviour
         {
             m_playerAnim.ResetTrigger("StopShoving");
             m_playerAnim.SetTrigger("Shove");
+            m_isShoving = true;
         }
 
         if (Input.GetButtonUp("Fire1"))
         {
             m_playerAnim.ResetTrigger("Shove");
             m_playerAnim.SetTrigger("StopShoving");
+            m_isShoving = false;
         }
     }
     #endregion
@@ -240,7 +248,6 @@ public class PlayerMovementHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Is this ever called?");
         if (collision.gameObject.tag == "MovingPlatforms")
         {
             if (collision.GetComponent<ConveyorBelt>() != null)
