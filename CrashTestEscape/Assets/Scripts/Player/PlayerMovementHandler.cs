@@ -27,7 +27,7 @@ public class PlayerMovementHandler : MonoBehaviour
     private float m_turningSpriteFlipThreshold = 0.0f;
     #endregion------------
 
-    #region Standard Local Member Variables (m_ == A local member of a class)
+    #region Standard Local Member Variables
     private bool m_isfacingLeft;
 
     //TODO Addition for stopping player movement when they're shoving
@@ -111,9 +111,7 @@ public class PlayerMovementHandler : MonoBehaviour
     {
         if (m_isShoving && !Mathf.Approximately(m_playerRigidbody.velocity.x, 0.0f))
         {
-            Vector2 stoppingVelocity = m_playerRigidbody.velocity;
-            stoppingVelocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
-            m_playerRigidbody.velocity = stoppingVelocity;
+            StopPlayerMovement();
         }
 
         if (!m_playerHealthSystem.IsBeingKnockedBack && !m_isShoving)
@@ -205,9 +203,7 @@ public class PlayerMovementHandler : MonoBehaviour
         {
             if (!m_groundCheck.IsOnMovingPlatform || m_isShoving)
             {
-                Vector2 stoppingVelocity = m_playerRigidbody.velocity;
-                stoppingVelocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
-                m_playerRigidbody.velocity = stoppingVelocity;
+                StopPlayerMovement();
             }
             else if (m_groundCheck.IsOnMovingPlatform && m_conveyorBelt != null)
             {
@@ -216,9 +212,7 @@ public class PlayerMovementHandler : MonoBehaviour
                 {
                     // TODO: Debug ConveyorMovement
                     Debug.Log("Player Should Be Stopped");
-                    Vector2 stoppingVelocity = m_playerRigidbody.velocity;
-                    stoppingVelocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
-                    m_playerRigidbody.velocity = stoppingVelocity;
+                    StopPlayerMovement();
                 }
             }
         }
@@ -272,10 +266,20 @@ public class PlayerMovementHandler : MonoBehaviour
                 {
                     // TODO: Debug ConveyorMovement
                     Debug.Log("Player Should Be Stopped");
-                    m_playerRigidbody.velocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
+                    StopPlayerMovement();
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Used to instantly stop the player's movement
+    /// </summary>
+    private void StopPlayerMovement()
+    {
+        Vector2 stoppingVelocity = m_playerRigidbody.velocity;
+        stoppingVelocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
+        m_playerRigidbody.velocity = stoppingVelocity;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
