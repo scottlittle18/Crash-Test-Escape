@@ -81,11 +81,14 @@ public class MotionDetector : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Player is detected by the motion sensor");
             if (collision.GetComponent<PlayerMovementHandler>() != null)
             {
-                if (!collision.GetComponent<PlayerMovementHandler>().HorizontalMoveInputReceived)
+                // TODO: Debugging the motion detection system.
+                Debug.Log($"Motion sensor sees the player as moving: {collision.GetComponent<PlayerMovementHandler>().PlayerIsNotMoving}");
+
+                if (!collision.GetComponent<PlayerMovementHandler>().PlayerIsNotMoving && !Mathf.Approximately(collision.GetComponent<Rigidbody2D>().velocity.x, 0.0f))
                 {
+                    // If the motion detector is on
                     if (m_detectorAnim.GetBool("IsOn"))
                     {
                         m_detectorAnim.SetBool("IsAlerted", true);
@@ -94,6 +97,7 @@ public class MotionDetector : MonoBehaviour
                 }
                 else
                 {
+                    // If the motion detector is on
                     if (m_detectorAnim.GetBool("IsOn"))
                     {
                         m_detectorAnim.SetBool("IsAlerted", false);
@@ -108,13 +112,10 @@ public class MotionDetector : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Player has left the motion sensor detection zone");
             if (m_detectorAnim.GetBool("IsOn"))
             {
                 m_detectorAnim.SetBool("IsAlerted", false);
                 StopCoroutine("PistonSmashDelay");
-                //m_pistonAnim.SetBool("IsActive", false);
-
             }
         }
     }
