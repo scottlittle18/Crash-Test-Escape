@@ -44,6 +44,9 @@ public class MotionDetector : MonoBehaviour
         UpdateDetectionZone();
     }
 
+    /// <summary>
+    /// Controls when the trigger volume that makes up the detection zone turns on
+    /// </summary>
     private void UpdateDetectionZone()
     {
         if (m_detectorAnim.GetBool("IsOn"))
@@ -61,20 +64,34 @@ public class MotionDetector : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Reset the timer associated with the motion detector
+    /// </summary>
     private void ResetBaseTimer()
     {
         m_timer = Time.time + m_onTime;
     }
 
+    /// <summary>
+    /// Controls the length of the delay between when the motion detector is alerted to the player and when the piston will come down to crush them
+    /// </summary>
+    /// <returns></returns>
     IEnumerator PistonSmashDelay()
     {
-        Debug.Log("Waiting to crush Player...");
+        // Wait before crushing
         yield return new WaitForSecondsRealtime(m_pistonBufferTime);
-        m_pistonAnim.SetBool("IsActive", true);
-        Debug.Log("CRUSHING PLAYER!!!");
+
+        // If the motion detector is still alerted to the player's presence then they can crush them
+        if (m_detectorAnim.GetBool("IsAlerted"))
+        {
+            m_pistonAnim.SetBool("IsActive", true);
+        }
+
+        // Wait before retracting
         yield return new WaitForSecondsRealtime(m_pistonAnim.GetCurrentAnimatorClipInfo(0).Length * 0.5f); // 0.5f used to keep the animation from running more than once.
+
+        // Retract Piston
         m_pistonAnim.SetBool("IsActive", false);
-        Debug.Log("Stop Crushing Player");
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -86,7 +103,7 @@ public class MotionDetector : MonoBehaviour
                 // TODO: Debugging the motion detection system.
                 Debug.Log($"Motion sensor sees the player as moving: {collision.GetComponent<PlayerMovementHandler>().PlayerIsNotMoving}");
 
-                if (!collision.GetComponent<PlayerMovementHandler>().PlayerIsNotMoving && !Mathf.Approximately(collision.GetComponent<Rigidbody2D>().velocity.x, 0.0f))
+                if (!Mathf.Approximately(collision.GetComponent<Rigidbody2D>().velocity.x, 0.0f))
                 {
                     // If the motion detector is on
                     if (m_detectorAnim.GetBool("IsOn"))
