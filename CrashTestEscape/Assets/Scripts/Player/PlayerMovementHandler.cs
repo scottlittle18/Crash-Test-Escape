@@ -109,7 +109,14 @@ public class PlayerMovementHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!m_playerHealthSystem.IsBeingKnockedBack)
+        if (m_isShoving && !Mathf.Approximately(m_playerRigidbody.velocity.x, 0.0f))
+        {
+            Vector2 stoppingVelocity = m_playerRigidbody.velocity;
+            stoppingVelocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
+            m_playerRigidbody.velocity = stoppingVelocity;
+        }
+
+        if (!m_playerHealthSystem.IsBeingKnockedBack && !m_isShoving)
         {
             // Apply horizontal player movement input.
             HorizontalMoveInputHandler();
@@ -196,8 +203,12 @@ public class PlayerMovementHandler : MonoBehaviour
             // IF NO MOVEMENT INPUT is detected but the player is still moving, then STOP PLAYER MOVEMENT
         else if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
         {
-            if (!m_groundCheck.IsOnMovingPlatform)
-                m_playerRigidbody.velocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
+            if (!m_groundCheck.IsOnMovingPlatform || m_isShoving)
+            {
+                Vector2 stoppingVelocity = m_playerRigidbody.velocity;
+                stoppingVelocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
+                m_playerRigidbody.velocity = stoppingVelocity;
+            }
             else if (m_groundCheck.IsOnMovingPlatform && m_conveyorBelt != null)
             {
                 // If the player is not trying to move and the conveyor belt is off
