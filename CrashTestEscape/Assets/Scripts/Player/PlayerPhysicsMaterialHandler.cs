@@ -18,21 +18,34 @@ public class PlayerPhysicsMaterialHandler : MonoBehaviour
     /// that's been assigned to the player's collider
     /// </summary>
     private float m_playerPhysMatFriction;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         // Gather required component references and values
         m_groundCheck = GetComponentInChildren<GroundCheck>();
-        m_playerCollider = GetComponent<BoxCollider2D>();
-        m_playerPhysMatFriction = m_playerCollider.sharedMaterial.friction;
+        m_playerCollider = GetComponent<BoxCollider2D>();        
         m_playerRigidbody = GetComponent<Rigidbody2D>();
         m_playerMovementHandler = GetComponent<PlayerMovementHandler>();
-        m_playerHealthSystem = GetComponent<PlayerHealthSystem>();
+        m_playerHealthSystem = GetComponent<PlayerHealthSystem>();        
+    }
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+        if (m_playerCollider.sharedMaterial.friction != 0.0f)
+        {
+            // The Collider and Rigidbody components should have the same friction value so where you retrieve it shouldn't matter
+            m_playerPhysMatFriction = m_playerCollider.sharedMaterial.friction;
+        }
+        else if ((m_playerCollider.sharedMaterial.friction == 0) || (m_playerRigidbody.sharedMaterial.friction == 0))
+        {
+            m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 1.0f;
+            m_playerPhysMatFriction = m_playerCollider.sharedMaterial.friction;
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         UpdatePhysicsMaterial();
     }
