@@ -74,6 +74,13 @@ public class GroundCheck : MonoBehaviour
         if (collision.gameObject.tag == "MovingPlatforms")
         {
             Debug.Log("Player is on a moving platform");
+            IsGrounded = false;
+            IsOnMovingPlatform = true;
+        }
+
+        if (collision.gameObject.tag == "ImmobileDummy")
+        {
+            Debug.Log("Player is on an Immobile Dummy");
             IsGrounded = true;
             IsOnMovingPlatform = true;
         }
@@ -91,6 +98,13 @@ public class GroundCheck : MonoBehaviour
         if (collision.gameObject.tag == "MovingPlatforms")
         {
             Debug.Log("Player is NOT on a moving platform");
+            IsGrounded = false;
+            IsOnMovingPlatform = false;
+        }
+
+        if (collision.gameObject.tag == "ImmobileDummy")
+        {
+            Debug.Log("Player is on an Immobile Dummy");
             IsGrounded = false;
             IsOnMovingPlatform = false;
         }

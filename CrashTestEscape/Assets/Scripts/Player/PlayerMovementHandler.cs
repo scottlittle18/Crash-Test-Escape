@@ -72,8 +72,7 @@ public class PlayerMovementHandler : MonoBehaviour
     private bool m_playerIsNotMoving;
     public bool PlayerIsNotMoving
     {
-        get { return m_playerIsNotMoving; }
-        private set { m_playerIsNotMoving = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f); }
+        get { return m_playerIsNotMoving = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f); }
     }
 
     // Start is called before the first frame update
@@ -244,15 +243,36 @@ public class PlayerMovementHandler : MonoBehaviour
         {
             if (collision.GetComponent<ConveyorBelt>() != null)
             {
-                //TODO: Debug
-                Debug.Log("Player has detected the conveyor belt");
                 m_conveyorBelt = collision.GetComponent<ConveyorBelt>();
+                //TODO: Debug
+                Debug.Log($"ConveyorBeltActive == {m_conveyorBelt.ConveyorBeltActive}");
 
                 // If the player is not trying to move and the conveyor belt is off
-                if (!PlayerIsNotMoving && !m_conveyorBelt.ConveyorBeltActive)
+                if (PlayerIsNotMoving && !m_conveyorBelt.ConveyorBeltActive)
                 {
                     // TODO: Debug ConveyorMovement
                     Debug.Log("Player Should Be Stopped");
+                    StopPlayerMovement();
+                }
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "MovingPlatforms")
+        {
+            if (collision.GetComponent<ConveyorBelt>() != null)
+            {
+                m_conveyorBelt = collision.GetComponent<ConveyorBelt>();
+                //TODO: Debug
+                Debug.Log($"ConveyorBeltActive == {m_conveyorBelt.ConveyorBeltActive}");
+
+                // If the player is not trying to move and the conveyor belt is off
+                if (PlayerIsNotMoving && !m_conveyorBelt.ConveyorBeltActive)
+                {
+                    // TODO: Debug ConveyorMovement
+                    Debug.Log("Player Should Be Stopped cuz of the coveyor");
                     StopPlayerMovement();
                 }
             }

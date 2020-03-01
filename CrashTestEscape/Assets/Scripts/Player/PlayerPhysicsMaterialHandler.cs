@@ -45,11 +45,13 @@ public class PlayerPhysicsMaterialHandler : MonoBehaviour
         if (m_playerHealthSystem.IsAlive)
         {
             // Set the friction of the player's collider to 0 to keep them from sticking to walls
-            if (!m_groundCheck.IsGrounded || ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && m_playerMovementHandler.PlayerIsNotMoving))
+            if (!m_groundCheck.IsGrounded && !m_groundCheck.IsOnMovingPlatform)
             {
                 m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 0.0f;
             }
-            else if ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && !m_playerMovementHandler.PlayerIsNotMoving) // Reset the player's friction to it's original value when the player is not on the ground
+
+            // Reset the player's friction to it's original value when the player is on the ground and not trying to move
+            if ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && m_playerMovementHandler.PlayerIsNotMoving)
             {
                 m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
             }

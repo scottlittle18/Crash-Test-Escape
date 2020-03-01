@@ -26,11 +26,7 @@ public class ConveyorBelt : MonoBehaviour
     private bool m_conveyorBeltActive;
     public bool ConveyorBeltActive
     {
-        get { return m_conveyorBeltActive; }
-        private set
-        {
-            m_conveyorBeltActive = m_conveyorMovementObject.activeSelf;
-        }
+        get { return m_conveyorBeltActive = m_conveyorMovementObject.activeSelf; }
     }
 
     private void Awake()
