@@ -129,7 +129,7 @@ public class PlayerMovementHandler : MonoBehaviour
     {
         // Initialize Player Systems (e.g. health, jump, attack, etc.)
         m_playerHealthSystem = GetComponent<PlayerHealthSystem>();
-        // Jump component is needed in order to properly clamp the player's max velocity on bot hthe x & y axis
+        // Jump component is needed in order to properly clamp the player's max velocity on the x & y axis
         m_playerJumpHandler = GetComponent<PlayerJumpHandler>();
         m_shoveHandler = GetComponent<PlayerShoveHandler>();
 
@@ -156,28 +156,6 @@ public class PlayerMovementHandler : MonoBehaviour
     {
         m_inputListener.m_verticalInput = Input.GetAxisRaw("Vertical");
     }
-
-    ///// <summary>
-    /////  Listens for the attack/shove input
-    ///// </summary>
-    //private void ShoveInputListener()
-    //{
-    //    m_inputListener.m_shoveInput = Input.GetButtonDown("Fire1");
-
-    //    if (m_inputListener.m_shoveInput)
-    //    {
-    //        m_playerAnim.ResetTrigger("StopShoving");
-    //        m_playerAnim.SetTrigger("Shove");
-    //        m_isShoving = true;
-    //    }
-
-    //    if (Input.GetButtonUp("Fire1"))
-    //    {
-    //        m_playerAnim.ResetTrigger("Shove");
-    //        m_playerAnim.SetTrigger("StopShoving");
-    //        m_isShoving = false;
-    //    }
-    //}
     #endregion
 
     #region ________________________________________________________________HANDLERS__________________________
@@ -224,6 +202,7 @@ public class PlayerMovementHandler : MonoBehaviour
     {
         m_playerAnim.SetBool("IsCrouched", m_inputListener.m_verticalInput < 0);
     }
+    #endregion
 
     /// <summary>
     /// Updates the direction the sprite should be facing based on the horizontal player input
@@ -248,7 +227,16 @@ public class PlayerMovementHandler : MonoBehaviour
                 m_playerSpriteRenderer.flipX = false;
         }
     }
-    #endregion
+
+    /// <summary>
+    /// Used to instantly stop the player's movement
+    /// </summary>
+    private void StopPlayerMovement()
+    {
+        Vector2 stoppingVelocity = m_playerRigidbody.velocity;
+        stoppingVelocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
+        m_playerRigidbody.velocity = stoppingVelocity;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -269,16 +257,6 @@ public class PlayerMovementHandler : MonoBehaviour
                 }
             }
         }
-    }
-
-    /// <summary>
-    /// Used to instantly stop the player's movement
-    /// </summary>
-    private void StopPlayerMovement()
-    {
-        Vector2 stoppingVelocity = m_playerRigidbody.velocity;
-        stoppingVelocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
-        m_playerRigidbody.velocity = stoppingVelocity;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
