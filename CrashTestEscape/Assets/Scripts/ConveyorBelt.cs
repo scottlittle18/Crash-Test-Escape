@@ -27,6 +27,8 @@ public class ConveyorBelt : MonoBehaviour
     /// </summary>
     private GameObject m_conveyorMovementObject;
 
+    private GameObject m_spawnedParentObject;
+
     private int m_lastObjectSpawned = 0;
 
     private float m_conveyerTimer;
@@ -40,6 +42,7 @@ public class ConveyorBelt : MonoBehaviour
     private void Awake()
     {
         m_conveyorMovementObject = transform.GetChild(0).gameObject;
+        m_spawnedParentObject = GameObject.Find("Environmental Assets");
 
         ResetConveyorDelay();
     }
@@ -66,13 +69,12 @@ public class ConveyorBelt : MonoBehaviour
         {
             if (m_lastObjectSpawned == 0)
             {
-                Instantiate(m_spawnableObjectList[1], m_spawnerTransform);
-                Instantiate(m_spawnableObjectList[1], m_spawnerTransform.position, Quaternion.identity);
+                Instantiate(m_spawnableObjectList[1], new Vector3(m_spawnerTransform.position.x, m_spawnerTransform.position.y, 0.0f), Quaternion.identity, m_spawnedParentObject.transform);
                 m_lastObjectSpawned = 1;
             }
             else if (m_lastObjectSpawned == 1)
             {
-                Instantiate(m_spawnableObjectList[0], m_spawnerTransform);
+                Instantiate(m_spawnableObjectList[0], new Vector3(m_spawnerTransform.position.x, m_spawnerTransform.position.y, 0.0f), Quaternion.identity, m_spawnedParentObject.transform);
                 m_lastObjectSpawned = 0;
             }
         }
