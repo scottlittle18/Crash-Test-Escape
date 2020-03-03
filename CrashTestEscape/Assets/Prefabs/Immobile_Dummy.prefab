@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7507525583675342154}
   - component: {fileID: 7507525583675342155}
   - component: {fileID: 7507525583675342148}
-  m_Layer: 10
+  - component: {fileID: 1686950566}
+  m_Layer: 11
   m_Name: Immobile_Dummy
   m_TagString: ImmobileDummy
   m_Icon: {fileID: 0}
@@ -129,3 +130,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1686950566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7507525583675342152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfaaca5b2131cf41b884b1342630a60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_assignedConveyor: {fileID: 0}
