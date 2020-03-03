@@ -10,6 +10,7 @@ TagManager:
   - MovingPlatforms
   - KillZone
   - ImmobileDummy
+  - Environmental Props
   layers:
   - Default
   - TransparentFX
