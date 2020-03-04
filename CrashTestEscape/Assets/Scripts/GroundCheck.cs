@@ -77,6 +77,13 @@ public class GroundCheck : MonoBehaviour
             IsGrounded = true;
             IsOnMovingPlatform = true;
         }
+
+        if (collision.gameObject.tag == "Environmental Props")
+        {
+            Debug.Log("Player is on an Environmental Prop");
+            IsGrounded = true;
+            IsOnMovingPlatform = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -97,7 +104,14 @@ public class GroundCheck : MonoBehaviour
 
         if (collision.gameObject.tag == "ImmobileDummy")
         {
-            Debug.Log("Player is on an Immobile Dummy");
+            Debug.Log("Player is NOT on an Immobile Dummy");
+            IsGrounded = false;
+            IsOnMovingPlatform = false;
+        }
+
+        if (collision.gameObject.tag == "Environmental Props")
+        {
+            Debug.Log("Player is NOT on an Environmental Prop");
             IsGrounded = false;
             IsOnMovingPlatform = false;
         }
