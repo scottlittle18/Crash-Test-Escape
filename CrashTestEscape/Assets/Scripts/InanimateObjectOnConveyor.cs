@@ -29,7 +29,7 @@ public class InanimateObjectOnConveyor : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!m_assignedConveyor.ConveyorBeltActive)
+        if (!m_assignedConveyor.ConveyorBeltActive && m_inanimateRigidbody.freezeRotation != true)
         {
             Vector2 stoppingVelocity = m_inanimateRigidbody.velocity;
             stoppingVelocity = new Vector2(0.0f, m_inanimateRigidbody.velocity.y);

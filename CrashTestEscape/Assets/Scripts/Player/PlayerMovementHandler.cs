@@ -32,6 +32,9 @@ public class PlayerMovementHandler : MonoBehaviour
 
     //TODO Addition for stopping player movement when they're shoving
     private bool m_isShoving = false;
+
+    // Used to determine whether the player was crushed or not
+    private bool m_isCrushed = false;
     #endregion------------
 
     #region Component Variable Containers
@@ -167,12 +170,24 @@ public class PlayerMovementHandler : MonoBehaviour
     {
         if (!Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
         {
-            //Accelerate player and clamp their velocity; **NOTE* --> MOVED INTO THIS IF STATEMENT, IT WAS PREVIOUSLY OUT IN THIS FUNCTION ON ITS' OWN!!
-            m_playerRigidbody.AddForce(Vector2.right * m_inputListener.m_horizontalMoveInput * m_runningAccelerationRate);
-            Vector2 clampedVelocity = m_playerRigidbody.velocity;
-            clampedVelocity.x = Mathf.Clamp(m_playerRigidbody.velocity.x, -m_maxMoveSpeed, m_maxMoveSpeed);
-            clampedVelocity.y = Mathf.Clamp(m_playerRigidbody.velocity.y, Mathf.NegativeInfinity, m_playerJumpHandler.MaxJumpSpeed);
-            m_playerRigidbody.velocity = clampedVelocity;
+            if (m_isCrushed == false)
+            {
+                //Accelerate player and clamp their velocity; **NOTE* --> MOVED INTO THIS IF STATEMENT, IT WAS PREVIOUSLY OUT IN THIS FUNCTION ON ITS' OWN!!
+                m_playerRigidbody.AddForce(Vector2.right * m_inputListener.m_horizontalMoveInput * m_runningAccelerationRate);
+                Vector2 clampedVelocity = m_playerRigidbody.velocity;
+                clampedVelocity.x = Mathf.Clamp(m_playerRigidbody.velocity.x, -m_maxMoveSpeed, m_maxMoveSpeed);
+                clampedVelocity.y = Mathf.Clamp(m_playerRigidbody.velocity.y, Mathf.NegativeInfinity, m_playerJumpHandler.MaxJumpSpeed);
+                m_playerRigidbody.velocity = clampedVelocity;
+            }
+            else if (m_isCrushed == true)
+            {
+                // This is the player's move speed after they've been crushed by an object; it causes the player's move speed to be halved
+                m_playerRigidbody.AddForce(Vector2.right * (m_inputListener.m_horizontalMoveInput * 0.5f) * m_runningAccelerationRate);
+                Vector2 clampedVelocity = m_playerRigidbody.velocity;
+                clampedVelocity.x = Mathf.Clamp(m_playerRigidbody.velocity.x, -m_maxMoveSpeed * 0.5f, m_maxMoveSpeed * 0.5f);
+                clampedVelocity.y = Mathf.Clamp(m_playerRigidbody.velocity.y, Mathf.NegativeInfinity, m_playerJumpHandler.MaxJumpSpeed);
+                m_playerRigidbody.velocity = clampedVelocity;
+            }
         }
             // IF NO MOVEMENT INPUT is detected but the player is still moving, then STOP PLAYER MOVEMENT
         else if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
@@ -186,8 +201,6 @@ public class PlayerMovementHandler : MonoBehaviour
                 // If the player is not trying to move and the conveyor belt is off
                 if (PlayerIsNotMoving && !m_conveyorBelt.ConveyorBeltActive)
                 {
-                    // TODO: Debug ConveyorMovement
-                    Debug.Log("Player Should Be Stopped");
                     StopPlayerMovement();
                 }
             }
@@ -237,9 +250,16 @@ public class PlayerMovementHandler : MonoBehaviour
         m_playerRigidbody.velocity = stoppingVelocity;
     }
 
+    IEnumerator IsCrushedTimer()
+    {
+        yield return new WaitForSecondsRealtime(0.5f); // TODO: <-- Change Temp ## 
+        m_isCrushed = false;
+        m_playerAnim.SetBool("IsCrushed", false);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "MovingPlatforms")
+        if (collision.tag == "MovingPlatforms")
         {
             if (collision.GetComponent<ConveyorBelt>() != null)
             {
@@ -250,9 +270,20 @@ public class PlayerMovementHandler : MonoBehaviour
                 // If the player is not trying to move and the conveyor belt is off
                 if (PlayerIsNotMoving && !m_conveyorBelt.ConveyorBeltActive)
                 {
-                    // TODO: Debug ConveyorMovement
-                    Debug.Log("Player Should Be Stopped");
                     StopPlayerMovement();
+                }
+            }
+        }
+
+        if (collision.tag == "Crusher")
+        {
+            if (collision.gameObject.GetComponent<Animator>() != null)
+            {
+                if (collision.gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CrushingPiston_Extended"))
+                {
+                    m_isCrushed = true;
+                    m_playerAnim.SetBool("IsCrushed", true);
+                    StartCoroutine("IsCrushedTimer");
                 }
             }
         }
@@ -265,14 +296,10 @@ public class PlayerMovementHandler : MonoBehaviour
             if (collision.GetComponent<ConveyorBelt>() != null)
             {
                 m_conveyorBelt = collision.GetComponent<ConveyorBelt>();
-                //TODO: Debug
-                Debug.Log($"ConveyorBeltActive == {m_conveyorBelt.ConveyorBeltActive}");
 
                 // If the player is not trying to move and the conveyor belt is off
                 if (PlayerIsNotMoving && !m_conveyorBelt.ConveyorBeltActive)
                 {
-                    // TODO: Debug ConveyorMovement
-                    Debug.Log("Player Should Be Stopped cuz of the coveyor");
                     StopPlayerMovement();
                 }
             }

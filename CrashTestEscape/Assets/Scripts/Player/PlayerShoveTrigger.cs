@@ -15,7 +15,7 @@ public class PlayerShoveTrigger : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().freezeRotation = false;
 
             // This makes it so the player moves more accurately with the dummy when standing still on it and the conveyor is on
-            collision.gameObject.tag = "MovingPlatforms";
+            //collision.gameObject.tag = "MovingPlatforms";
         }
     }
 }

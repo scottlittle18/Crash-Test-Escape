@@ -60,6 +60,8 @@ public class PlayerPhysicsMaterialHandler : MonoBehaviour
             // Set the friction of the player's collider to 0 to keep them from sticking to walls
             if (!m_groundCheck.IsGrounded && !m_groundCheck.IsOnMovingPlatform)
             {
+                // TODO Debug Wall Stickiness
+                Debug.Log($"Player is in the air and should not be sticking to things");
                 m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 0.0f;
             }
 
