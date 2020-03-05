@@ -281,6 +281,8 @@ public class PlayerMovementHandler : MonoBehaviour
             {
                 if (collision.gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CrushingPiston_Extended"))
                 {
+                    //TODO: Debug
+                    Debug.Log($"The player should be crushed right now.");
                     m_isCrushed = true;
                     m_playerAnim.SetBool("IsCrushed", true);
                     StartCoroutine("IsCrushedTimer");
