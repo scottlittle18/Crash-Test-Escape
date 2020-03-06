@@ -55,13 +55,6 @@ public class GroundCheck : MonoBehaviour
         }
     }
 
-    //private void Update()
-    //{
-    //    //Physics2D.Overlap Method -- Using a normal collider instead for accuracy
-    //    IsGrounded == true if the player is on an object in the "Ground" LayerMask.
-    //    IsGrounded = Physics2D.OverlapCircle(this.transform.position, groundCheckRadius, whatIsGround);
-    //}
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground")
@@ -74,6 +67,20 @@ public class GroundCheck : MonoBehaviour
         if (collision.gameObject.tag == "MovingPlatforms")
         {
             Debug.Log("Player is on a moving platform");
+            IsGrounded = false;
+            IsOnMovingPlatform = true;
+        }
+
+        if (collision.gameObject.tag == "ImmobileDummy")
+        {
+            Debug.Log("Player is on an Immobile Dummy");
+            IsGrounded = true;
+            IsOnMovingPlatform = true;
+        }
+
+        if (collision.gameObject.tag == "Environmental Props")
+        {
+            Debug.Log("Player is on an Environmental Prop");
             IsGrounded = true;
             IsOnMovingPlatform = true;
         }
@@ -91,6 +98,20 @@ public class GroundCheck : MonoBehaviour
         if (collision.gameObject.tag == "MovingPlatforms")
         {
             Debug.Log("Player is NOT on a moving platform");
+            IsGrounded = false;
+            IsOnMovingPlatform = false;
+        }
+
+        if (collision.gameObject.tag == "ImmobileDummy")
+        {
+            Debug.Log("Player is NOT on an Immobile Dummy");
+            IsGrounded = false;
+            IsOnMovingPlatform = false;
+        }
+
+        if (collision.gameObject.tag == "Environmental Props")
+        {
+            Debug.Log("Player is NOT on an Environmental Prop");
             IsGrounded = false;
             IsOnMovingPlatform = false;
         }

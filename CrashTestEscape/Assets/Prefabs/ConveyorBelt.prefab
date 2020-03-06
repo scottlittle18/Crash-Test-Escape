@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1526470873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1526470874}
+  m_Layer: 0
+  m_Name: ConveyorObjectSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1526470874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526470873}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.9686952, y: 10.918863, z: -37.039062}
+  m_LocalScale: {x: 0.015489459, y: 3.8829527, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6137740457235104482}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6137740457235104486
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,11 +57,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6137740457235104486}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 94.94, y: -3.4698, z: 0}
-  m_LocalScale: {x: 202.22624, y: 0.4868355, z: 1}
+  m_LocalScale: {x: 64.560036, y: 0.25753596, z: 1}
   m_Children:
   - {fileID: 6137740457777933987}
+  - {fileID: 1526470874}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -218,10 +249,10 @@ SurfaceEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 256
-  m_Speed: 10
+    m_Bits: 3328
+  m_Speed: 8
   m_SpeedVariation: 0
-  m_ForceScale: 0.1
+  m_ForceScale: 0.5
   m_UseContactForce: 0
   m_UseFriction: 0
   m_UseBounce: 0

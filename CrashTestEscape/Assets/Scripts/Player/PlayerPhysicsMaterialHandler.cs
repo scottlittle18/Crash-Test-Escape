@@ -18,21 +18,34 @@ public class PlayerPhysicsMaterialHandler : MonoBehaviour
     /// that's been assigned to the player's collider
     /// </summary>
     private float m_playerPhysMatFriction;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         // Gather required component references and values
         m_groundCheck = GetComponentInChildren<GroundCheck>();
-        m_playerCollider = GetComponent<BoxCollider2D>();
-        m_playerPhysMatFriction = m_playerCollider.sharedMaterial.friction;
+        m_playerCollider = GetComponent<BoxCollider2D>();        
         m_playerRigidbody = GetComponent<Rigidbody2D>();
         m_playerMovementHandler = GetComponent<PlayerMovementHandler>();
-        m_playerHealthSystem = GetComponent<PlayerHealthSystem>();
+        m_playerHealthSystem = GetComponent<PlayerHealthSystem>();        
+    }
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+        if (m_playerCollider.sharedMaterial.friction != 0.0f)
+        {
+            // The Collider and Rigidbody components should have the same friction value so where you retrieve it shouldn't matter
+            m_playerPhysMatFriction = m_playerCollider.sharedMaterial.friction;
+        }
+        else if ((m_playerCollider.sharedMaterial.friction == 0) || (m_playerRigidbody.sharedMaterial.friction == 0))
+        {
+            m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 1.0f;
+            m_playerPhysMatFriction = m_playerCollider.sharedMaterial.friction;
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         UpdatePhysicsMaterial();
     }
@@ -45,11 +58,15 @@ public class PlayerPhysicsMaterialHandler : MonoBehaviour
         if (m_playerHealthSystem.IsAlive)
         {
             // Set the friction of the player's collider to 0 to keep them from sticking to walls
-            if (!m_groundCheck.IsGrounded || ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && m_playerMovementHandler.PlayerIsNotMoving))
+            if (!m_groundCheck.IsGrounded && !m_groundCheck.IsOnMovingPlatform)
             {
+                // TODO Debug Wall Stickiness
+                Debug.Log($"Player is in the air and should not be sticking to things");
                 m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 0.0f;
             }
-            else if ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && !m_playerMovementHandler.PlayerIsNotMoving) // Reset the player's friction to it's original value when the player is not on the ground
+
+            // Reset the player's friction to it's original value when the player is on the ground and not trying to move
+            if ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && m_playerMovementHandler.PlayerIsNotMoving)
             {
                 m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
             }
