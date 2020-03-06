@@ -36,4 +36,9 @@ public class MenuController : MonoBehaviour
             m_mainMenuPanel.SetActive(false);
         }
     }
+
+    public void OnExitToDesktopClicked()
+    {
+        Application.Quit();
+    }
 }
