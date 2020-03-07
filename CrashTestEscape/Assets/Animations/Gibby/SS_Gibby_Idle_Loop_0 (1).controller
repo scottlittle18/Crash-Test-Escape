@@ -36,6 +36,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: Horizontal_MoveSpeed
     m_EventTreshold: 0.01
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsCrouched
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6327191419648568571}
   m_Solo: 0
@@ -353,9 +356,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: Horizontal_MoveSpeed
     m_EventTreshold: -0.01
+  - m_ConditionMode: 4
+    m_ConditionEvent: Horizontal_MoveSpeed
+    m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -212180823216237283}
   m_Solo: 0
