@@ -644,6 +644,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1686950566, guid: 1845ce350bcf75742b2d6c120135598d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1845ce350bcf75742b2d6c120135598d, type: 3}
 --- !u!1 &2133302330
@@ -889,6 +893,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 589429191635973917, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 589429191635973917, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 589429191635973917, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 589429191635973917, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 589429191635973917, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 589429191635973917, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 4.84
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e867320cfd6b4724fbfac9e15cae2dda, type: 3}
 --- !u!1001 &6137740458215313446
@@ -902,6 +936,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ConveyorBelt
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137740457235104486, guid: 3a4d7445775b7fd4caed4a18ebfe5832,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6137740457235104482, guid: 3a4d7445775b7fd4caed4a18ebfe5832,
         type: 3}
@@ -960,23 +999,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137740457235104482, guid: 3a4d7445775b7fd4caed4a18ebfe5832,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4868355
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137740457235104482, guid: 3a4d7445775b7fd4caed4a18ebfe5832,
-        type: 3}
       propertyPath: m_LocalScale.x
-      value: 26.2793
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137740457777933985, guid: 3a4d7445775b7fd4caed4a18ebfe5832,
-        type: 3}
-      propertyPath: m_ColliderMask.m_Bits
-      value: 1280
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137740457777933985, guid: 3a4d7445775b7fd4caed4a18ebfe5832,
-        type: 3}
-      propertyPath: m_UseFriction
-      value: 1
+      value: 26.91
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a4d7445775b7fd4caed4a18ebfe5832, type: 3}
