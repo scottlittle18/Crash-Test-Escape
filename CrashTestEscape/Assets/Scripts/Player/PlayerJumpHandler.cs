@@ -31,6 +31,7 @@ public class PlayerJumpHandler : MonoBehaviour
     private Rigidbody2D m_playerRigidbody;
     private GroundCheck m_groundCheck;
     private PlayerHealthSystem m_playerHealthSystem;
+    private Animator m_PlayerAnim;
 
     /// <summary>
     /// This will respond to the player's Jump button
@@ -52,6 +53,8 @@ public class PlayerJumpHandler : MonoBehaviour
             // Listens For Input from Player
             JumpInputListener();
         }
+
+        m_PlayerAnim.SetBool("IsJumping", m_isJumping);
     }
 
     private void FixedUpdate()
@@ -73,6 +76,7 @@ public class PlayerJumpHandler : MonoBehaviour
 
         m_playerRigidbody = GetComponent<Rigidbody2D>();
         m_groundCheck = GetComponentInChildren<GroundCheck>();
+        m_PlayerAnim = GetComponent<Animator>();
     }
 
     /// <summary>

@@ -22,5 +22,6 @@ public class PlayerAnimationController : MonoBehaviour
     void FixedUpdate()
     {
         m_playerAnim.SetFloat("Horizontal_MoveSpeed", Mathf.Abs(horizontal_MoveInput));
+        m_playerAnim.SetFloat("Vertical_MoveSpeed", m_playerRigidbody.velocity.y);
     }
 }
