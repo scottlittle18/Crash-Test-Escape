@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 589429191635973919}
   - component: {fileID: 589429191635973918}
   - component: {fileID: 839815980}
+  - component: {fileID: 7460103507969354033}
   m_Layer: 8
   m_Name: Gibby_Player
   m_TagString: Player
@@ -392,6 +393,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60e355571f31b384997d6468a243b34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7460103507969354033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589429191635973927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b296170b2384cea49b1d8d06481b5dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &589429192555049785
