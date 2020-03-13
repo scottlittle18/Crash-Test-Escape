@@ -7,7 +7,7 @@ using UnityEngine;
 /// 
 /// Requires:
 ///     - Rigidbody2D Component
-///     - GroundCheck Script & Child Object
+///     - GroundCheck Script attached to a Child Object
 ///     - Health System that tells this script that the associated character is alive
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
@@ -31,11 +31,17 @@ public class PlayerJumpHandler : MonoBehaviour
     private Rigidbody2D m_playerRigidbody;
     private GroundCheck m_groundCheck;
     private PlayerHealthSystem m_playerHealthSystem;
+    private Animator m_PlayerAnim;
 
     /// <summary>
     /// This will respond to the player's Jump button
     /// </summary>
     private bool m_jumpInput;
+
+    /// <summary>
+    /// Determines whether or not the player can jump again based on whether they're on the ground or not;
+    /// </summary>
+    private bool m_canJump;
     
     // Start is called before the first frame update
     private void Start()
@@ -47,15 +53,20 @@ public class PlayerJumpHandler : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack)
+        if (m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack && m_canJump)
         {
             // Listens For Input from Player
             JumpInputListener();
         }
+
+        m_PlayerAnim.SetBool("IsJumping", Input.GetButton("Jump"));
     }
 
     private void FixedUpdate()
     {
+        // If the player is grounded, then they can jump again.
+        m_canJump = m_groundCheck.IsGrounded;
+
         if (!m_playerHealthSystem.IsBeingKnockedBack)
         {
             //Handle the application of forces associated with jumping
@@ -73,6 +84,7 @@ public class PlayerJumpHandler : MonoBehaviour
 
         m_playerRigidbody = GetComponent<Rigidbody2D>();
         m_groundCheck = GetComponentInChildren<GroundCheck>();
+        m_PlayerAnim = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -105,8 +117,6 @@ public class PlayerJumpHandler : MonoBehaviour
         // If the player is trying to jump
         if ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && m_jumpInput)
         {
-            //Debug.Log($"Player is Trying to jump...");
-            //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);
             m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_jumpingAccelerationRate, ForceMode2D.Force);
             StartCoroutine(JumpTimeLimiter());
         }
@@ -114,16 +124,12 @@ public class PlayerJumpHandler : MonoBehaviour
         //While Jumping
         if (m_isJumping && m_jumpInput)
         {
-            //Debug.Log($"Player is still jumping...");
-            //Keep the player's vertical velocity equal to their jump velocity
-            //m_playerRigidbody.velocity = new Vector2(m_playerRigidbody.velocity.x, m_playerJumpSpeed * Time.deltaTime);
             m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_jumpingAccelerationRate, ForceMode2D.Force);
         }
 
         // When the player releases the jump input
         if (Input.GetButtonUp("Jump"))
         {
-            //Debug.Log($"Player has stopped jumping...");
             StopCoroutine(JumpTimeLimiter());
             m_isJumping = false;
 

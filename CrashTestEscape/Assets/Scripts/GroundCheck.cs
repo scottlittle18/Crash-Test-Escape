@@ -21,6 +21,7 @@ using UnityEngine;
 public class GroundCheck : MonoBehaviour
 {
     private BoxCollider2D m_groundCheckCollider;
+    private Animator m_playerAnim;
 
     //This allows the IsGrounded variable to be read from the associated object's movement script.
     private bool m_isGrounded;
@@ -47,12 +48,18 @@ public class GroundCheck : MonoBehaviour
     private void Awake()
     {
         m_groundCheckCollider = GetComponent<BoxCollider2D>();
+        m_playerAnim = transform.parent.GetComponent<Animator>();
 
         // If the ground check collider was not set to be a trigger in the inspector, set it to be one
         if (m_groundCheckCollider.isTrigger != true)
         {
             m_groundCheckCollider.isTrigger = true;
         }
+    }
+
+    private void Update()
+    {
+        m_playerAnim.SetBool("IsGrounded", IsGrounded);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
