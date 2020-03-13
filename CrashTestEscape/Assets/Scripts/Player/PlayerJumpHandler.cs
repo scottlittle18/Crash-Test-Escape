@@ -37,6 +37,11 @@ public class PlayerJumpHandler : MonoBehaviour
     /// This will respond to the player's Jump button
     /// </summary>
     private bool m_jumpInput;
+
+    /// <summary>
+    /// Determines whether or not the player can jump again based on whether they're on the ground or not;
+    /// </summary>
+    private bool m_canJump;
     
     // Start is called before the first frame update
     private void Start()
@@ -48,17 +53,20 @@ public class PlayerJumpHandler : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack)
+        if (m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack && m_canJump)
         {
             // Listens For Input from Player
             JumpInputListener();
         }
 
-        m_PlayerAnim.SetBool("IsJumping", m_isJumping);
+        m_PlayerAnim.SetBool("IsJumping", Input.GetButton("Jump"));
     }
 
     private void FixedUpdate()
     {
+        // If the player is grounded, then they can jump again.
+        m_canJump = m_groundCheck.IsGrounded;
+
         if (!m_playerHealthSystem.IsBeingKnockedBack)
         {
             //Handle the application of forces associated with jumping
