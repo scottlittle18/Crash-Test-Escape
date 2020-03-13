@@ -1,0 +1,847 @@
+fileFormatVersion: 2
+guid: 656d107ea5ac1434d880e1a28544b609
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8373470294851787537
+    second: Gibby_Running_Loop_SpriteSheet_0
+  - first:
+      213: -7460964295019691785
+    second: Gibby_Running_Loop_SpriteSheet_1
+  - first:
+      213: 4739908662573382252
+    second: Gibby_Running_Loop_SpriteSheet_2
+  - first:
+      213: 5118507419623403206
+    second: Gibby_Running_Loop_SpriteSheet_3
+  - first:
+      213: -959290320542656128
+    second: Gibby_Running_Loop_SpriteSheet_4
+  - first:
+      213: 3152268965175141876
+    second: Gibby_Running_Loop_SpriteSheet_5
+  - first:
+      213: 5602927304704842758
+    second: Gibby_Running_Loop_SpriteSheet_6
+  - first:
+      213: 6218437073392545252
+    second: Gibby_Running_Loop_SpriteSheet_7
+  - first:
+      213: -2767770316136189755
+    second: Gibby_Running_Loop_SpriteSheet_8
+  - first:
+      213: -3617800988198837421
+    second: Gibby_Running_Loop_SpriteSheet_9
+  - first:
+      213: -8672212987182059053
+    second: Gibby_Running_Loop_SpriteSheet_10
+  - first:
+      213: 1148858576205967914
+    second: Gibby_Running_Loop_SpriteSheet_11
+  - first:
+      213: 5211387237578796657
+    second: Gibby_Running_Loop_SpriteSheet_12
+  - first:
+      213: 4113273746402840569
+    second: Gibby_Running_Loop_SpriteSheet_13
+  - first:
+      213: 2832835471059000550
+    second: Gibby_Running_Loop_SpriteSheet_14
+  - first:
+      213: 333467911263283217
+    second: Gibby_Running_Loop_SpriteSheet_15
+  - first:
+      213: -4659635845632268845
+    second: Gibby_Running_Loop_SpriteSheet_16
+  - first:
+      213: -8251683302785414601
+    second: Gibby_Running_Loop_SpriteSheet_17
+  - first:
+      213: -8919419447051607695
+    second: Gibby_Running_Loop_SpriteSheet_18
+  - first:
+      213: 2523169214196600513
+    second: Gibby_Running_Loop_SpriteSheet_19
+  - first:
+      213: -934537370878798762
+    second: Gibby_Running_Loop_SpriteSheet_20
+  - first:
+      213: 8791259638245106622
+    second: Gibby_Running_Loop_SpriteSheet_21
+  - first:
+      213: -7952929196047560904
+    second: Gibby_Running_Loop_SpriteSheet_22
+  - first:
+      213: -6248809746451496945
+    second: Gibby_Running_Loop_SpriteSheet_23
+  - first:
+      213: 2907712032378880213
+    second: Gibby_Running_Loop_SpriteSheet_24
+  - first:
+      213: 7408166142325308252
+    second: Gibby_Running_Loop_SpriteSheet_25
+  - first:
+      213: 7404925766706404126
+    second: Gibby_Running_Loop_SpriteSheet_26
+  - first:
+      213: 4655920400400158649
+    second: Gibby_Running_Loop_SpriteSheet_27
+  - first:
+      213: -6675752610117152348
+    second: Gibby_Running_Loop_SpriteSheet_28
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1559
+        width: 201
+        height: 465
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8173c1d9072a2c43a8c7f16882de261
+      internalID: -8373470294851787537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 1561
+        width: 199
+        height: 466
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b1f8ad25f879774a864af6bd2b68382
+      internalID: -7460964295019691785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 1565
+        width: 230
+        height: 463
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfc39d1e8a66e3843a9e640dd4944d2a
+      internalID: 4739908662573382252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 1570
+        width: 255
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d414eff833864d4da4ab1c196ccdb73
+      internalID: 5118507419623403206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 1578
+        width: 278
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 075b33a9608eced4eb210e908f117667
+      internalID: -959290320542656128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 1591
+        width: 309
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b0f597d13f27d49afd362657dc32aa
+      internalID: 3152268965175141876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1826
+        y: 1613
+        width: 330
+        height: 424
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a96b632f87a12e54786db55a18694286
+      internalID: 5602927304704842758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 2225
+        y: 1616
+        width: 341
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34884f450c7a0bf44b26f4c1479a75a2
+      internalID: 6218437073392545252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1122
+        width: 357
+        height: 407
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e75d1f27721ce904599621870b13b1d9
+      internalID: -2767770316136189755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 1098
+        width: 336
+        height: 424
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2508af48ee9889940973881c7fdf3f41
+      internalID: -3617800988198837421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 1078
+        width: 328
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fcd44dd42858fd4ca6faa3bd491c33f
+      internalID: -8672212987182059053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 1062
+        width: 317
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c3373eacb39173458e36abb30d0df04
+      internalID: 1148858576205967914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 1051
+        width: 307
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a87b9abf1f26fc43a5ba35645d93fb8
+      internalID: 5211387237578796657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 1933
+        y: 1046
+        width: 291
+        height: 455
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87b9188197ce5cd4a8007584349d5f15
+      internalID: 4113273746402840569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 2269
+        y: 1044
+        width: 277
+        height: 460
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f69bbbcb8d84c245a16036aab82e748
+      internalID: 2832835471059000550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 533
+        width: 258
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38a7388e967ddf4b88cbe6c945e33fc
+      internalID: 333467911263283217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 553
+        width: 237
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea834bd65f416645888f91c40b39e0b
+      internalID: -4659635845632268845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 568
+        width: 238
+        height: 451
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c86460cd738d0c4c8978322e4905b11
+      internalID: -8251683302785414601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 581
+        width: 293
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bd003876a928e14aaa4b3ef7a0c3014
+      internalID: -8919419447051607695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 594
+        width: 334
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d01589042b5bf4ca483022e5cb6a8c
+      internalID: 2523169214196600513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 1709
+        y: 587
+        width: 358
+        height: 427
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b01e1797a6928854e9fdbdf38e5aaea9
+      internalID: -934537370878798762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 2101
+        y: 584
+        width: 344
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd4365263f086da4d8d1da955f234053
+      internalID: 8791259638245106622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 50
+        width: 330
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24249f9aa65acd14ca96f220c100d7f3
+      internalID: -7952929196047560904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 39
+        width: 314
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6955acff40fd8134690d54274f336d97
+      internalID: -6248809746451496945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 26
+        width: 297
+        height: 449
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b079f36e0dcaea54eb8ee038528c3166
+      internalID: 2907712032378880213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 21
+        width: 263
+        height: 456
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99416642e783b21458f683a44b932a1c
+      internalID: 7408166142325308252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 1371
+        y: 20
+        width: 230
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7000dc94ad3688c4c8b1ecd352e8fead
+      internalID: 7404925766706404126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 19
+        width: 213
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba3f26937336c74f86479e83f5d14c4
+      internalID: 4655920400400158649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Running_Loop_SpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 1914
+        y: 11
+        width: 201
+        height: 466
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60d4a64a4d945b8469f6b2c2c6382ce2
+      internalID: -6675752610117152348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
