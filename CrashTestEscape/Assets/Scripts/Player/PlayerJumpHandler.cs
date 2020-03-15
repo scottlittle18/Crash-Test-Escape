@@ -53,7 +53,7 @@ public class PlayerJumpHandler : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack && m_canJump)
+        if (m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack && !m_isJumping)
         {
             // Listens For Input from Player
             JumpInputListener();
@@ -64,9 +64,6 @@ public class PlayerJumpHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // If the player is grounded, then they can jump again.
-        m_canJump = m_groundCheck.IsGrounded;
-
         if (!m_playerHealthSystem.IsBeingKnockedBack)
         {
             //Handle the application of forces associated with jumping
@@ -102,8 +99,10 @@ public class PlayerJumpHandler : MonoBehaviour
     private IEnumerator JumpTimeLimiter()
     {
         m_isJumping = true;
+        m_canJump = false;
         yield return new WaitForSecondsRealtime(m_jumpLength);
         m_isJumping = false;
+        m_canJump = true;
     }
 
     /// <summary>
@@ -118,7 +117,9 @@ public class PlayerJumpHandler : MonoBehaviour
         if ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && m_jumpInput)
         {
             m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_jumpingAccelerationRate, ForceMode2D.Force);
-            StartCoroutine(JumpTimeLimiter());
+
+            if (!m_isJumping)
+                StartCoroutine(JumpTimeLimiter());
         }
 
         //While Jumping
