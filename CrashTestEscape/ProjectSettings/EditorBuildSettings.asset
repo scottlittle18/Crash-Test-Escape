@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: 9b46c1cc00037bc4bb9a56160862031b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scotts_Level01_Proto_V0.1.unity
     guid: 357a4ac85cc8638498e27099f29b736f
+  - enabled: 1
+    path: Assets/Scenes/Scotts_Sandbox.unity
+    guid: cf14fb6c3907ff4438dad6182b6cb1a7
   m_configObjects: {}
