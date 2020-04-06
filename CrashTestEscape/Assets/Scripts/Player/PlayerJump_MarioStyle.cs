@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-///     Listens for and Handles Jumping Input and Movement respectively. This specific script is meant to only implement
-/// a basic jump for the player's character.
+///     Listens for and Handles Jumping Input and Movement respectively. This specific jumping script was an attempt
+/// to create a mario style jump. Unfortunately, in its' current state the jump height is inconsistent both in the
+/// engine and in the actual build of the game.
+/// 
+///     Instead of using this script, we are currently using the script called PlayerJumpHandler.cs to replace the
+/// Mario-esque jumping mechanic with a very basic single jump instead.
 /// 
 /// Requires:
 ///     - A Rigidbody2D Component attatched to the same object as this script.
@@ -15,7 +19,7 @@ using UnityEngine;
 ///     - A Health System that tells this script that the character this script is attached to is alive.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerJumpHandler : MonoBehaviour
+public class PlayerJump_MarioStyle : MonoBehaviour
 {
     [Header("Jump Settings")]
 
@@ -26,6 +30,9 @@ public class PlayerJumpHandler : MonoBehaviour
     private float m_maxJumpSpeed = 0.0f;
 
     public float MaxJumpSpeed { get { return m_maxJumpSpeed; } private set { m_maxJumpSpeed = value; } }
+
+    [SerializeField, Tooltip("Adjusts the length of time that the jump input is accepted for. (This is modeled after Mario's jump mechanic).")]
+    private float m_jumpLength = 0.0f;
 
     private bool m_isJumping = false;
 
@@ -43,7 +50,7 @@ public class PlayerJumpHandler : MonoBehaviour
     /// Determines whether or not the player can jump again based on whether they're on the ground or not;
     /// </summary>
     private bool m_canJump;
-    
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -94,6 +101,19 @@ public class PlayerJumpHandler : MonoBehaviour
     }
 
     /// <summary>
+    /// Limits the length of time the player will be able to jump for.
+    /// </summary>
+    /// <returns>Waits for the given length of time [Adjustable In-Editor]</returns>
+    private IEnumerator JumpTimeLimiter()
+    {
+        m_isJumping = true;
+        m_canJump = false;
+        yield return new WaitForSecondsRealtime(m_jumpLength);
+        m_isJumping = false;
+        m_canJump = true;
+    }
+
+    /// <summary>
     /// Handles and applies the jump input received from the player
     /// </summary>
     private void JumpInputHandler()
@@ -105,6 +125,9 @@ public class PlayerJumpHandler : MonoBehaviour
         if ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && m_jumpInput)
         {
             m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_jumpingAccelerationRate, ForceMode2D.Force);
+
+            if (!m_isJumping)
+                StartCoroutine(JumpTimeLimiter());
         }
 
         //While Jumping
@@ -116,6 +139,7 @@ public class PlayerJumpHandler : MonoBehaviour
         // When the player releases the jump input
         if (Input.GetButtonUp("Jump"))
         {
+            StopCoroutine(JumpTimeLimiter());
             m_isJumping = false;
 
             // Stop Player's upward movement immediately after they release the jump button
