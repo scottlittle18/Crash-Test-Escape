@@ -19,31 +19,36 @@ public class PlayerJumpHandler : MonoBehaviour
 {
     [Header("Jump Settings")]
 
-    [SerializeField, Tooltip("How fast will the player be able to accelerate to their maximum jump speed?")]
-    private float m_jumpingAccelerationRate = 0.0f;
+    [SerializeField, Tooltip("This is the initial force that is applied when the player goes to jump.")]
+    private float m_jumpForce = 1.0f;
 
-    [SerializeField, Tooltip("What is the maximum speed that the player will be able to jump upward?")]
-    private float m_maxJumpSpeed = 0.0f;
+    [SerializeField, Tooltip("This is the maximum velocity that the player will have when jumping.")]
+    private float m_maxJumpSpeed = 1.0f;
 
     public float MaxJumpSpeed { get { return m_maxJumpSpeed; } private set { m_maxJumpSpeed = value; } }
 
     private bool m_isJumping = false;
 
-    private Rigidbody2D m_playerRigidbody;
-    private GroundCheck m_groundCheck;
-    private PlayerHealthSystem m_playerHealthSystem;
-    private Animator m_PlayerAnim;
-
     /// <summary>
-    /// This will respond to the player's Jump button
+    /// This should be assigned to the input for jumping
     /// </summary>
     private bool m_jumpInput;
 
     /// <summary>
-    /// Determines whether or not the player can jump again based on whether they're on the ground or not;
+    /// Determines whether or not the player can jump again based on whether they're on the ground or not
     /// </summary>
     private bool m_canJump;
-    
+
+    #region Unity Components
+        private Rigidbody2D m_playerRigidbody;
+        private Animator m_PlayerAnim;
+    #endregion
+
+    #region Custom Scripts, Systems, and Objects
+        private GroundCheck m_groundCheck;
+        private PlayerHealthSystem m_playerHealthSystem;
+    #endregion
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -60,7 +65,7 @@ public class PlayerJumpHandler : MonoBehaviour
             JumpInputListener();
         }
 
-        m_PlayerAnim.SetBool("IsJumping", Input.GetButton("Jump"));
+        m_PlayerAnim.SetBool("IsJumping", (m_playerRigidbody.velocity.y > 0.01f && m_isJumping));
     }
 
     private void FixedUpdate()
@@ -99,30 +104,20 @@ public class PlayerJumpHandler : MonoBehaviour
     private void JumpInputHandler()
     {
         //TODO: Debugging Jump
-        //Debug.Log($"JumpInputHandler() Entered...");
+        Debug.Log($"JumpInputHandler() Entered...");
 
         // If the player is trying to jump
         if ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && m_jumpInput)
         {
-            m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_jumpingAccelerationRate, ForceMode2D.Force);
-        }
-
-        //While Jumping
-        if (m_isJumping && m_jumpInput)
-        {
-            m_playerRigidbody.AddForce(Vector2.up * m_maxJumpSpeed * m_jumpingAccelerationRate, ForceMode2D.Force);
+            m_playerRigidbody.AddForce(Vector2.up * m_jumpForce, ForceMode2D.Impulse);
+            
+            m_isJumping = true;
         }
 
         // When the player releases the jump input
         if (Input.GetButtonUp("Jump"))
         {
             m_isJumping = false;
-
-            // Stop Player's upward movement immediately after they release the jump button
-            Vector2 stopJumpVelocity = m_playerRigidbody.velocity;
-            stopJumpVelocity.y = 0.0f;
-            stopJumpVelocity.x = m_playerRigidbody.velocity.x;
-            m_playerRigidbody.velocity = stopJumpVelocity;
         }
     }
 }
