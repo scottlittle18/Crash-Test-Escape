@@ -93,6 +93,37 @@ public class GroundCheck : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            Debug.Log("Player is on the ground");
+            IsGrounded = true;
+            IsOnMovingPlatform = false;
+        }
+
+        if (collision.gameObject.tag == "MovingPlatforms")
+        {
+            Debug.Log("Player is on a moving platform");
+            IsGrounded = false;
+            IsOnMovingPlatform = true;
+        }
+
+        if (collision.gameObject.tag == "ImmobileDummy")
+        {
+            Debug.Log("Player is on an Immobile Dummy");
+            IsGrounded = true;
+            IsOnMovingPlatform = true;
+        }
+
+        if (collision.gameObject.tag == "Environmental Props")
+        {
+            Debug.Log("Player is on an Environmental Prop");
+            IsGrounded = true;
+            IsOnMovingPlatform = true;
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground")
