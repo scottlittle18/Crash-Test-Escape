@@ -59,7 +59,17 @@ public class PlayerJumpHandler : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack && !m_isJumping)
+        //TODO Debug Player Jump Input
+        Debug.Log($"JumpInput == {m_jumpInput}");
+
+        if (m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform)
+        {
+            m_canJump = true;
+        }
+        else
+            m_canJump = false;
+
+        if (m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack && m_canJump)
         {
             // Listens For Input from Player
             JumpInputListener();
@@ -95,7 +105,7 @@ public class PlayerJumpHandler : MonoBehaviour
     /// </summary>
     private void JumpInputListener()
     {
-        m_jumpInput = Input.GetButton("Jump");
+        m_jumpInput = Input.GetButtonDown("Jump");
     }
 
     /// <summary>
@@ -115,7 +125,7 @@ public class PlayerJumpHandler : MonoBehaviour
         }
 
         // When the player releases the jump input
-        if (Input.GetButtonUp("Jump"))
+        if (Input.GetButtonUp("Jump") || (m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && !m_jumpInput)
         {
             m_isJumping = false;
         }
