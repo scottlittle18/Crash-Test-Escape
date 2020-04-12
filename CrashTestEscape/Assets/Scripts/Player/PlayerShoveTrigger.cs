@@ -14,7 +14,7 @@ public class PlayerShoveTrigger : MonoBehaviour
 
     private void Awake()
     {
-        m_playerSprite = GetComponent<SpriteRenderer>();
+        m_playerSprite = GetComponentInParent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
