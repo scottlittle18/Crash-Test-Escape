@@ -15,8 +15,6 @@ using UnityEngine;
 public class PlayerMovementHandler : MonoBehaviour
 {
     #region Serialized Fields
-    [Header("Movement Settings")]
-
     [SerializeField, Tooltip("How fast will the player be able to accelerate to their maximum running speed? \n\n(Setting this equal to, or greater than, the max move speed with mean they will immediately reach their max veloctiy)")]
     private float m_runningAccelerationRate = 0.0f;
 
@@ -192,7 +190,7 @@ public class PlayerMovementHandler : MonoBehaviour
             // IF NO MOVEMENT INPUT is detected but the player is still moving, then STOP PLAYER MOVEMENT
         else if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
         {
-            if (!m_groundCheck.IsOnMovingPlatform || m_shoveHandler.IsShoving)
+            if (m_groundCheck.IsGrounded || m_shoveHandler.IsShoving)
             {
                 StopPlayerMovement();
             }
@@ -246,7 +244,19 @@ public class PlayerMovementHandler : MonoBehaviour
     private void StopPlayerMovement()
     {
         Vector2 stoppingVelocity = m_playerRigidbody.velocity;
-        stoppingVelocity = new Vector2(0.0f, m_playerRigidbody.velocity.y);
+
+        if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f) && m_groundCheck.IsGrounded)
+        {
+            stoppingVelocity.x = 0.0f;
+            stoppingVelocity.y = 0.0f;
+        }
+        else
+        {
+            stoppingVelocity.x = 0.0f;
+        }
+        //else if (m_groundCheck.IsGrounded)
+        //    stoppingVelocity = new Vector2(0.0f, 0.0f);
+
         m_playerRigidbody.velocity = stoppingVelocity;
     }
 
