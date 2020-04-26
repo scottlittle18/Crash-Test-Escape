@@ -1,0 +1,1087 @@
+fileFormatVersion: 2
+guid: 8768cf1b990a72d4b96028d679644ac8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5784616902993959044
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_0
+  - first:
+      213: 2646832992781703162
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_1
+  - first:
+      213: -3456016891671192191
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_2
+  - first:
+      213: -6145715478021007550
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_3
+  - first:
+      213: 1292575819764785026
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_4
+  - first:
+      213: 8882285857555893088
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_5
+  - first:
+      213: 7256761174579510834
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_6
+  - first:
+      213: -4609218094263052
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_7
+  - first:
+      213: 1293093471080594107
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_8
+  - first:
+      213: 565091654363938949
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_9
+  - first:
+      213: -2547921583277887720
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_10
+  - first:
+      213: -3121374664028043213
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_11
+  - first:
+      213: 3083330482404338500
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_12
+  - first:
+      213: -8551652506842162493
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_13
+  - first:
+      213: 2346160124240983009
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_14
+  - first:
+      213: -5431570111758159613
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_15
+  - first:
+      213: 3119971087585968569
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_16
+  - first:
+      213: -552619772821456550
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_17
+  - first:
+      213: -5778254917022856566
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_18
+  - first:
+      213: -7916658851668708237
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_19
+  - first:
+      213: -2423998631699117800
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_20
+  - first:
+      213: 8115178027896635929
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_21
+  - first:
+      213: 7825692463308730892
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_22
+  - first:
+      213: -7034401988560961530
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_23
+  - first:
+      213: -7852577873890155230
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_24
+  - first:
+      213: -7146762690196159517
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_25
+  - first:
+      213: 7546453305855842169
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_26
+  - first:
+      213: 5030189159512025881
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_27
+  - first:
+      213: -7660653241772300245
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_28
+  - first:
+      213: -5239369011760193806
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_29
+  - first:
+      213: -3194740382994072246
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_30
+  - first:
+      213: 7391005498246657459
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_31
+  - first:
+      213: -1819300302145496536
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_32
+  - first:
+      213: -8966169943836263178
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_33
+  - first:
+      213: -8175755120521907547
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_34
+  - first:
+      213: 1255730039117126801
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_35
+  - first:
+      213: -3691348682613279436
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_36
+  - first:
+      213: -4586126845346427817
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_37
+  - first:
+      213: -3025793286393707221
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_38
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1660
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550e49fc95a707b49b593f2a0eb5a21c
+      internalID: -5784616902993959044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 1658
+        width: 240
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc071b650cc66a4b8048e27a11bb846
+      internalID: 2646832992781703162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 1647
+        width: 225
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20fb560b3fd7ba346b80c14c7b3c6659
+      internalID: -3456016891671192191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 1643
+        width: 211
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4178374fe0d3d4fb777fbf48c111a6
+      internalID: -6145715478021007550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 1639
+        width: 201
+        height: 389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe9f4cfe7b5d2d44d91981388196c94a
+      internalID: 1292575819764785026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 1636
+        width: 191
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3906f78f4c6492a41a20bd92a0a016e3
+      internalID: 8882285857555893088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 1635
+        width: 183
+        height: 398
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88c21c60819d25a4cb7754c82ffb6e02
+      internalID: 7256761174579510834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1633
+        width: 174
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d713c925ffe764887b8795882d797b
+      internalID: -4609218094263052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 1627
+        width: 172
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b34683efb61e8344a0650d105192b66
+      internalID: 1293093471080594107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1240
+        width: 170
+        height: 407
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16de9ac045bf094aa0e0715b8da2034
+      internalID: 565091654363938949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 1236
+        width: 185
+        height: 407
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49eeae991a9e80544929d3e993bc2325
+      internalID: -2547921583277887720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 1228
+        width: 202
+        height: 407
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a56130227aa001244b38f1f289339a42
+      internalID: -3121374664028043213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 1226
+        width: 217
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0717640b443b0641ad117f1da120173
+      internalID: 3083330482404338500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1224
+        width: 232
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a39d6ee922fb70418570788ecacb644
+      internalID: -8551652506842162493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 1225
+        width: 246
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be5fdb0afe173874f878e563785c39dd
+      internalID: 2346160124240983009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 1225
+        width: 261
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49c92435d9b00c14dac1395eec90b654
+      internalID: -5431570111758159613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 1230
+        width: 272
+        height: 395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6674416ef565b3a46b50e11db235c93b
+      internalID: 3119971087585968569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 829
+        width: 282
+        height: 389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f119800896f5d3409d192cb4a9fbbd6
+      internalID: -552619772821456550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 838
+        width: 292
+        height: 383
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa16b50117b00094e9a6b6c39e090106
+      internalID: -5778254917022856566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 843
+        width: 301
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfece8099f8472248a023031b3e31c16
+      internalID: -7916658851668708237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 831
+        width: 291
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af10eb1ca57a19642a98bdbc1af15f8d
+      internalID: -2423998631699117800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 829
+        width: 281
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e031ec65672fd46a43ac9bf22cab9c
+      internalID: 8115178027896635929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 1523
+        y: 833
+        width: 268
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25dbfd5b19f37444c8f2f5b1e8f3d49f
+      internalID: 7825692463308730892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 834
+        width: 257
+        height: 395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fb24e8299c430f409fea65e3eaa3ab9
+      internalID: -7034401988560961530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 415
+        width: 244
+        height: 398
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99e22db00961c3948a92ee2c78ca5e1c
+      internalID: -7852577873890155230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 427
+        width: 230
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf8ff155966f1343aedf12232d2f7ff
+      internalID: -7146762690196159517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 420
+        width: 215
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ed45ef077f8da3488eab45c9cca394f
+      internalID: 7546453305855842169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 410
+        width: 203
+        height: 407
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb41f4be82f375f409ef380c43e396be
+      internalID: 5030189159512025881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 413
+        width: 188
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4455b18b79dba7445a9ac4554791f0df
+      internalID: -7660653241772300245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 413
+        width: 173
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a664328f8d823ee4f92160f5170ae42d
+      internalID: -5239369011760193806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 417
+        width: 178
+        height: 407
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d3dc74799b8e7468b9690e08b5d61b
+      internalID: -3194740382994072246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 1613
+        y: 412
+        width: 189
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d4cc10b63b4534ba5a5745467c6b5f
+      internalID: 7391005498246657459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 1839
+        y: 412
+        width: 196
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5bc93dcba4f3724cad1c1982352e2f0
+      internalID: -1819300302145496536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 6
+        width: 202
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a7a8497b3a5c043825e97ebff72c4b
+      internalID: -8966169943836263178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 5
+        width: 209
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2049dc0ad65928543aed450ec00f250a
+      internalID: -8175755120521907547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 6
+        width: 216
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5db643f46480944439e0fb7cc5fae861
+      internalID: 1255730039117126801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 10
+        width: 223
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e93b000f56afdde48bc42831336f9411
+      internalID: -3691348682613279436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 11
+        width: 234
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5f108cf68c582946b2fc2d8553b36a0
+      internalID: -4586126845346427817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 18
+        width: 243
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1192e014ed585ec41a0338e22386fa18
+      internalID: -3025793286393707221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

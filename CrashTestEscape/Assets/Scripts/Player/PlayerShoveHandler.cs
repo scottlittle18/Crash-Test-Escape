@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerShoveHandler : MonoBehaviour
 {
     private Animator m_playerAnim;
+    private Rigidbody2D m_playerBody;
 
     private bool m_shoveInput;
-    private bool m_isShoving;
+    private bool m_isShoving = false;
     public bool IsShoving
     {
         get { return m_isShoving; }
@@ -17,12 +18,25 @@ public class PlayerShoveHandler : MonoBehaviour
     void Start()
     {
         m_playerAnim = GetComponent<Animator>();
+        m_playerBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         ShoveInputListener();
+    }
+
+    private void FixedUpdate()
+    {
+        if (IsShoving)
+        {
+            m_playerBody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        }
+        else if (!IsShoving)
+        {
+            m_playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
     }
 
     /// <summary>

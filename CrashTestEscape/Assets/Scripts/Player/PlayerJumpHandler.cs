@@ -17,8 +17,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerJumpHandler : MonoBehaviour
 {
-    [Header("Jump Settings")]
-
     [SerializeField, Tooltip("This is the initial force that is applied when the player goes to jump.")]
     private float m_jumpForce = 1.0f;
 
@@ -28,6 +26,8 @@ public class PlayerJumpHandler : MonoBehaviour
     public float MaxJumpSpeed { get { return m_maxJumpSpeed; } private set { m_maxJumpSpeed = value; } }
 
     private bool m_isJumping = false;
+
+    public bool IsJumping { get { return m_isJumping; } private set { m_isJumping = value; } }
 
     /// <summary>
     /// This should be assigned to the input for jumping
@@ -59,13 +59,23 @@ public class PlayerJumpHandler : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack && !m_isJumping)
+        //TODO Debug Player Jump Input
+        Debug.Log($"JumpInput == {m_jumpInput}");
+
+        if (m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform)
+        {
+            m_canJump = true;
+        }
+        else
+            m_canJump = false;
+
+        if (m_playerHealthSystem.IsAlive && !m_playerHealthSystem.IsBeingKnockedBack && m_canJump)
         {
             // Listens For Input from Player
             JumpInputListener();
         }
 
-        m_PlayerAnim.SetBool("IsJumping", (m_playerRigidbody.velocity.y > 0.01f && m_isJumping));
+        m_PlayerAnim.SetBool("IsJumping", (m_playerRigidbody.velocity.y > 0.01f && IsJumping));
     }
 
     private void FixedUpdate()
@@ -95,7 +105,7 @@ public class PlayerJumpHandler : MonoBehaviour
     /// </summary>
     private void JumpInputListener()
     {
-        m_jumpInput = Input.GetButton("Jump");
+        m_jumpInput = Input.GetButtonDown("Jump");
     }
 
     /// <summary>
@@ -110,14 +120,14 @@ public class PlayerJumpHandler : MonoBehaviour
         if ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && m_jumpInput)
         {
             m_playerRigidbody.AddForce(Vector2.up * m_jumpForce, ForceMode2D.Impulse);
-            
-            m_isJumping = true;
+
+            IsJumping = true;
         }
 
         // When the player releases the jump input
-        if (Input.GetButtonUp("Jump"))
+        if ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && !m_jumpInput)
         {
-            m_isJumping = false;
+            IsJumping = false;
         }
     }
 }
