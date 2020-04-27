@@ -7,8 +7,14 @@ using UnityEngine;
 /// </summary>
 public class PlayerPhysicsMaterialHandler : MonoBehaviour
 {
+    //TODO: Look into just calling these from the PlayerMovementHandler.cs to simplify setting up the object
+    [SerializeField, Tooltip("This is the collider that becomes active while the player IS crouched.")]
+    private BoxCollider2D m_crouchingPlayerCollider;
+
+    [SerializeField, Tooltip("This is the collider that becomes active while the player IS NOT crouched.")]
+    private BoxCollider2D m_primaryPlayerCollider;
+
     private GroundCheck m_groundCheck;
-    private BoxCollider2D m_playerCollider;
     private Rigidbody2D m_playerRigidbody;
     private PlayerMovementHandler m_playerMovementHandler;
     private PlayerHealthSystem m_playerHealthSystem;
@@ -23,7 +29,7 @@ public class PlayerPhysicsMaterialHandler : MonoBehaviour
     {
         // Gather required component references and values
         m_groundCheck = GetComponentInChildren<GroundCheck>();
-        m_playerCollider = GetComponent<BoxCollider2D>();        
+        m_primaryPlayerCollider = GetComponent<BoxCollider2D>();        
         m_playerRigidbody = GetComponent<Rigidbody2D>();
         m_playerMovementHandler = GetComponent<PlayerMovementHandler>();
         m_playerHealthSystem = GetComponent<PlayerHealthSystem>();        
@@ -32,15 +38,32 @@ public class PlayerPhysicsMaterialHandler : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        if (m_playerCollider.sharedMaterial.friction != 0.0f)
+        if (m_primaryPlayerCollider.enabled == true)
         {
-            // The Collider and Rigidbody components should have the same friction value so where you retrieve it shouldn't matter
-            m_playerPhysMatFriction = m_playerCollider.sharedMaterial.friction;
+            if (m_primaryPlayerCollider.sharedMaterial.friction != 0.0f)
+            {
+                // The Collider and Rigidbody components should have the same friction value so where you retrieve it shouldn't matter
+                m_playerPhysMatFriction = m_primaryPlayerCollider.sharedMaterial.friction;
+            }
+            else if ((m_primaryPlayerCollider.sharedMaterial.friction == 0) || (m_playerRigidbody.sharedMaterial.friction == 0))
+            {
+                m_primaryPlayerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 1.0f;
+                m_playerPhysMatFriction = m_primaryPlayerCollider.sharedMaterial.friction;
+            }
         }
-        else if ((m_playerCollider.sharedMaterial.friction == 0) || (m_playerRigidbody.sharedMaterial.friction == 0))
+
+        if (m_crouchingPlayerCollider.enabled == true)
         {
-            m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 1.0f;
-            m_playerPhysMatFriction = m_playerCollider.sharedMaterial.friction;
+            if (m_crouchingPlayerCollider.sharedMaterial.friction != 0.0f)
+            {
+                // The Collider and Rigidbody components should have the same friction value so where you retrieve it shouldn't matter
+                m_playerPhysMatFriction = m_crouchingPlayerCollider.sharedMaterial.friction;
+            }
+            else if ((m_crouchingPlayerCollider.sharedMaterial.friction == 0) || (m_playerRigidbody.sharedMaterial.friction == 0))
+            {
+                m_crouchingPlayerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 1.0f;
+                m_playerPhysMatFriction = m_crouchingPlayerCollider.sharedMaterial.friction;
+            }
         }
     }
 
@@ -60,21 +83,50 @@ public class PlayerPhysicsMaterialHandler : MonoBehaviour
             // Set the friction of the player's collider to 0 to keep them from sticking to walls
             if (!m_groundCheck.IsGrounded && !m_groundCheck.IsOnMovingPlatform)
             {
-                m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 0.0f;
+                if (m_primaryPlayerCollider.enabled == true)
+                {
+                    m_primaryPlayerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 0.0f;
+                }
+
+                if (m_crouchingPlayerCollider.enabled == true)
+                {
+                    m_crouchingPlayerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = 0.0f;
+                }
             }
 
             // Reset the player's friction to it's original value when the player is on the ground and not trying to move
             if ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && m_playerMovementHandler.PlayerIsNotMoving)
             {
-                m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
+                if (m_primaryPlayerCollider.enabled == true)
+                {
+                    m_primaryPlayerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
+                }
+
+                if (m_crouchingPlayerCollider.enabled == true)
+                {
+                    m_crouchingPlayerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
+                }
+
+                m_primaryPlayerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
             }
         }
         else if (!m_playerHealthSystem.IsAlive)
         {
             if (!m_playerHealthSystem.IsBeingKnockedBack && (m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform))
             {
+                if (m_primaryPlayerCollider.enabled == true)
+                {
+                    m_primaryPlayerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
+                }
+
+                if (m_crouchingPlayerCollider.enabled == true)
+                {
+                    // Increase the friction of the player when they die in order to keep them from sliding after death
+                    m_crouchingPlayerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
+                }
+
                 // Increase the friction of the player when they die in order to keep them from sliding after death, a magic number was used since we just need a high number here and nothing specific
-                m_playerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
+                //m_primaryPlayerCollider.sharedMaterial.friction = m_playerRigidbody.sharedMaterial.friction = m_playerPhysMatFriction;
             }
         }
     }

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &186043458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 186043459}
+  m_Layer: 8
+  m_Name: CrouchingCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &186043459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186043458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 589429191635973922}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1878871656
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +214,7 @@ GameObject:
   - component: {fileID: 589429191635973920}
   - component: {fileID: 589429191635973916}
   - component: {fileID: 589429191635973917}
+  - component: {fileID: 5411517970815932673}
   - component: {fileID: 589429191635973912}
   - component: {fileID: 589429191635973923}
   - component: {fileID: 589429191635973919}
@@ -211,6 +242,7 @@ Transform:
   - {fileID: 589429192555049786}
   - {fileID: 589429191532584840}
   - {fileID: 1878871657}
+  - {fileID: 186043459}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -329,6 +361,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.85, y: 4.5}
   m_EdgeRadius: 0
+--- !u!61 &5411517970815932673
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589429191635973927}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 87ac4a7928b480a4097f9ce0c7024b40, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.050000012, y: -0.7345362}
+  m_SpriteTilingProperty:
+    border: {x: 2.1, y: 0.21, z: 2, w: 0.26999998}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 0.69, y: 3.27}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.85, y: 3.0309277}
+  m_EdgeRadius: 0
 --- !u!114 &589429191635973912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +414,8 @@ MonoBehaviour:
   m_runningAccelerationRate: 500
   m_maxMoveSpeed: 10
   m_turningSpriteFlipThreshold: 0.1
+  m_crouchingPlayerCollider: {fileID: 5411517970815932673}
+  m_primaryPlayerCollider: {fileID: 589429191635973917}
 --- !u!114 &589429191635973919
 MonoBehaviour:
   m_ObjectHideFlags: 0
