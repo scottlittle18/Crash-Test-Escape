@@ -273,7 +273,7 @@ public class PlayerMovementHandler : MonoBehaviour
 
         Vector2 stoppingVelocity = m_playerRigidbody.velocity;
 
-        if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f) && m_groundCheck.IsGrounded)
+        if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f) && m_groundCheck.IsGrounded && !m_playerJumpHandler.IsJumping)
         {
             stoppingVelocity.x = 0.0f;
             stoppingVelocity.y = 0.0f;

@@ -33,6 +33,7 @@ public class PlayerJumpHandler : MonoBehaviour
     /// This should be assigned to the input for jumping
     /// </summary>
     private bool m_jumpInput;
+    //public bool JumpInput { get { return m_jumpInput; } }
 
     /// <summary>
     /// Determines whether or not the player can jump again based on whether they're on the ground or not
@@ -59,9 +60,6 @@ public class PlayerJumpHandler : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //TODO Debug Player Jump Input
-        Debug.Log($"JumpInput == {m_jumpInput}");
-
         if (m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform)
         {
             m_canJump = true;
