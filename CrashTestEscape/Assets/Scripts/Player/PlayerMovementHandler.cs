@@ -23,10 +23,16 @@ public class PlayerMovementHandler : MonoBehaviour
 
     [SerializeField, Tooltip("This determines how close to zero the player's velocity needs to be to flip the sprite in the Sprite Renderer.")]
     private float m_turningSpriteFlipThreshold = 0.0f;
+
+    [SerializeField, Tooltip("This is the collider that becomes active while the player IS crouched.")]
+    private BoxCollider2D m_crouchingPlayerCollider;
+
+    [SerializeField, Tooltip("This is the collider that becomes active while the player IS NOT crouched.")]
+    private BoxCollider2D m_primaryPlayerCollider;
     #endregion------------
 
     #region Standard Local Member Variables
-    private bool m_isfacingLeft;
+    private bool m_isfacingLeft, m_isCrouched = false;
 
     //TODO Addition for stopping player movement when they're shoving
     private bool m_isShoving = false;
@@ -41,8 +47,6 @@ public class PlayerMovementHandler : MonoBehaviour
     private SpriteRenderer m_playerSpriteRenderer;
     private GroundCheck m_groundCheck;
     private Animator m_playerAnim;
-    //TODO: Swap with proper collider(s) later
-    private BoxCollider2D m_playerCollider;
 
     // Player Systems
     private PlayerHealthSystem m_playerHealthSystem;
@@ -54,7 +58,7 @@ public class PlayerMovementHandler : MonoBehaviour
     /// <summary>
     /// An internal class that contains all movement related input fields required for this script.
     /// 
-    /// *QUICK NOTE* - I know I don't actually NEED an internal class for one input, but
+    /// *QUICK NOTE* - I know I don't actually NEED an internal class for such little input, but
     ///     I'm just keeping it around as a simple example of how to make one just in case
     ///     I actually do end up needing one for another part of the project
     /// </summary>
@@ -107,10 +111,6 @@ public class PlayerMovementHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //TODO: Debugging Crouch Walk
-        Debug.Log($"Players velocity.x == {m_playerRigidbody.velocity.x}\n" +
-            $"Players velocity.y == {m_playerRigidbody.velocity.y}");
-
         if (m_isShoving && !Mathf.Approximately(m_playerRigidbody.velocity.x, 0.0f))
         {
             StopPlayerMovement();
@@ -141,9 +141,8 @@ public class PlayerMovementHandler : MonoBehaviour
         m_playerSpriteRenderer = GetComponent<SpriteRenderer>();
         m_groundCheck = GetComponentInChildren<GroundCheck>();
         m_playerAnim = GetComponent<Animator>();
-        m_playerCollider = GetComponent<BoxCollider2D>();
-    }    
-    
+    }
+
     #region _________________________________________________________________LISTENERS______________________________
     /// <summary>
     /// Listens for the input received from the player. This data is used by the HorizontalMoveInputHandler() to apply this to the movement of the player-character.
@@ -215,7 +214,28 @@ public class PlayerMovementHandler : MonoBehaviour
     /// </summary>
     private void CrouchInputHandler()
     {
-        m_playerAnim.SetBool("IsCrouched", m_inputListener.m_verticalInput < 0);
+        CrouchCheck();
+        m_playerAnim.SetBool("IsCrouched", m_isCrouched);
+    }
+
+    /// <summary>
+    /// Checks and handles what should happen when the player goes to crouch
+    /// </summary>
+    private void CrouchCheck()
+    {
+        // Reset variable so it represents the most current input
+        m_isCrouched = m_inputListener.m_verticalInput < 0;
+        
+        if (m_isCrouched)
+        {
+            m_crouchingPlayerCollider.enabled = true;
+            m_primaryPlayerCollider.enabled = false;
+        }
+        else
+        {
+            m_primaryPlayerCollider.enabled = true;
+            m_crouchingPlayerCollider.enabled = false;
+        }
     }
     #endregion
 
