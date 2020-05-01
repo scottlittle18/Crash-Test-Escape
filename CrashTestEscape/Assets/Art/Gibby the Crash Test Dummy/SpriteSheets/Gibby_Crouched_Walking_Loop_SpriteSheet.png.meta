@@ -119,6 +119,15 @@ TextureImporter:
   - first:
       213: -3025793286393707221
     second: Gibby_Crouched_Walking_Loop_SpriteSheet_38
+  - first:
+      213: 8736169324031747844
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_39
+  - first:
+      213: 8186797950702113998
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_40
+  - first:
+      213: -8411908537022538366
+    second: Gibby_Crouched_Walking_Loop_SpriteSheet_41
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -254,10 +263,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 1660
+        x: 24
+        y: 2149
         width: 252
-        height: 372
+        height: 501
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,7 +274,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 550e49fc95a707b49b593f2a0eb5a21c
+      spriteID: 18f06be2be6d00f49a86bcbefd6f51b9
       internalID: -5784616902993959044
       vertices: []
       indices: 
@@ -275,10 +284,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 279
-        y: 1658
+        x: 287
+        y: 2146
         width: 240
-        height: 374
+        height: 504
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,7 +295,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dc071b650cc66a4b8048e27a11bb846
+      spriteID: 293113a870aa4a842938830d5aeb24ef
       internalID: 2646832992781703162
       vertices: []
       indices: 
@@ -296,10 +305,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 543
-        y: 1647
+        x: 551
+        y: 2136
         width: 225
-        height: 378
+        height: 514
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,7 +316,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20fb560b3fd7ba346b80c14c7b3c6659
+      spriteID: 9ebc374c396a4824785f70f71ab6354a
       internalID: -3456016891671192191
       vertices: []
       indices: 
@@ -317,10 +326,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 799
-        y: 1643
+        x: 807
+        y: 2132
         width: 211
-        height: 384
+        height: 518
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,7 +337,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d4178374fe0d3d4fb777fbf48c111a6
+      spriteID: cdabf508b6e2b1f439d9984c932a6a43
       internalID: -6145715478021007550
       vertices: []
       indices: 
@@ -338,10 +347,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 1031
-        y: 1639
-        width: 201
-        height: 389
+        x: 1032
+        y: 2137
+        width: 202
+        height: 513
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,7 +358,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe9f4cfe7b5d2d44d91981388196c94a
+      spriteID: ad343a205011eff42b7697d8a5e37c77
       internalID: 1292575819764785026
       vertices: []
       indices: 
@@ -360,9 +369,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1258
-        y: 1636
-        width: 191
-        height: 394
+        y: 2133
+        width: 192
+        height: 517
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,7 +379,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3906f78f4c6492a41a20bd92a0a016e3
+      spriteID: 49d81dd70dd6ef946b477b4b5d028a27
       internalID: 8882285857555893088
       vertices: []
       indices: 
@@ -380,10 +389,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 1486
-        y: 1635
-        width: 183
-        height: 398
+        x: 1460
+        y: 2272
+        width: 4
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,7 +400,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88c21c60819d25a4cb7754c82ffb6e02
+      spriteID: ecc482d601591c948aa1300cbe2f9d90
       internalID: 7256761174579510834
       vertices: []
       indices: 
@@ -401,10 +410,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 1680
-        y: 1633
-        width: 174
-        height: 401
+        x: 1494
+        y: 2125
+        width: 183
+        height: 525
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,7 +421,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15d713c925ffe764887b8795882d797b
+      spriteID: 534ec68ef84f3e74d997435afe5d31e2
       internalID: -4609218094263052
       vertices: []
       indices: 
@@ -422,10 +431,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 1881
-        y: 1627
-        width: 172
-        height: 405
+        x: 1688
+        y: 2123
+        width: 174
+        height: 527
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -433,7 +442,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b34683efb61e8344a0650d105192b66
+      spriteID: 774894d88bda14c4797058f16a774fc6
       internalID: 1293093471080594107
       vertices: []
       indices: 
@@ -443,10 +452,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 11
-        y: 1240
-        width: 170
-        height: 407
+        x: 1888
+        y: 2118
+        width: 174
+        height: 532
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -454,7 +463,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e16de9ac045bf094aa0e0715b8da2034
+      spriteID: bfc9a52643c15c24d8b219bca949afc8
       internalID: 565091654363938949
       vertices: []
       indices: 
@@ -464,10 +473,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_10
       rect:
         serializedVersion: 2
-        x: 198
-        y: 1236
-        width: 185
-        height: 407
+        x: 139
+        y: 2133
+        width: 14
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -475,7 +484,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49eeae991a9e80544929d3e993bc2325
+      spriteID: 2afc11813b26e624dae6ba1e1e0b9906
       internalID: -2547921583277887720
       vertices: []
       indices: 
@@ -485,10 +494,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_11
       rect:
         serializedVersion: 2
-        x: 399
-        y: 1228
-        width: 202
-        height: 407
+        x: 1246
+        y: 2123
+        width: 25
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -496,7 +505,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a56130227aa001244b38f1f289339a42
+      spriteID: 52eb3841a710ee64993b3009ae8b6ef8
       internalID: -3121374664028043213
       vertices: []
       indices: 
@@ -506,10 +515,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_12
       rect:
         serializedVersion: 2
-        x: 604
-        y: 1226
-        width: 217
-        height: 408
+        x: 28
+        y: 1600
+        width: 170
+        height: 525
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -517,7 +526,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0717640b443b0641ad117f1da120173
+      spriteID: 5aec352399245a044bc0c12ea96cb025
       internalID: 3083330482404338500
       vertices: []
       indices: 
@@ -527,10 +536,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_13
       rect:
         serializedVersion: 2
-        x: 831
-        y: 1224
-        width: 232
-        height: 406
+        x: 215
+        y: 1595
+        width: 185
+        height: 538
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -538,7 +547,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a39d6ee922fb70418570788ecacb644
+      spriteID: b6fb8c4a612c8ed4ea318af52abb121a
       internalID: -8551652506842162493
       vertices: []
       indices: 
@@ -548,10 +557,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_14
       rect:
         serializedVersion: 2
-        x: 1079
-        y: 1225
-        width: 246
-        height: 403
+        x: 416
+        y: 1587
+        width: 202
+        height: 527
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -559,7 +568,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be5fdb0afe173874f878e563785c39dd
+      spriteID: 484a23ea59d471144a5e63084af0d1ca
       internalID: 2346160124240983009
       vertices: []
       indices: 
@@ -569,10 +578,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_15
       rect:
         serializedVersion: 2
-        x: 1327
-        y: 1225
-        width: 261
-        height: 400
+        x: 621
+        y: 1585
+        width: 217
+        height: 536
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -580,7 +589,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49c92435d9b00c14dac1395eec90b654
+      spriteID: 5045160b5e33e3544bd3d7f0a9631e3c
       internalID: -5431570111758159613
       vertices: []
       indices: 
@@ -590,10 +599,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_16
       rect:
         serializedVersion: 2
-        x: 1599
-        y: 1230
-        width: 272
-        height: 395
+        x: 848
+        y: 1584
+        width: 233
+        height: 533
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -601,7 +610,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6674416ef565b3a46b50e11db235c93b
+      spriteID: 42dd44e2fd5735046b9639ff5230944e
       internalID: 3119971087585968569
       vertices: []
       indices: 
@@ -611,10 +620,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_17
       rect:
         serializedVersion: 2
-        x: 6
-        y: 829
-        width: 282
-        height: 389
+        x: 1095
+        y: 1584
+        width: 247
+        height: 537
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -622,7 +631,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f119800896f5d3409d192cb4a9fbbd6
+      spriteID: 3c589069ab32e0c49a6f179f855fc2ba
       internalID: -552619772821456550
       vertices: []
       indices: 
@@ -632,10 +641,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_18
       rect:
         serializedVersion: 2
-        x: 309
-        y: 838
-        width: 292
-        height: 383
+        x: 1344
+        y: 1585
+        width: 261
+        height: 532
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -643,7 +652,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa16b50117b00094e9a6b6c39e090106
+      spriteID: 4c0a790565ef45a41af7b6a40e880033
       internalID: -5778254917022856566
       vertices: []
       indices: 
@@ -653,10 +662,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_19
       rect:
         serializedVersion: 2
-        x: 612
-        y: 843
-        width: 301
-        height: 374
+        x: 1615
+        y: 1590
+        width: 273
+        height: 524
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -664,7 +673,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfece8099f8472248a023031b3e31c16
+      spriteID: 2cccc979652d9924eb393f04184fc6b5
       internalID: -7916658851668708237
       vertices: []
       indices: 
@@ -674,10 +683,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_20
       rect:
         serializedVersion: 2
-        x: 924
-        y: 831
-        width: 291
-        height: 380
+        x: 9
+        y: 1071
+        width: 283
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -685,7 +694,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af10eb1ca57a19642a98bdbc1af15f8d
+      spriteID: d2039d798b84ba24798dcfc7883d5022
       internalID: -2423998631699117800
       vertices: []
       indices: 
@@ -695,10 +704,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_21
       rect:
         serializedVersion: 2
-        x: 1233
-        y: 829
-        width: 281
-        height: 386
+        x: 313
+        y: 1080
+        width: 293
+        height: 495
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -706,7 +715,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85e031ec65672fd46a43ac9bf22cab9c
+      spriteID: 5d439d785fabdc1469df8cc87265a44d
       internalID: 8115178027896635929
       vertices: []
       indices: 
@@ -716,10 +725,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_22
       rect:
         serializedVersion: 2
-        x: 1523
-        y: 833
-        width: 268
-        height: 390
+        x: 615
+        y: 1085
+        width: 302
+        height: 479
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -727,7 +736,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25dbfd5b19f37444c8f2f5b1e8f3d49f
+      spriteID: 2d356274c2eafa4448b52a0e17f171fc
       internalID: 7825692463308730892
       vertices: []
       indices: 
@@ -737,10 +746,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_23
       rect:
         serializedVersion: 2
-        x: 1809
-        y: 834
-        width: 257
-        height: 395
+        x: 927
+        y: 1073
+        width: 292
+        height: 491
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -748,7 +757,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fb24e8299c430f409fea65e3eaa3ab9
+      spriteID: 21a707f807755024b96dcd61b3f03b0c
       internalID: -7034401988560961530
       vertices: []
       indices: 
@@ -758,10 +767,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_24
       rect:
         serializedVersion: 2
-        x: 7
-        y: 415
-        width: 244
-        height: 398
+        x: 1236
+        y: 1071
+        width: 282
+        height: 497
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -769,7 +778,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99e22db00961c3948a92ee2c78ca5e1c
+      spriteID: e26c8be99c47e2e4f871b491afed8bda
       internalID: -7852577873890155230
       vertices: []
       indices: 
@@ -779,10 +788,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_25
       rect:
         serializedVersion: 2
-        x: 277
-        y: 427
-        width: 230
-        height: 402
+        x: 1526
+        y: 1075
+        width: 269
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -790,7 +799,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdf8ff155966f1343aedf12232d2f7ff
+      spriteID: 6a649c8794043f04ebac35968699cc0a
       internalID: -7146762690196159517
       vertices: []
       indices: 
@@ -800,10 +809,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_26
       rect:
         serializedVersion: 2
-        x: 587
-        y: 420
-        width: 215
-        height: 404
+        x: 1812
+        y: 1076
+        width: 258
+        height: 507
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -811,7 +820,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ed45ef077f8da3488eab45c9cca394f
+      spriteID: d8bb4beecbbd82144848eb98419ed866
       internalID: 7546453305855842169
       vertices: []
       indices: 
@@ -821,10 +830,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_27
       rect:
         serializedVersion: 2
-        x: 815
-        y: 410
-        width: 203
-        height: 407
+        x: 13
+        y: 538
+        width: 244
+        height: 530
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -832,7 +841,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb41f4be82f375f409ef380c43e396be
+      spriteID: de0f70ee6811e544d8180c06a83f9d08
       internalID: 5030189159512025881
       vertices: []
       indices: 
@@ -842,10 +851,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_28
       rect:
         serializedVersion: 2
-        x: 1032
-        y: 413
-        width: 188
-        height: 406
+        x: 283
+        y: 550
+        width: 231
+        height: 527
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -853,7 +862,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4455b18b79dba7445a9ac4554791f0df
+      spriteID: b3767166aa7c38542a37ce4e9931e7ef
       internalID: -7660653241772300245
       vertices: []
       indices: 
@@ -863,10 +872,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_29
       rect:
         serializedVersion: 2
-        x: 1236
-        y: 413
-        width: 173
-        height: 408
+        x: 592
+        y: 543
+        width: 217
+        height: 529
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -874,7 +883,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a664328f8d823ee4f92160f5170ae42d
+      spriteID: c99d3661061526a4297095a2047bf10e
       internalID: -5239369011760193806
       vertices: []
       indices: 
@@ -884,10 +893,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_30
       rect:
         serializedVersion: 2
-        x: 1432
-        y: 417
-        width: 178
-        height: 407
+        x: 821
+        y: 535
+        width: 203
+        height: 536
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -895,7 +904,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6d3dc74799b8e7468b9690e08b5d61b
+      spriteID: 4cc5a69121e7dcf4b9be3522e1f6dd81
       internalID: -3194740382994072246
       vertices: []
       indices: 
@@ -905,10 +914,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_31
       rect:
         serializedVersion: 2
-        x: 1613
-        y: 412
-        width: 189
-        height: 405
+        x: 1038
+        y: 536
+        width: 187
+        height: 536
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -916,7 +925,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36d4cc10b63b4534ba5a5745467c6b5f
+      spriteID: 9486bf98c28a2524d95ffc1df1ac9c28
       internalID: 7391005498246657459
       vertices: []
       indices: 
@@ -926,10 +935,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_32
       rect:
         serializedVersion: 2
-        x: 1839
-        y: 412
-        width: 196
-        height: 402
+        x: 1242
+        y: 538
+        width: 173
+        height: 530
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -937,7 +946,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5bc93dcba4f3724cad1c1982352e2f0
+      spriteID: 5a7c36037a192c14db1034208072a475
       internalID: -1819300302145496536
       vertices: []
       indices: 
@@ -947,10 +956,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_33
       rect:
         serializedVersion: 2
-        x: 18
-        y: 6
-        width: 202
-        height: 397
+        x: 1437
+        y: 542
+        width: 180
+        height: 525
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -958,7 +967,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7a7a8497b3a5c043825e97ebff72c4b
+      spriteID: b89b27f94ecb05f449b489009607a1c7
       internalID: -8966169943836263178
       vertices: []
       indices: 
@@ -968,10 +977,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_34
       rect:
         serializedVersion: 2
-        x: 226
-        y: 5
-        width: 209
-        height: 394
+        x: 1619
+        y: 536
+        width: 189
+        height: 539
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -979,7 +988,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2049dc0ad65928543aed450ec00f250a
+      spriteID: c80bacb2d7c270e44ac065c633a59e99
       internalID: -8175755120521907547
       vertices: []
       indices: 
@@ -989,10 +998,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_35
       rect:
         serializedVersion: 2
-        x: 449
-        y: 6
-        width: 216
-        height: 390
+        x: 1844
+        y: 536
+        width: 197
+        height: 535
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1000,7 +1009,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5db643f46480944439e0fb7cc5fae861
+      spriteID: 78b2076e25299dd4ebb4a14c0858a433
       internalID: 1255730039117126801
       vertices: []
       indices: 
@@ -1010,10 +1019,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_36
       rect:
         serializedVersion: 2
-        x: 674
-        y: 10
-        width: 223
-        height: 386
+        x: 21
+        y: 18
+        width: 203
+        height: 520
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1021,7 +1030,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e93b000f56afdde48bc42831336f9411
+      spriteID: 0c4f9e62a88225f4582c3b0bd3a74acd
       internalID: -3691348682613279436
       vertices: []
       indices: 
@@ -1031,10 +1040,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_37
       rect:
         serializedVersion: 2
-        x: 909
-        y: 11
-        width: 234
-        height: 381
+        x: 230
+        y: 17
+        width: 209
+        height: 532
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1042,7 +1051,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5f108cf68c582946b2fc2d8553b36a0
+      spriteID: b8d3001e8e336074da74ffa60b409e7c
       internalID: -4586126845346427817
       vertices: []
       indices: 
@@ -1052,10 +1061,10 @@ TextureImporter:
       name: Gibby_Crouched_Walking_Loop_SpriteSheet_38
       rect:
         serializedVersion: 2
-        x: 1154
+        x: 453
         y: 18
-        width: 243
-        height: 376
+        width: 216
+        height: 527
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1063,8 +1072,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1192e014ed585ec41a0338e22386fa18
+      spriteID: 57a5694978cc4244e8cd600fe1ee260c
       internalID: -3025793286393707221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 22
+        width: 224
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46729c755f565934ab810c71d6ac92e5
+      internalID: 8736169324031747844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 24
+        width: 235
+        height: 506
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f01d798f5f694f9458cb3eea75df78ef
+      internalID: 8186797950702113998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gibby_Crouched_Walking_Loop_SpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 30
+        width: 244
+        height: 504
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93a7501b5ab24a4a94682a61a4565ac
+      internalID: -8411908537022538366
       vertices: []
       indices: 
       edges: []

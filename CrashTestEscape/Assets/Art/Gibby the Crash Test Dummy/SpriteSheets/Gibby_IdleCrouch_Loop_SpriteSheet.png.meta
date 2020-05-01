@@ -167,10 +167,10 @@ TextureImporter:
       name: Gibby_IdleCrouch_Loop_SpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 395
-        width: 248
-        height: 367
+        x: 9
+        y: 510
+        width: 250
+        height: 490
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,7 +178,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffda704d90669da428ca8192bd4bfdaa
+      spriteID: ea9137b6b8c577e47a4904ef439d8a5f
       internalID: -1467685479373156190
       vertices: []
       indices: 
@@ -188,10 +188,10 @@ TextureImporter:
       name: Gibby_IdleCrouch_Loop_SpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 276
-        y: 396
-        width: 246
-        height: 367
+        x: 271
+        y: 511
+        width: 250
+        height: 489
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,7 +199,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfa0f58b5586ab44daf34e4410c60f48
+      spriteID: d1cc5fb14571f1b4e9ae3c5859333a2f
       internalID: 4986102029535100842
       vertices: []
       indices: 
@@ -209,10 +209,10 @@ TextureImporter:
       name: Gibby_IdleCrouch_Loop_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 536
-        y: 395
-        width: 245
-        height: 368
+        x: 531
+        y: 510
+        width: 248
+        height: 490
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,7 +220,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e89570fe2005a94992430a8328b5519
+      spriteID: 9f1222f63fdecee4ead5ed7805c53960
       internalID: 5287556228486610847
       vertices: []
       indices: 
@@ -230,10 +230,10 @@ TextureImporter:
       name: Gibby_IdleCrouch_Loop_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 791
-        y: 398
-        width: 243
-        height: 368
+        x: 787
+        y: 513
+        width: 247
+        height: 487
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,7 +241,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 366723a132286f142948df0aff8f20fb
+      spriteID: 6b99e2f11654b384398469c949391013
       internalID: 3903126122526423982
       vertices: []
       indices: 
@@ -251,10 +251,10 @@ TextureImporter:
       name: Gibby_IdleCrouch_Loop_SpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 1044
-        y: 397
-        width: 243
-        height: 370
+        x: 1041
+        y: 513
+        width: 244
+        height: 487
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,7 +262,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11a6796885b79e848b18872d39a26fda
+      spriteID: ba296099070449b4db5105afd05f1f26
       internalID: -8513384583056214249
       vertices: []
       indices: 
@@ -272,10 +272,10 @@ TextureImporter:
       name: Gibby_IdleCrouch_Loop_SpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 10
-        y: 16
-        width: 240
-        height: 369
+        x: 15
+        y: 17
+        width: 243
+        height: 489
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,7 +283,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a17c7a72275bc144fb7386dc6b13420c
+      spriteID: 4c93e1a777f2cf54a8adf15c9a7f6326
       internalID: 5463734453117029594
       vertices: []
       indices: 
@@ -293,10 +293,10 @@ TextureImporter:
       name: Gibby_IdleCrouch_Loop_SpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 260
+        x: 265
         y: 11
-        width: 238
-        height: 369
+        width: 241
+        height: 497
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,7 +304,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cb5868f9e642034f88ca32342cfecb9
+      spriteID: e7939eca952bf8a49a935643f1156610
       internalID: -4052225090393998135
       vertices: []
       indices: 
@@ -314,10 +314,10 @@ TextureImporter:
       name: Gibby_IdleCrouch_Loop_SpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 509
-        y: 13
-        width: 236
-        height: 370
+        x: 515
+        y: 14
+        width: 239
+        height: 494
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -325,7 +325,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04e50db602daafb40b09b5c6931a7d4a
+      spriteID: fcc19983be803314495c463db155582a
       internalID: -7882649126854301431
       vertices: []
       indices: 
@@ -335,10 +335,10 @@ TextureImporter:
       name: Gibby_IdleCrouch_Loop_SpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 759
+        x: 764
         y: 11
-        width: 234
-        height: 370
+        width: 237
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,7 +346,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ad1d145281513f4690dfe12b60e7d41
+      spriteID: ae0d271a9c38e0647b9f574a9a9b0d88
       internalID: -7938100199702622007
       vertices: []
       indices: 
@@ -356,10 +356,10 @@ TextureImporter:
       name: Gibby_IdleCrouch_Loop_SpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 1022
+        x: 1027
         y: 8
-        width: 232
-        height: 370
+        width: 234
+        height: 504
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -367,7 +367,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22da87f7227227a4ba9b2e897df5448c
+      spriteID: 3df4f964e95f48b47a3149c9cd6338d8
       internalID: -7238356338770268641
       vertices: []
       indices: 

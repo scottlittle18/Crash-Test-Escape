@@ -9828,17 +9828,57 @@ PrefabInstance:
     - target: {fileID: 5411517970815932673, guid: e867320cfd6b4724fbfac9e15cae2dda,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411517970815932673, guid: e867320cfd6b4724fbfac9e15cae2dda,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.10502577
+      value: -0.56898975
       objectReference: {fileID: 0}
     - target: {fileID: 5411517970815932673, guid: e867320cfd6b4724fbfac9e15cae2dda,
         type: 3}
       propertyPath: m_Size.y
-      value: 4.1897573
+      value: 3.5985146
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411517970815932673, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411517970815932673, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411517970815932673, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411517970815932673, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411517970815932673, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411517970815932673, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 4.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411517970815932673, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.13282013
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411517970815932673, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.2934113
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e867320cfd6b4724fbfac9e15cae2dda, type: 3}
