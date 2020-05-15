@@ -74,7 +74,7 @@ public class GroundCheck : MonoBehaviour
         if (collision.gameObject.tag == "MovingPlatforms")
         {
             Debug.Log("Player is on a moving platform");
-            IsGrounded = false;
+            IsGrounded = true;
             IsOnMovingPlatform = true;
         }
 
