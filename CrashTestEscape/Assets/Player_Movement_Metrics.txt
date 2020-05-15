@@ -1,0 +1,10 @@
+// This document is for storing the movement metrics of the player controller
+
+1 Unity unit (uu) = 100 pixels
+
+Max Jump Height: 5.5 uu
+
+Max Jump Distance (on flat ground):
+	
+	w/ Running Start: 12 uu
+	w/ out Running Start: 10 uu
