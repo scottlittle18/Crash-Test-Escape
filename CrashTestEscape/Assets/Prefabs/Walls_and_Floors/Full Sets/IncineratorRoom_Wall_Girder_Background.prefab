@@ -149,7 +149,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: e522bbd1095d0c44c9c747de172deb49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b1f5bc3bfc3e0e419e7a4457c333a53, type: 3}
   m_Color: {r: 1, g: 0.6179246, b: 0.6179246, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -170,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4801633726559468152}
   m_Layer: 0
-  m_Name: Wall_Girder_Background
+  m_Name: IncineratorRoom_Wall_Girder_Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,7 +262,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: e522bbd1095d0c44c9c747de172deb49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b1f5bc3bfc3e0e419e7a4457c333a53, type: 3}
   m_Color: {r: 1, g: 0.6179246, b: 0.6179246, a: 1}
   m_FlipX: 0
   m_FlipY: 0
