@@ -173,7 +173,6 @@ public class PlayerMovementHandler : MonoBehaviour
         {
             if (m_isCrushed == false)
             {
-                //Accelerate player and clamp their velocity; **NOTE* --> MOVED INTO THIS IF STATEMENT, IT WAS PREVIOUSLY OUT IN THIS FUNCTION ON ITS' OWN!!
                 m_playerRigidbody.AddForce(Vector2.right * m_inputListener.m_horizontalMoveInput * m_runningAccelerationRate);
                 Vector2 clampedVelocity = m_playerRigidbody.velocity;
                 clampedVelocity.x = Mathf.Clamp(m_playerRigidbody.velocity.x, -m_maxMoveSpeed, m_maxMoveSpeed);
@@ -193,15 +192,15 @@ public class PlayerMovementHandler : MonoBehaviour
         // IF NO MOVEMENT INPUT is detected but the player is still moving, then STOP PLAYER MOVEMENT
         else if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f))
         {
-            if (m_groundCheck.IsGrounded || m_shoveHandler.IsShoving)
+            if ((m_groundCheck.IsGrounded || m_shoveHandler.IsShoving) && !m_groundCheck.IsOnMovingPlatform)
             {
                 // Stop it!!!
                 StopPlayerMovement();
             }
-            else if (m_groundCheck.IsOnMovingPlatform && m_conveyorBelt != null)
+            if (m_groundCheck.IsOnMovingPlatform && m_conveyorBelt != null)
             {
                 // If the player is not trying to move and the conveyor belt is off
-                if (PlayerIsNotMoving && !m_conveyorBelt.ConveyorBeltActive)
+                if (!m_conveyorBelt.GetComponent<ConveyorBelt>().ConveyorBeltActive)
                 {
                     StopPlayerMovement();
                 }
@@ -268,23 +267,37 @@ public class PlayerMovementHandler : MonoBehaviour
     /// </summary>
     private void StopPlayerMovement()
     {
-        //TODO: Debugging Crouch Walk
+        //TODO: Debugging Movement on Conveyorbelt Walk
         Debug.Log($"Player is being stopped");
 
         Vector2 stoppingVelocity = m_playerRigidbody.velocity;
 
-        if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f) && m_groundCheck.IsGrounded)
+        // IF the player is NOT trying to Move and is NOT Jumping...
+        if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f) && !m_playerJumpHandler.IsJumping)
         {
-            stoppingVelocity.x = 0.0f;
-            stoppingVelocity.y = 0.0f;
-        }
-        else
-        {
-            stoppingVelocity.x = 0.0f;
-        }
-        //else if (m_groundCheck.IsGrounded)
-        //    stoppingVelocity = new Vector2(0.0f, 0.0f);
+            // IF the player IS on the Ground and NOT on a Moving Platform
+            if (m_groundCheck.IsGrounded && !m_groundCheck.IsOnMovingPlatform)
+            {
+                stoppingVelocity.x = 0.0f;
+                stoppingVelocity.y = 0.0f;
+            }
+            // ELSE IF the player IS on a Moving Platform and the reference to the ConveyorBelt script IS VALID
+            else if (m_groundCheck.IsOnMovingPlatform && m_conveyorBelt.GetComponent<ConveyorBelt>() != null)
+            {
+                //m_conveyorBelt = m_conveyorBelt.GetComponent<ConveyorBelt>();
 
+                // IF the belt's SurfaceEffector2D is active
+                if (m_conveyorBelt.GetComponent<ConveyorBelt>().ConveyorBeltActive)
+                {
+                    stoppingVelocity.x = 8.0f; // <-- The value from the SurfaceEffector2D component on the conveyor belt object
+                }
+                else
+                {
+                    //stoppingVelocity.x = 0.0f;
+                }
+            }
+        }
+        
         m_playerRigidbody.velocity = stoppingVelocity;
     }
 
@@ -306,7 +319,7 @@ public class PlayerMovementHandler : MonoBehaviour
                 Debug.Log($"ConveyorBeltActive == {m_conveyorBelt.ConveyorBeltActive}");
 
                 // If the player is not trying to move and the conveyor belt is off
-                if (PlayerIsNotMoving && !m_conveyorBelt.ConveyorBeltActive)
+                if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f) && !m_conveyorBelt.ConveyorBeltActive)
                 {
                     StopPlayerMovement();
                 }
@@ -338,7 +351,7 @@ public class PlayerMovementHandler : MonoBehaviour
                 m_conveyorBelt = collision.GetComponent<ConveyorBelt>();
 
                 // If the player is not trying to move and the conveyor belt is off
-                if (PlayerIsNotMoving && !m_conveyorBelt.ConveyorBeltActive)
+                if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f) && !m_conveyorBelt.ConveyorBeltActive)
                 {
                     StopPlayerMovement();
                 }
