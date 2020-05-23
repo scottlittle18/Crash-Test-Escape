@@ -67,6 +67,8 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (ConveyorBeltActive)
         {
+            // If you get a NULL reference exception that points here, make sure there is an object that
+            //      isn't nested under anything and is named "Environmental Assets"
             if (m_lastObjectSpawned == 0)
             {
                 Instantiate(m_spawnableObjectList[1], new Vector3(m_spawnerTransform.position.x, m_spawnerTransform.position.y, 0.0f), Quaternion.identity, m_spawnedParentObject.transform);
