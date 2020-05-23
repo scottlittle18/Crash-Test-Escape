@@ -29,6 +29,9 @@ public class PlayerMovementHandler : MonoBehaviour
 
     [SerializeField, Tooltip("This is the collider that becomes active while the player IS NOT crouched.")]
     private BoxCollider2D m_primaryPlayerCollider;
+
+    [SerializeField, Tooltip("How long should the player be unable to move for after being crushed by a piston?")]
+    private float m_isCrushedDuration;
     #endregion------------
 
     #region Standard Local Member Variables
@@ -303,7 +306,7 @@ public class PlayerMovementHandler : MonoBehaviour
 
     IEnumerator IsCrushedTimer()
     {
-        yield return new WaitForSecondsRealtime(0.5f); // TODO: <-- Change Temp ## 
+        yield return new WaitForSecondsRealtime(m_isCrushedDuration); // TODO: <-- Change Temp ## 
         m_isCrushed = false;
         m_playerAnim.SetBool("IsCrushed", false);
     }

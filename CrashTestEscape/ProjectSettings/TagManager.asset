@@ -11,6 +11,7 @@ TagManager:
   - KillZone
   - ImmobileDummy
   - Environmental Props
+  - Crusher
   layers:
   - Default
   - TransparentFX

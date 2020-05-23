@@ -12,7 +12,7 @@ public class MotionDetector : MonoBehaviour
     private Animator m_detectorAnim;
 
     [SerializeField, Tooltip("How Long will the motion sensor be active for?")]
-    private float m_onTime;
+    private float m_detectorDuration;
 
     [SerializeField, Tooltip("How Long will the motion sensor wait before activating the crusher?")]
     private float m_pistonBufferTime = 0.25f;
@@ -69,7 +69,7 @@ public class MotionDetector : MonoBehaviour
     /// </summary>
     private void ResetBaseTimer()
     {
-        m_timer = Time.time + m_onTime;
+        m_timer = Time.time + m_detectorDuration;
     }
 
     /// <summary>
