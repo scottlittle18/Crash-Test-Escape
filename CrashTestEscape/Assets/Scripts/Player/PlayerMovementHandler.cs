@@ -32,6 +32,9 @@ public class PlayerMovementHandler : MonoBehaviour
 
     [SerializeField, Tooltip("How long should the player be unable to move for after being crushed by a piston?")]
     private float m_isCrushedDuration;
+
+    [SerializeField, Tooltip("The particle effect prefab that will be instantiated when the player returns to their normal size after being crushed.")]
+    private GameObject m_returnToNormalSizePoof;
     #endregion------------
 
     #region Standard Local Member Variables
@@ -270,8 +273,8 @@ public class PlayerMovementHandler : MonoBehaviour
     /// </summary>
     private void StopPlayerMovement()
     {
-        //TODO: Debugging Movement on Conveyorbelt Walk
-        Debug.Log($"Player is being stopped");
+        // Meant for Debugging Movement on Conveyorbelt Walk
+        //Debug.Log($"Player is being stopped");
 
         Vector2 stoppingVelocity = m_playerRigidbody.velocity;
 
@@ -306,9 +309,16 @@ public class PlayerMovementHandler : MonoBehaviour
 
     IEnumerator IsCrushedTimer()
     {
-        yield return new WaitForSecondsRealtime(m_isCrushedDuration); // TODO: <-- Change Temp ## 
+        yield return new WaitForSecondsRealtime(m_isCrushedDuration);
         m_isCrushed = false;
         m_playerAnim.SetBool("IsCrushed", false);
+        ParticlePoof();
+    }
+
+    private void ParticlePoof()
+    {
+        // Instantiate poofing particle effect
+        Instantiate(m_returnToNormalSizePoof, m_groundCheck.transform.position, m_groundCheck.transform.rotation);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -318,8 +328,6 @@ public class PlayerMovementHandler : MonoBehaviour
             if (collision.GetComponent<ConveyorBelt>() != null)
             {
                 m_conveyorBelt = collision.GetComponent<ConveyorBelt>();
-                //TODO: Debug
-                Debug.Log($"ConveyorBeltActive == {m_conveyorBelt.ConveyorBeltActive}");
 
                 // If the player is not trying to move and the conveyor belt is off
                 if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f) && !m_conveyorBelt.ConveyorBeltActive)
@@ -335,8 +343,6 @@ public class PlayerMovementHandler : MonoBehaviour
             {
                 if (collision.gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CrushingPiston_Extended"))
                 {
-                    //TODO: Debug
-                    Debug.Log($"The player should be crushed right now.");
                     m_isCrushed = true;
                     m_playerAnim.SetBool("IsCrushed", true);
                     StartCoroutine("IsCrushedTimer");
