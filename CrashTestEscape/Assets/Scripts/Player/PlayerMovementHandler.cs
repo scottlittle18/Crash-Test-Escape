@@ -254,22 +254,25 @@ public class PlayerMovementHandler : MonoBehaviour
     /// </summary>
     private void UpdateLookDirection()
     {
-        if (m_inputListener.m_horizontalMoveInput > m_turningSpriteFlipThreshold)
+        if (!m_isCrushed)
         {
-            m_playerSpriteRenderer.flipX = m_isfacingLeft = false;
-            m_isfacingLeft = false;
-        }
-        else if (m_inputListener.m_horizontalMoveInput < -m_turningSpriteFlipThreshold)
-        {
-            m_playerSpriteRenderer.flipX = true;
-            m_isfacingLeft = true;
-        }
-        else if (m_inputListener.m_horizontalMoveInput >= - m_turningSpriteFlipThreshold && m_inputListener.m_horizontalMoveInput <= m_turningSpriteFlipThreshold)
-        {
-            if (!m_isfacingLeft)
+            if (m_inputListener.m_horizontalMoveInput > m_turningSpriteFlipThreshold)
+            {
+                m_playerSpriteRenderer.flipX = m_isfacingLeft = false;
+                m_isfacingLeft = false;
+            }
+            else if (m_inputListener.m_horizontalMoveInput < -m_turningSpriteFlipThreshold)
+            {
                 m_playerSpriteRenderer.flipX = true;
-            else
-                m_playerSpriteRenderer.flipX = false;
+                m_isfacingLeft = true;
+            }
+            else if (m_inputListener.m_horizontalMoveInput >= -m_turningSpriteFlipThreshold && m_inputListener.m_horizontalMoveInput <= m_turningSpriteFlipThreshold)
+            {
+                if (!m_isfacingLeft)
+                    m_playerSpriteRenderer.flipX = true;
+                else
+                    m_playerSpriteRenderer.flipX = false;
+            }
         }
     }
 

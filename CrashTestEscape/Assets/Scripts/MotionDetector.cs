@@ -103,7 +103,7 @@ public class MotionDetector : MonoBehaviour
                 // TODO: Debugging the motion detection system.
                 Debug.Log($"Motion sensor sees the player as moving: {collision.GetComponent<PlayerMovementHandler>().PlayerIsNotMoving}");
 
-                if (!Mathf.Approximately(collision.GetComponent<Rigidbody2D>().velocity.x, 0.0f))
+                if (!collision.GetComponent<PlayerMovementHandler>().PlayerIsNotMoving)
                 {
                     // If the motion detector is on
                     if (m_detectorAnim.GetBool("IsOn"))
