@@ -111,9 +111,6 @@ public class PlayerJumpHandler : MonoBehaviour
     /// </summary>
     private void JumpInputHandler()
     {
-        //TODO: Debugging Jump
-        Debug.Log($"JumpInputHandler() Entered...");
-
         // If the player is trying to jump
         if ((m_groundCheck.IsGrounded || m_groundCheck.IsOnMovingPlatform) && m_jumpInput)
         {

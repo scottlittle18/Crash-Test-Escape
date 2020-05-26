@@ -3129,7 +3129,7 @@ PrefabInstance:
     - target: {fileID: 5080154422110818786, guid: 984be166d2a1ecd4691c32b900770640,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5080154422110818786, guid: 984be166d2a1ecd4691c32b900770640,
         type: 3}
@@ -3830,7 +3830,7 @@ Transform:
   - {fileID: 1793317843}
   - {fileID: 8292799510606297429}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &771776271
 GameObject:
@@ -4288,7 +4288,7 @@ PrefabInstance:
     - target: {fileID: 9137287341059423774, guid: b039f03d79d3e9a48905544598d70a21,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9137287341059423774, guid: b039f03d79d3e9a48905544598d70a21,
         type: 3}
@@ -8824,7 +8824,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1994765516
 GameObject:
@@ -9399,7 +9399,7 @@ Transform:
   - {fileID: 845976370}
   - {fileID: 4943792848036534824}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2100665124
 PrefabInstance:
@@ -9715,7 +9715,7 @@ PrefabInstance:
     - target: {fileID: 1252123974314687289, guid: e867320cfd6b4724fbfac9e15cae2dda,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1252123974314687289, guid: e867320cfd6b4724fbfac9e15cae2dda,
         type: 3}
@@ -9752,6 +9752,12 @@ PrefabInstance:
       propertyPath: m_returnToNormalSizePoof
       value: 
       objectReference: {fileID: 1636307503290096907, guid: 501fe3720e7adce458a0d82b738deb34,
+        type: 3}
+    - target: {fileID: 1252123974314687284, guid: e867320cfd6b4724fbfac9e15cae2dda,
+        type: 3}
+      propertyPath: m_gotCrushedPoof
+      value: 
+      objectReference: {fileID: 1636307503290096907, guid: c540ed46df5686d4c84a19fd39f60685,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e867320cfd6b4724fbfac9e15cae2dda, type: 3}

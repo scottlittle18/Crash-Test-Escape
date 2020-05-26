@@ -9,6 +9,8 @@ public class DestroyParticleEffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // TODO: Particle poof debug
+        Debug.Log("I AM ALIVE!!!");
         m_thisParticleEffect = GetComponent<ParticleSystem>();
     }
 
@@ -17,8 +19,16 @@ public class DestroyParticleEffect : MonoBehaviour
     {
         // Destroy the instantiated particle system once it's finished playing
         if (m_thisParticleEffect.isPlaying)
-            return;
+        {
+            Debug.Log("I'm still alive!");
 
-        Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            Debug.Log("I die now...");
+
+            Destroy(this.gameObject);
+        }
     }
 }

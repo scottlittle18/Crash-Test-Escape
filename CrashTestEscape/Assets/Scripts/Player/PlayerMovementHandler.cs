@@ -33,8 +33,13 @@ public class PlayerMovementHandler : MonoBehaviour
     [SerializeField, Tooltip("How long should the player be unable to move for after being crushed by a piston?")]
     private float m_isCrushedDuration;
 
+    [Header("Particle Effects")]
+
     [SerializeField, Tooltip("The particle effect prefab that will be instantiated when the player returns to their normal size after being crushed.")]
     private GameObject m_returnToNormalSizePoof;
+
+    [SerializeField, Tooltip("The particle effect prefab that will be instantiated when the player gets crushed.")]
+    private GameObject m_gotCrushedPoof;
     #endregion------------
 
     #region Standard Local Member Variables
@@ -312,14 +317,20 @@ public class PlayerMovementHandler : MonoBehaviour
         yield return new WaitForSecondsRealtime(m_isCrushedDuration);
         m_isCrushed = false;
         m_playerAnim.SetBool("IsCrushed", false);
-        ParticlePoof();
+        ParticlePoof(m_returnToNormalSizePoof);
     }
 
-    private void ParticlePoof()
+    private void ParticlePoof(GameObject particleSystem)
     {
+        float offset;
+        // Base the offset on the SpriteRenderer.FlipX value(the magic number 0.5f is meant to offset the particle effect ever so slightly)
+        offset = (m_playerSpriteRenderer.flipX == true) ? 0.5f : -0.5f;
+
         // Instantiate poofing particle effect
-        Instantiate(m_returnToNormalSizePoof, m_groundCheck.transform.position, m_groundCheck.transform.rotation);
+        Instantiate(particleSystem, new Vector3(m_groundCheck.transform.position.x + offset, m_groundCheck.transform.position.y, 0.0f), particleSystem.transform.rotation);
     }
+
+    #region OnTrigger Methods
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -346,6 +357,7 @@ public class PlayerMovementHandler : MonoBehaviour
                     m_isCrushed = true;
                     m_playerAnim.SetBool("IsCrushed", true);
                     StartCoroutine("IsCrushedTimer");
+                    ParticlePoof(m_gotCrushedPoof);
                 }
             }
         }
@@ -378,4 +390,5 @@ public class PlayerMovementHandler : MonoBehaviour
             }
         }
     }
+    #endregion
 }
