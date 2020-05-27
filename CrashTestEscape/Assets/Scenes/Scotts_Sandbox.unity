@@ -4305,16 +4305,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9137287340348816521, guid: b039f03d79d3e9a48905544598d70a21,
-        type: 3}
-      propertyPath: m_TagString
-      value: Crusher
-      objectReference: {fileID: 0}
-    - target: {fileID: 9137287340896084131, guid: b039f03d79d3e9a48905544598d70a21,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b039f03d79d3e9a48905544598d70a21, type: 3}
 --- !u!1 &981549774
@@ -10347,6 +10337,11 @@ PrefabInstance:
     - target: {fileID: 9137287340896084131, guid: b039f03d79d3e9a48905544598d70a21,
         type: 3}
       propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137287340796040391, guid: b039f03d79d3e9a48905544598d70a21,
+        type: 3}
+      propertyPath: m_pistonDamage
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

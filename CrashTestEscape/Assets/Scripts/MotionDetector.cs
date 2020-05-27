@@ -20,6 +20,9 @@ public class MotionDetector : MonoBehaviour
     [SerializeField, Tooltip("The Animator that controls the piston that's paired with this MotionDetection System?")]
     private Animator m_pistonAnim;
 
+    [SerializeField, Tooltip("How much damage will this cause the player if they're hit by it?")]
+    private int m_pistonDamage = 1;
+
     private float m_timer = 0.0f;
 
     private void Awake()
@@ -110,6 +113,7 @@ public class MotionDetector : MonoBehaviour
                     {
                         m_detectorAnim.SetBool("IsAlerted", true);
                         StartCoroutine("PistonSmashDelay");
+                        collision.GetComponent<PlayerHealthSystem>().TakeDamage(m_pistonDamage);
                     }
                 }
                 else
