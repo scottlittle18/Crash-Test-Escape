@@ -29,6 +29,17 @@ public class PlayerMovementHandler : MonoBehaviour
 
     [SerializeField, Tooltip("This is the collider that becomes active while the player IS NOT crouched.")]
     private BoxCollider2D m_primaryPlayerCollider;
+
+    [SerializeField, Tooltip("How long should the player be unable to move for after being crushed by a piston?")]
+    private float m_isCrushedDuration;
+
+    [Header("Particle Effects")]
+
+    [SerializeField, Tooltip("The particle effect prefab that will be instantiated when the player returns to their normal size after being crushed.")]
+    private GameObject m_returnToNormalSizePoof;
+
+    [SerializeField, Tooltip("The particle effect prefab that will be instantiated when the player gets crushed.")]
+    private GameObject m_gotCrushedPoof;
     #endregion------------
 
     #region Standard Local Member Variables
@@ -243,22 +254,25 @@ public class PlayerMovementHandler : MonoBehaviour
     /// </summary>
     private void UpdateLookDirection()
     {
-        if (m_inputListener.m_horizontalMoveInput > m_turningSpriteFlipThreshold)
+        if (!m_isCrushed)
         {
-            m_playerSpriteRenderer.flipX = m_isfacingLeft = false;
-            m_isfacingLeft = false;
-        }
-        else if (m_inputListener.m_horizontalMoveInput < -m_turningSpriteFlipThreshold)
-        {
-            m_playerSpriteRenderer.flipX = true;
-            m_isfacingLeft = true;
-        }
-        else if (m_inputListener.m_horizontalMoveInput >= - m_turningSpriteFlipThreshold && m_inputListener.m_horizontalMoveInput <= m_turningSpriteFlipThreshold)
-        {
-            if (!m_isfacingLeft)
+            if (m_inputListener.m_horizontalMoveInput > m_turningSpriteFlipThreshold)
+            {
+                m_playerSpriteRenderer.flipX = m_isfacingLeft = false;
+                m_isfacingLeft = false;
+            }
+            else if (m_inputListener.m_horizontalMoveInput < -m_turningSpriteFlipThreshold)
+            {
                 m_playerSpriteRenderer.flipX = true;
-            else
-                m_playerSpriteRenderer.flipX = false;
+                m_isfacingLeft = true;
+            }
+            else if (m_inputListener.m_horizontalMoveInput >= -m_turningSpriteFlipThreshold && m_inputListener.m_horizontalMoveInput <= m_turningSpriteFlipThreshold)
+            {
+                if (!m_isfacingLeft)
+                    m_playerSpriteRenderer.flipX = true;
+                else
+                    m_playerSpriteRenderer.flipX = false;
+            }
         }
     }
 
@@ -267,8 +281,8 @@ public class PlayerMovementHandler : MonoBehaviour
     /// </summary>
     private void StopPlayerMovement()
     {
-        //TODO: Debugging Movement on Conveyorbelt Walk
-        Debug.Log($"Player is being stopped");
+        // Meant for Debugging Movement on Conveyorbelt Walk
+        //Debug.Log($"Player is being stopped");
 
         Vector2 stoppingVelocity = m_playerRigidbody.velocity;
 
@@ -303,10 +317,23 @@ public class PlayerMovementHandler : MonoBehaviour
 
     IEnumerator IsCrushedTimer()
     {
-        yield return new WaitForSecondsRealtime(0.5f); // TODO: <-- Change Temp ## 
+        yield return new WaitForSecondsRealtime(m_isCrushedDuration);
         m_isCrushed = false;
         m_playerAnim.SetBool("IsCrushed", false);
+        ParticlePoof(m_returnToNormalSizePoof);
     }
+
+    private void ParticlePoof(GameObject particleSystem)
+    {
+        float offset;
+        // Base the offset on the SpriteRenderer.FlipX value(the magic number 0.5f is meant to offset the particle effect ever so slightly)
+        offset = (m_playerSpriteRenderer.flipX == true) ? 0.5f : -0.5f;
+
+        // Instantiate poofing particle effect
+        Instantiate(particleSystem, new Vector3(m_groundCheck.transform.position.x + offset, m_groundCheck.transform.position.y, 0.0f), particleSystem.transform.rotation);
+    }
+
+    #region OnTrigger Methods
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -315,8 +342,6 @@ public class PlayerMovementHandler : MonoBehaviour
             if (collision.GetComponent<ConveyorBelt>() != null)
             {
                 m_conveyorBelt = collision.GetComponent<ConveyorBelt>();
-                //TODO: Debug
-                Debug.Log($"ConveyorBeltActive == {m_conveyorBelt.ConveyorBeltActive}");
 
                 // If the player is not trying to move and the conveyor belt is off
                 if (Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f) && !m_conveyorBelt.ConveyorBeltActive)
@@ -332,11 +357,10 @@ public class PlayerMovementHandler : MonoBehaviour
             {
                 if (collision.gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CrushingPiston_Extended"))
                 {
-                    //TODO: Debug
-                    Debug.Log($"The player should be crushed right now.");
                     m_isCrushed = true;
                     m_playerAnim.SetBool("IsCrushed", true);
                     StartCoroutine("IsCrushedTimer");
+                    ParticlePoof(m_gotCrushedPoof);
                 }
             }
         }
@@ -369,4 +393,5 @@ public class PlayerMovementHandler : MonoBehaviour
             }
         }
     }
+    #endregion
 }

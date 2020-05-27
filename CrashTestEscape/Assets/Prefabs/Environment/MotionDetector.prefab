@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1884304225}
   m_Layer: 0
   m_Name: CrushingPiston
-  m_TagString: Untagged
+  m_TagString: Crusher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 8d9a84c8a819b974d87a37e3f7fc0297, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -171,9 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b17c7f52de5574fa23766bbd519d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_onTime: 2
-  m_pistonBufferTime: 1
+  m_detectorDuration: 2
+  m_pistonBufferTime: 0.4
   m_pistonAnim: {fileID: 9137287340348816526}
+  m_pistonDamage: 0
 --- !u!60 &9137287340796040384
 PolygonCollider2D:
   m_ObjectHideFlags: 0

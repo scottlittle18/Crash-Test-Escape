@@ -12,13 +12,16 @@ public class MotionDetector : MonoBehaviour
     private Animator m_detectorAnim;
 
     [SerializeField, Tooltip("How Long will the motion sensor be active for?")]
-    private float m_onTime;
+    private float m_detectorDuration;
 
     [SerializeField, Tooltip("How Long will the motion sensor wait before activating the crusher?")]
     private float m_pistonBufferTime = 0.25f;
 
     [SerializeField, Tooltip("The Animator that controls the piston that's paired with this MotionDetection System?")]
     private Animator m_pistonAnim;
+
+    [SerializeField, Tooltip("How much damage will this cause the player if they're hit by it?")]
+    private int m_pistonDamage = 1;
 
     private float m_timer = 0.0f;
 
@@ -69,7 +72,7 @@ public class MotionDetector : MonoBehaviour
     /// </summary>
     private void ResetBaseTimer()
     {
-        m_timer = Time.time + m_onTime;
+        m_timer = Time.time + m_detectorDuration;
     }
 
     /// <summary>
@@ -103,13 +106,14 @@ public class MotionDetector : MonoBehaviour
                 // TODO: Debugging the motion detection system.
                 Debug.Log($"Motion sensor sees the player as moving: {collision.GetComponent<PlayerMovementHandler>().PlayerIsNotMoving}");
 
-                if (!Mathf.Approximately(collision.GetComponent<Rigidbody2D>().velocity.x, 0.0f))
+                if (!collision.GetComponent<PlayerMovementHandler>().PlayerIsNotMoving)
                 {
                     // If the motion detector is on
                     if (m_detectorAnim.GetBool("IsOn"))
                     {
                         m_detectorAnim.SetBool("IsAlerted", true);
                         StartCoroutine("PistonSmashDelay");
+                        collision.GetComponent<PlayerHealthSystem>().TakeDamage(m_pistonDamage);
                     }
                 }
                 else

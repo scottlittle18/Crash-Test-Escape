@@ -66,28 +66,28 @@ public class GroundCheck : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            Debug.Log("Player is on the ground");
+            //Debug.Log("Player is on the ground");
             IsGrounded = true;
             IsOnMovingPlatform = false;
         }
 
         if (collision.gameObject.tag == "MovingPlatforms")
         {
-            Debug.Log("Player is on a moving platform");
+            //Debug.Log("Player is on a moving platform");
             IsGrounded = true;
             IsOnMovingPlatform = true;
         }
 
         if (collision.gameObject.tag == "ImmobileDummy")
         {
-            Debug.Log("Player is on an Immobile Dummy");
+            //Debug.Log("Player is on an Immobile Dummy");
             IsGrounded = true;
             IsOnMovingPlatform = true;
         }
 
         if (collision.gameObject.tag == "Environmental Props")
         {
-            Debug.Log("Player is on an Environmental Prop");
+            //Debug.Log("Player is on an Environmental Prop");
             IsGrounded = true;
             IsOnMovingPlatform = true;
         }
