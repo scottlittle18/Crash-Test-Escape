@@ -88,7 +88,15 @@ public class PlayerMovementHandler : MonoBehaviour
     private bool m_playerIsNotMoving;
     public bool PlayerIsNotMoving
     {
-        get { return m_playerIsNotMoving = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f); }
+        get
+        {
+            m_playerIsNotMoving = Mathf.Approximately(m_inputListener.m_horizontalMoveInput, 0.0f);
+
+            //TODO: Debug for PlayerIsNotMoving property
+            Debug.Log($"PlayerIsNotMoving == {m_playerIsNotMoving}");
+
+            return m_playerIsNotMoving;
+        }
     }
 
     // Start is called before the first frame update

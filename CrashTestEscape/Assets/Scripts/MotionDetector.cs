@@ -113,6 +113,8 @@ public class MotionDetector : MonoBehaviour
                     {
                         m_detectorAnim.SetBool("IsAlerted", true);
                         StartCoroutine("PistonSmashDelay");
+
+                        //TODO: Fix bug that causes this to instantaniously take all of the player's health
                         collision.GetComponent<PlayerHealthSystem>().TakeDamage(m_pistonDamage);
                     }
                 }

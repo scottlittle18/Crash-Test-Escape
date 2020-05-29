@@ -369,6 +369,11 @@ MonoBehaviour:
   m_turningSpriteFlipThreshold: 0.1
   m_crouchingPlayerCollider: {fileID: 1823503359668842463}
   m_primaryPlayerCollider: {fileID: 1823503359668842460}
+  m_isCrushedDuration: 1
+  m_returnToNormalSizePoof: {fileID: 1636307503290096907, guid: 501fe3720e7adce458a0d82b738deb34,
+    type: 3}
+  m_gotCrushedPoof: {fileID: 1636307503290096907, guid: c540ed46df5686d4c84a19fd39f60685,
+    type: 3}
 --- !u!114 &1252123974314687287
 MonoBehaviour:
   m_ObjectHideFlags: 0
